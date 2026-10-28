@@ -1,0 +1,19 @@
+{
+  "stage": "train_development_baselines_and_features_only",
+  "seed": 20261026,
+  "partitions": ["train", "development"],
+  "context_samples": 400,
+  "horizon_samples": 20,
+  "stride": 1,
+  "evidence_length": 80,
+  "variants": {"h1_a0": [1, 0], "h20_a0": [20, 0], "h1_a19": [1, 19], "h20_a20": [20, 20]},
+  "complete_horizon": true,
+  "rank_temperature": 1.0,
+  "feature_standardization": "train_only_window_weighted_population_mean_std_epsilon_1e-8",
+  "static_mixture": {"simplex_step": 0.25, "max_calibration_windows": 65536, "fit_partition": "train", "objective": "actual_endpoint20_mean_geodesic_degrees"},
+  "uncertainty": {"cluster": "user", "bootstrap_resamples": 2000, "seed": 20261026, "estimand": "window_weighted_ratio", "development_inference": "exploratory_only_five_users"},
+  "neural_baseline": {"architecture": [1197, 64, 60], "parameters": 80572, "steps": 2000, "batch_size": 128, "optimizer": "Adam", "learning_rate": 0.001, "seeds": [20261026, 20261027], "input_scaling": "three_axis_train_increment_population_mean_std", "loss": "sign_aligned_quaternion_MSE_all_20_outputs", "early_stopping": false},
+  "final_access_allowed": false,
+  "selection_after_final_results_allowed": false,
+  "model_or_feature_artifacts_public": false
+}

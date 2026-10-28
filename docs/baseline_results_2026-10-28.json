@@ -1,0 +1,646 @@
+{
+  "date": "2026-10-28",
+  "scope": "WhoIsAlyx_train_development_pilot_not_official_ABC_score",
+  "configuration": "configs/baseline_features.json",
+  "features": {
+    "windows": {
+      "train": 3330312,
+      "development": 1189027
+    },
+    "variants": [
+      "complete_horizon",
+      "h1_a0",
+      "h1_a19",
+      "h20_a0",
+      "h20_a20",
+      "motion_only"
+    ],
+    "elapsed_seconds": 339.42176540000946,
+    "cache_bytes": 1724653596,
+    "cache_sha256": "41235cfba9cd00201dedabf06c65c1df56d424cd724d5aeb51f94bb4d6edc691",
+    "audit": {
+      "source_hdf5_sha256": "0986c483c2dc800ff8be1a2a8d2e82d909193f4c3e7c9f7b1eae3e2ea055ea62",
+      "split_sha256": "9d7f342c15231a3f7f61fd8c9b95b75adc6aff641e7071d95a43a3832db49256",
+      "data_and_split_unchanged": true,
+      "final_quaternion_datasets_read": 0,
+      "accessed_user_count": 20,
+      "segment_reads": {
+        "train": 52,
+        "development": 23
+      }
+    },
+    "schema_version": 1,
+    "sealed_utc": "2026-10-28T04:26:24.842641+00:00",
+    "scalers_sha256": "d17a78dc01005a12450137b5d18ad64c681a6c963ab4aa8a5befc4a7899f14d1",
+    "experiment_plan_sha256": "1e953572f72d3f65f0b140d307dea355ca78b24668edd6891641310f9019d082",
+    "config_sha256": "a66d2f0bc525fabdc94b3909e1806655329b5b2ad331f054927c15810627ebce"
+  },
+  "analytic": {
+    "created_utc": "2026-10-28T04:28:46.532461+00:00",
+    "stage": "train_development_only",
+    "results": {
+      "train": {
+        "methods": {
+          "CAV_W1": {
+            "mean_geodesic_deg": 3.5697281731956916,
+            "user_macro_mean_deg": 3.5128381837614073,
+            "p95_geodesic_deg": 12.086123527970003,
+            "user_cluster_95_CI_mean_deg": [
+              3.2334478382304788,
+              3.869862917269038
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "CAV_W20": {
+            "mean_geodesic_deg": 5.6019902204382355,
+            "user_macro_mean_deg": 5.514645334750894,
+            "p95_geodesic_deg": 19.16384205128545,
+            "user_cluster_95_CI_mean_deg": [
+              5.1107780358699415,
+              6.0518362431597446
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "CAV_W5": {
+            "mean_geodesic_deg": 4.105020742694544,
+            "user_macro_mean_deg": 4.039838149905636,
+            "p95_geodesic_deg": 13.953203046909728,
+            "user_cluster_95_CI_mean_deg": [
+              3.7245758675832703,
+              4.445244917262632
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "ZV": {
+            "mean_geodesic_deg": 7.057531552808173,
+            "user_macro_mean_deg": 6.94554636789922,
+            "p95_geodesic_deg": 26.06328488342997,
+            "user_cluster_95_CI_mean_deg": [
+              6.544649767927234,
+              7.514929509626242
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "equal_mixture": {
+            "mean_geodesic_deg": 3.9491888460996094,
+            "user_macro_mean_deg": 3.8899717037038615,
+            "p95_geodesic_deg": 13.871707900312346,
+            "user_cluster_95_CI_mean_deg": [
+              3.6194290236302735,
+              4.253214134226987
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "hard_complete_horizon": {
+            "mean_geodesic_deg": 3.5784483124782636,
+            "user_macro_mean_deg": 3.52183735187417,
+            "p95_geodesic_deg": 12.116951187086231,
+            "user_cluster_95_CI_mean_deg": [
+              3.2418334745875814,
+              3.8786485020845243
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "hard_h1_a0": {
+            "mean_geodesic_deg": 3.569747521792176,
+            "user_macro_mean_deg": 3.5128562329915343,
+            "p95_geodesic_deg": 12.086139238703492,
+            "user_cluster_95_CI_mean_deg": [
+              3.2334552258535583,
+              3.8698688611488676
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "hard_h1_a19": {
+            "mean_geodesic_deg": 3.5697491061477535,
+            "user_macro_mean_deg": 3.5128577391515288,
+            "p95_geodesic_deg": 12.086123527970003,
+            "user_cluster_95_CI_mean_deg": [
+              3.233452763877038,
+              3.8698731122772907
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "hard_h20_a0": {
+            "mean_geodesic_deg": 3.668758573467906,
+            "user_macro_mean_deg": 3.6114244953819155,
+            "p95_geodesic_deg": 12.417581709015662,
+            "user_cluster_95_CI_mean_deg": [
+              3.32268819833452,
+              3.97650588934032
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "hard_h20_a20": {
+            "mean_geodesic_deg": 3.697387645507427,
+            "user_macro_mean_deg": 3.6406972494382748,
+            "p95_geodesic_deg": 12.535681427229923,
+            "user_cluster_95_CI_mean_deg": [
+              3.3509924803247126,
+              4.004333262434841
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "oracle_bank_hindsight": {
+            "mean_geodesic_deg": 3.016381378637198,
+            "user_macro_mean_deg": 2.9662692332352973,
+            "p95_geodesic_deg": 10.471171476046644,
+            "user_cluster_95_CI_mean_deg": [
+              2.7554081447038636,
+              3.2593922623459424
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "rank_h1_a0": {
+            "mean_geodesic_deg": 3.7262571508196722,
+            "user_macro_mean_deg": 3.667640101658371,
+            "p95_geodesic_deg": 12.67183215620107,
+            "user_cluster_95_CI_mean_deg": [
+              3.383367179091807,
+              4.032021255527168
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "rank_h20_a0": {
+            "mean_geodesic_deg": 3.7366999898458797,
+            "user_macro_mean_deg": 3.678821056234236,
+            "p95_geodesic_deg": 12.76091706208344,
+            "user_cluster_95_CI_mean_deg": [
+              3.3980485402659104,
+              4.040352980253348
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "static_mixture": {
+            "mean_geodesic_deg": 3.3137693790199085,
+            "user_macro_mean_deg": 3.2638594580969293,
+            "p95_geodesic_deg": 11.715986661656329,
+            "user_cluster_95_CI_mean_deg": [
+              3.03629255790537,
+              3.563456507576819
+            ],
+            "users": 15,
+            "windows": 3330312
+          }
+        },
+        "contrasts": {
+          "hard_h20_a0_minus_hard_h1_a0": {
+            "mean_delta_deg": 0.09901105167572996,
+            "user_cluster_95_CI_delta_deg": [
+              0.08504303293190603,
+              0.1122672951105488
+            ],
+            "users_improved": 0,
+            "users": 15,
+            "interpretation": "exploratory_analytic_router_not_confirmatory_learned_selector"
+          },
+          "hard_h20_a0_minus_hard_h1_a19": {
+            "mean_delta_deg": 0.09900946732015248,
+            "user_cluster_95_CI_delta_deg": [
+              0.08504159604893644,
+              0.11224995049066712
+            ],
+            "users_improved": 0,
+            "users": 15,
+            "interpretation": "exploratory_analytic_router_not_confirmatory_learned_selector"
+          },
+          "hard_h20_a0_minus_hard_complete_horizon": {
+            "mean_delta_deg": 0.09031026098964325,
+            "user_cluster_95_CI_delta_deg": [
+              0.07787668686295934,
+              0.10217892905494563
+            ],
+            "users_improved": 0,
+            "users": 15,
+            "interpretation": "exploratory_analytic_router_not_confirmatory_learned_selector"
+          }
+        }
+      },
+      "development": {
+        "methods": {
+          "CAV_W1": {
+            "mean_geodesic_deg": 4.104512136250391,
+            "user_macro_mean_deg": 4.10527922515407,
+            "p95_geodesic_deg": 14.0410287673856,
+            "user_cluster_95_CI_mean_deg": [
+              3.5625162688249326,
+              4.674291150985822
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "CAV_W20": {
+            "mean_geodesic_deg": 6.276372492698901,
+            "user_macro_mean_deg": 6.277598526053337,
+            "p95_geodesic_deg": 21.67388133556191,
+            "user_cluster_95_CI_mean_deg": [
+              5.426306087449585,
+              7.238838666634577
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "CAV_W5": {
+            "mean_geodesic_deg": 4.697447554965363,
+            "user_macro_mean_deg": 4.698324431696075,
+            "p95_geodesic_deg": 16.145993703709458,
+            "user_cluster_95_CI_mean_deg": [
+              4.075913835461041,
+              5.357763472733462
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "ZV": {
+            "mean_geodesic_deg": 7.263814963483644,
+            "user_macro_mean_deg": 7.265196186721951,
+            "p95_geodesic_deg": 27.13832485157161,
+            "user_cluster_95_CI_mean_deg": [
+              6.285608016952729,
+              8.257638010364289
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "equal_mixture": {
+            "mean_geodesic_deg": 4.4098873377675245,
+            "user_macro_mean_deg": 4.41075174444047,
+            "p95_geodesic_deg": 15.49335216753778,
+            "user_cluster_95_CI_mean_deg": [
+              3.82383722809866,
+              5.088469907335876
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "hard_complete_horizon": {
+            "mean_geodesic_deg": 4.127532432542311,
+            "user_macro_mean_deg": 4.128317920071105,
+            "p95_geodesic_deg": 14.12301479987204,
+            "user_cluster_95_CI_mean_deg": [
+              3.5780978136572394,
+              4.704807709877659
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "hard_h1_a0": {
+            "mean_geodesic_deg": 4.104527893987363,
+            "user_macro_mean_deg": 4.105294950207145,
+            "p95_geodesic_deg": 14.0410287673856,
+            "user_cluster_95_CI_mean_deg": [
+              3.5625477541911805,
+              4.674307291614419
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "hard_h1_a19": {
+            "mean_geodesic_deg": 4.104519082954017,
+            "user_macro_mean_deg": 4.105286173188448,
+            "p95_geodesic_deg": 14.0410287673856,
+            "user_cluster_95_CI_mean_deg": [
+              3.5625301489593864,
+              4.674292402143304
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "hard_h20_a0": {
+            "mean_geodesic_deg": 4.277409776736435,
+            "user_macro_mean_deg": 4.278256928292593,
+            "p95_geodesic_deg": 14.67655335085775,
+            "user_cluster_95_CI_mean_deg": [
+              3.69461402644917,
+              4.88639478958419
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "hard_h20_a20": {
+            "mean_geodesic_deg": 4.313823669440967,
+            "user_macro_mean_deg": 4.314707858320596,
+            "p95_geodesic_deg": 14.84641621877102,
+            "user_cluster_95_CI_mean_deg": [
+              3.715934266875353,
+              4.943597302703325
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "oracle_bank_hindsight": {
+            "mean_geodesic_deg": 3.340941331589315,
+            "user_macro_mean_deg": 3.3415590361119767,
+            "p95_geodesic_deg": 11.729713618726999,
+            "user_cluster_95_CI_mean_deg": [
+              2.9092292421866772,
+              3.8161974183685703
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "rank_h1_a0": {
+            "mean_geodesic_deg": 4.258664908098482,
+            "user_macro_mean_deg": 4.259470263691645,
+            "p95_geodesic_deg": 14.626387553662191,
+            "user_cluster_95_CI_mean_deg": [
+              3.691554185439133,
+              4.867209714297087
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "rank_h20_a0": {
+            "mean_geodesic_deg": 4.270064201028345,
+            "user_macro_mean_deg": 4.27090155983278,
+            "p95_geodesic_deg": 14.79968805674106,
+            "user_cluster_95_CI_mean_deg": [
+              3.6931769774684375,
+              4.896765462922193
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "static_mixture": {
+            "mean_geodesic_deg": 3.724920399442106,
+            "user_macro_mean_deg": 3.725633283517774,
+            "p95_geodesic_deg": 13.118473308046656,
+            "user_cluster_95_CI_mean_deg": [
+              3.2422853695794562,
+              4.270416523648121
+            ],
+            "users": 5,
+            "windows": 1189027
+          }
+        },
+        "contrasts": {
+          "hard_h20_a0_minus_hard_h1_a0": {
+            "mean_delta_deg": 0.1728818827490718,
+            "user_cluster_95_CI_delta_deg": [
+              0.1320662722579895,
+              0.21377562732517585
+            ],
+            "users_improved": 0,
+            "users": 5,
+            "interpretation": "exploratory_analytic_router_not_confirmatory_learned_selector"
+          },
+          "hard_h20_a0_minus_hard_h1_a19": {
+            "mean_delta_deg": 0.1728906937824179,
+            "user_cluster_95_CI_delta_deg": [
+              0.13208387748978279,
+              0.21377562732517585
+            ],
+            "users_improved": 0,
+            "users": 5,
+            "interpretation": "exploratory_analytic_router_not_confirmatory_learned_selector"
+          },
+          "hard_h20_a0_minus_hard_complete_horizon": {
+            "mean_delta_deg": 0.1498773441941228,
+            "user_cluster_95_CI_delta_deg": [
+              0.11651621279193058,
+              0.18330233943287322
+            ],
+            "users_improved": 0,
+            "users": 5,
+            "interpretation": "exploratory_analytic_router_not_confirmatory_learned_selector"
+          }
+        }
+      }
+    },
+    "lowest_development_cav_descriptive": {
+      "method": "CAV_W1",
+      "comparison_partition": "development",
+      "interpretation": "observed_minimum_of_predeclared_references_no_final_model_selection"
+    },
+    "static_fit": {
+      "fit_partition": "train",
+      "grid_candidates": 35,
+      "calibration_windows": 65536,
+      "objective": "actual_emitted_endpoint20_angle"
+    },
+    "oracle_interpretation": "hindsight_min_expert_loss_not_causal_or_submittable",
+    "elapsed_seconds": 123.8418713999854,
+    "audit": {
+      "source_hdf5_sha256": "0986c483c2dc800ff8be1a2a8d2e82d909193f4c3e7c9f7b1eae3e2ea055ea62",
+      "split_sha256": "9d7f342c15231a3f7f61fd8c9b95b75adc6aff641e7071d95a43a3832db49256",
+      "data_and_split_unchanged": true,
+      "final_quaternion_datasets_read": 0,
+      "accessed_user_count": 0,
+      "segment_reads": {
+        "train": 0,
+        "development": 0
+      }
+    }
+  },
+  "neural": {
+    "created_utc": "2026-10-28T04:42:06.969529+00:00",
+    "stage": "train_development_only",
+    "results": {
+      "train": {
+        "methods": {
+          "MLP_seed_20261026": {
+            "mean_geodesic_deg": 3.430527722574983,
+            "user_macro_mean_deg": 3.3809220889303844,
+            "p95_geodesic_deg": 10.3103789044087,
+            "user_cluster_95_CI_mean_deg": [
+              3.124216829923564,
+              3.710004167287861
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "MLP_seed_20261027": {
+            "mean_geodesic_deg": 3.5451667129198103,
+            "user_macro_mean_deg": 3.493483142977295,
+            "p95_geodesic_deg": 10.395218557223567,
+            "user_cluster_95_CI_mean_deg": [
+              3.2308954279801827,
+              3.8320299364753394
+            ],
+            "users": 15,
+            "windows": 3330312
+          },
+          "MLP_two_seed_mean_error": {
+            "mean_geodesic_deg": 3.4878472177473974,
+            "user_macro_mean_deg": 3.4372026159538405,
+            "p95_geodesic_deg": 10.114124704551122,
+            "user_cluster_95_CI_mean_deg": [
+              3.1775636240386778,
+              3.769410011003732
+            ],
+            "users": 15,
+            "windows": 3330312
+          }
+        },
+        "contrasts": {}
+      },
+      "development": {
+        "methods": {
+          "MLP_seed_20261026": {
+            "mean_geodesic_deg": 3.8963960227555945,
+            "user_macro_mean_deg": 3.8970439538871973,
+            "p95_geodesic_deg": 11.77057845046609,
+            "user_cluster_95_CI_mean_deg": [
+              3.411379574780002,
+              4.3823409467708
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "MLP_seed_20261027": {
+            "mean_geodesic_deg": 4.057410216919881,
+            "user_macro_mean_deg": 4.058074311960454,
+            "p95_geodesic_deg": 12.020714345356327,
+            "user_cluster_95_CI_mean_deg": [
+              3.5621389935598264,
+              4.553629547227482
+            ],
+            "users": 5,
+            "windows": 1189027
+          },
+          "MLP_two_seed_mean_error": {
+            "mean_geodesic_deg": 3.976903119837738,
+            "user_macro_mean_deg": 3.977559132923825,
+            "p95_geodesic_deg": 11.67428766743692,
+            "user_cluster_95_CI_mean_deg": [
+              3.4867592841699144,
+              4.46798524699914
+            ],
+            "users": 5,
+            "windows": 1189027
+          }
+        },
+        "contrasts": {}
+      }
+    },
+    "architecture": [
+      1197,
+      64,
+      60
+    ],
+    "parameters": 80572,
+    "training": [
+      {
+        "seed": 20261026,
+        "first_step": 1,
+        "last_step": 2000,
+        "optimizer_steps": 2000,
+        "optimizer": "Adam",
+        "learning_rate": 0.001,
+        "batch_size": 128,
+        "sampling": "uniform_global_train_origins_with_replacement",
+        "sampling_seed": 20261026,
+        "population_training_windows": 3330312,
+        "sampled_training_windows": 256000,
+        "first_step_loss": 0.0011140705692534592,
+        "last_step_loss": 9.203975502398102e-05,
+        "mean_step_loss": 0.00017249535387210812,
+        "first_100_step_mean_loss": 0.0004133553231210395,
+        "last_100_step_mean_loss": 0.00012995845513336741,
+        "loss_summary_window_steps": 100,
+        "loss": "sign_aligned_quaternion_MSE_all_20_outputs",
+        "checkpoint_selection": "fixed_final_step_no_development_selection",
+        "elapsed_seconds": 27.269908199989004
+      },
+      {
+        "seed": 20261027,
+        "first_step": 1,
+        "last_step": 2000,
+        "optimizer_steps": 2000,
+        "optimizer": "Adam",
+        "learning_rate": 0.001,
+        "batch_size": 128,
+        "sampling": "uniform_global_train_origins_with_replacement",
+        "sampling_seed": 20261027,
+        "population_training_windows": 3330312,
+        "sampled_training_windows": 256000,
+        "first_step_loss": 0.0005334239186992994,
+        "last_step_loss": 0.00043107244781988193,
+        "mean_step_loss": 0.00017088309574331736,
+        "first_100_step_mean_loss": 0.0003952074357869247,
+        "last_100_step_mean_loss": 0.00013786745845512988,
+        "loss_summary_window_steps": 100,
+        "loss": "sign_aligned_quaternion_MSE_all_20_outputs",
+        "checkpoint_selection": "fixed_final_step_no_development_selection",
+        "elapsed_seconds": 24.599720800004434
+      }
+    ],
+    "input_scaling": {
+      "fit_partition": "train",
+      "increments": 3352048,
+      "axes": 3,
+      "ddof": 0,
+      "epsilon": 1e-08,
+      "weighting": "each_adjacent_training_segment_increment_once"
+    },
+    "evaluation_batch_size": 512,
+    "two_seed_mean_interpretation": "arithmetic_mean_of_endpoint20_errors_not_prediction_ensemble",
+    "development_interpretation": "exploratory_only_five_users_no_checkpoint_selection",
+    "elapsed_seconds": 789.9509972000087,
+    "audit": {
+      "source_hdf5_sha256": "0986c483c2dc800ff8be1a2a8d2e82d909193f4c3e7c9f7b1eae3e2ea055ea62",
+      "split_sha256": "9d7f342c15231a3f7f61fd8c9b95b75adc6aff641e7071d95a43a3832db49256",
+      "data_and_split_unchanged": true,
+      "final_quaternion_datasets_read": 0,
+      "accessed_user_count": 20,
+      "segment_reads": {
+        "train": 52,
+        "development": 23
+      }
+    }
+  },
+  "final_validation": {
+    "data_and_split_unchanged": true,
+    "final_forecast_evaluation": false,
+    "final_features_constructed": false,
+    "audit": {
+      "source_hdf5_sha256": "0986c483c2dc800ff8be1a2a8d2e82d909193f4c3e7c9f7b1eae3e2ea055ea62",
+      "split_sha256": "9d7f342c15231a3f7f61fd8c9b95b75adc6aff641e7071d95a43a3832db49256",
+      "data_and_split_unchanged": true,
+      "final_quaternion_datasets_read": 0,
+      "accessed_user_count": 0,
+      "segment_reads": {
+        "train": 0,
+        "development": 0
+      }
+    }
+  },
+  "synthetic_tests": {
+    "passed": 159,
+    "elapsed_seconds": 29.89,
+    "network_or_human_data_used": false
+  },
+  "real_output_checks": {
+    "verified_error_vectors": 34,
+    "counts_finite_range_aggregate_mean_and_seed_mean": true
+  },
+  "hardware": {
+    "CPU": "AMD Ryzen AI 5 340",
+    "RAM_GiB": 15.29,
+    "execution": "CPU_NumPy_BLAS_OMP_MKL_thread_limits_1",
+    "GPU_used": false,
+    "paid_compute_used": false
+  },
+  "limits": [
+    "development_has_only_5_users_exploratory",
+    "train_metrics_are_in_sample",
+    "MLP_fixed_budget_not_convergence_or_best_neural_result",
+    "learned_244_parameter_selector_not_trained",
+    "Alyx_only_challenge_eligibility_unconfirmed",
+    "20_samples_100Hz_100ms_dispute_unresolved",
+    "no_foundation_model_or_XR_latency_claim"
+  ]
+}

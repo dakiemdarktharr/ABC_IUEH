@@ -1,6 +1,6 @@
 # ABC_IUEH
 
-Reproducible data preparation for **Forecast Horizon and Feedback Age in Zero-Shot Head-Orientation Prediction**, a proposed study for the 9th ABC Challenge.
+Reproducible data preparation and train/development experiments for **Forecast Horizon and Feedback Age in Zero-Shot Head-Orientation Prediction**, a proposed study for the 9th ABC Challenge.
 
 The main question is whether mature multi-step prediction errors help select a head-orientation extrapolator after controlling feedback age. Quaternion representation, constant angular velocity, ensemble routing and ordinary neural backbones are inherited components, not novelty claims.
 
@@ -9,13 +9,14 @@ The main question is whether mature multi-step prediction errors help select a h
 - Source-use audit with a bounded, pinned **WhoIsAlyx** motion downloader.
 - Named-column HMD quaternion extraction; native-rate gate; normalization and hemisphere alignment; session filtering; gap-safe offline SLERP; chunked HDF5.
 - Deterministic user splits **before** windowing, lazy segment-local 400-to-20 windows, and guarded final-holdout access.
-- Zero/constant-angular-velocity references and synthetic correctness tests.
+- Causal h1/h20 expert-error features with feedback-age controls, complete-horizon and motion-only features; train-only scalers.
+- Zero/constant-angular-velocity, analytic routing/mixture references and a compact NumPy MLP; synthetic correctness tests and user-cluster evaluation.
 
-This is research infrastructure, not a trained submission. No head-motion forecasting accuracy, foundation-model capability, competition eligibility or target-XR latency has been established. JEPA and EBM are optional later experiments.
+This is a conditional research pilot, not a submission. Train/development measurements do not establish foundation-model capability, competition eligibility, final-holdout accuracy or target-XR latency. JEPA and EBM are optional later experiments.
 
-**Verified preparation run, 2026-10-28:** 70 source files verified; 67 of 69 sessions retained; 35 eligible users, 134 continuous segments and 8,026,425 quaternion samples. The user split is locked at **15 train / 5 development / 15 final** with seed20261026. HDF5 integrity checks and 49 synthetic tests passed. No model fitting or forecast-error evaluation has occurred. See the [aggregate preparation receipt](docs/data_preparation_summary.json); participant/session manifests and recordings are private.
+**Verified preparation run, 2026-10-28:** 70 source files verified; 67 of 69 sessions retained; 35 eligible users, 134 continuous segments and 8,026,425 quaternion samples. The user split is locked at **15 train / 5 development / 15 final** with seed20261026. HDF5 integrity checks and the initial 49 synthetic tests passed. No model fitting or forecast-error evaluation occurred during preparation. See the [aggregate preparation receipt](docs/data_preparation_summary.json); participant/session manifests and recordings are private.
 
-The subsequent [metadata-integrity update](docs/metadata_integrity.md) pins SHA-256 for the reviewed DVC pointer inventory, removes the SHA-1 computation, and adds six regression cases. The current suite contains **55 tests**; CI separately checks the reported Semgrep rule.
+The subsequent [metadata-integrity update](docs/metadata_integrity.md) pins SHA-256 for the reviewed DVC pointer inventory, removes the SHA-1 computation, and added six regression cases. CI separately checks the reported Semgrep rule.
 
 ## Data-use status
 
@@ -79,12 +80,44 @@ All parts of a source session must be present before it can qualify. Split recor
 
 Smoke manifests have **no training/development/final assignments** and cannot be used for training. Do not evaluate forecast errors on smoke users and later call them an untouched final holdout. Confirmatory manifests refuse overwrite and are bound to the exact HDF5 checksum.
 
+## Train/development baseline and feature stage
+
+The [frozen plan](docs/baseline_feature_plan.md) and
+[configuration](configs/baseline_features.json) define this separate stage.
+It has no final-partition access option. These commands use an existing locked
+source HDF5/split and refuse to overwrite experiment artifacts:
+
+```powershell
+$env:OPENBLAS_NUM_THREADS='1'
+$env:OMP_NUM_THREADS='1'
+$env:MKL_NUM_THREADS='1'
+.\.venv\Scripts\python.exe -m abc_iueh features
+.\.venv\Scripts\python.exe -m abc_iueh baselines
+.\.venv\Scripts\python.exe -m abc_iueh neural-baseline
+```
+
+The default private run is `data/baseline_runs/20261028_r80/`. Features creates
+and seals its plan, cache and train-fitted scalers together. `seal-features`
+validates and seals a legacy receipt without regenerating arrays; it rejects
+changed artifacts. Baseline consumers independently verify the sealed bundle.
+For a new run directory, pass the same `--output-dir` to all three commands.
+Set BLAS thread limits before starting Python; the neural reference uses CPU
+NumPy and does not require PyTorch or a GPU.
+
+The six feature variants have ten raw columns each. Future endpoint losses are
+stored separately as labels. Train-only population scalers are ready for the
+later learned selector; analytic routers use raw past errors in degrees.
+The 244-parameter learned h1/h20 selector is outside this baseline stage.
+Recordings, caches, per-user errors, scalers and weights remain private.
+See the [measured aggregate results](docs/baseline_results_2026-10-28.md) and
+[independent implementation review](docs/baseline_stage_review.md).
+
 ## Protocol and outputs
 
 Read [protocol](docs/protocol.md), [HDF5 schema](docs/schema.md), [implementation review](docs/pipeline_review.md) and [data attribution](docs/attribution.md).
 
 Graph interface remains `float32 context[1,400,4] -> prediction[1,20,4]`, scalar-first wxyz, shift1. The challenge's **20 samples / 100 Hz / 100 ms inconsistency is unresolved**. Configuration preserves 20 outputs and a 100 Hz primary dataset; it does not silently change either number.
 
-Each pipeline run writes private provenance, quality/rejection statistics and processed data under `data/`. It does not fit model parameters, inspect final forecast errors or establish accuracy. Any published results must distinguish real-data outcomes from synthetic correctness checks.
+Data preparation writes private provenance, quality/rejection statistics and processed data under `data/`. The separate train/development experiment stage fits only on training users. Any published results must distinguish real-data outcomes from synthetic correctness checks.
 
 Upstream data retain their own licenses. A source-code license has not yet been selected; public repository visibility does not relicense the dataset.
