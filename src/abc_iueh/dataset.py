@@ -11,7 +11,9 @@ import numpy as np
 
 from .config import PipelineConfig
 from .preprocess import prepare_session
-from .sources import _validated_record, _verify_record, sha256_file, utc_now, write_json
+from .sources import (_authenticate_inventory, _session_inventory, _validate_download_receipt,
+                      _reject_recording_aliases, _validated_record, _verify_record,
+                      sha256_file, utc_now, write_json)
 
 QUATERNION_COLUMNS = ("hmd_rot_w", "hmd_rot_x", "hmd_rot_y", "hmd_rot_z")
 
@@ -42,34 +44,84 @@ def read_alyx_motion(paths):
     return np.asarray(times, dtype=np.float64), np.asarray(orientations, dtype=np.float64).reshape(-1, 4)
 
 
-def ingest_alyx(data_root, output, report, config: PipelineConfig):
-    data_root, output = Path(data_root), Path(output)
-    receipt_path = data_root / "download_receipt.json"
+def _same_file_if_present(left, right):
+    """Compare filesystem identity without opening either file's contents."""
+    try:
+        return Path(left).samefile(Path(right))
+    except FileNotFoundError:
+        return False
+    except OSError as exc:
+        raise ValueError("cannot verify output identity against protected provenance files") from exc
+
+
+def _guard_ingest_write_paths(write_paths, protected_paths):
+    """Keep every ingest write target clear of inputs and immutable snapshots."""
+    named_writes = [(label, Path(path)) for label, path in write_paths]
+    named_protected = [(label, Path(path)) for label, path in protected_paths]
+    for index, (label, path) in enumerate(named_writes):
+        resolved = path.resolve()
+        for other_label, other in named_writes[:index]:
+            if resolved == other.resolve() or _same_file_if_present(path, other):
+                raise ValueError(f"{label} and {other_label} must be distinct write targets")
+        for protected_label, protected in named_protected:
+            if resolved == protected.resolve() or _same_file_if_present(path, protected):
+                raise ValueError(f"{label} must not overwrite {protected_label}")
+
+
+def ingest_alyx(data_root, output, report, config: PipelineConfig, *, inventory_path, receipt_path=None):
+    """Authenticate inventory and receipt metadata before opening any recording."""
+    data_root, output, report = Path(data_root), Path(output), Path(report)
+    inventory_path = Path(inventory_path)
+    receipt_path = Path(receipt_path) if receipt_path is not None else data_root / "download_receipt.json"
+    if inventory_path.resolve() == receipt_path.resolve():
+        raise ValueError("inventory and receipt inputs must be distinct metadata files")
+    _reject_recording_aliases((("inventory", inventory_path), ("receipt", receipt_path)), data_root)
+    inventory_bytes = inventory_path.read_bytes()
+    inventory_document = json.loads(inventory_bytes)
+    inventory, record_digest = _authenticate_inventory(inventory_document, data_root)
+    inventory_file_digest = hashlib.sha256(inventory_bytes).hexdigest()
     receipt_bytes = receipt_path.read_bytes()
     receipt = json.loads(receipt_bytes)
-    if receipt.get("source") != "whoisalyx" or not receipt.get("noncommercial_research_confirmed"):
-        raise PermissionError("recordings require a reviewed-source download receipt")
+    records = _validate_download_receipt(receipt, inventory=inventory, record_digest=record_digest,
+                                         manifest_digest=inventory_file_digest)
     groups = defaultdict(list)
-    for record in receipt["records"]:
+    for record in records:
         groups[(record["user_id"], record["session_id"])].append(record)
     if not groups:
         raise ValueError("no downloaded sessions")
-    protected = {receipt_path.resolve(), *(_validated_record(r, data_root) for r in receipt["records"])}
-    if output.resolve() in protected or Path(report).resolve() in protected or output.resolve() == Path(report).resolve():
-        raise ValueError("output/report must not overwrite input recordings, receipt or each other")
-    output.parent.mkdir(parents=True, exist_ok=True)
-    if output.resolve() == receipt_path.resolve():
-        raise ValueError("HDF5 output cannot replace its source receipt")
+    inventory_sessions = _session_inventory(inventory)
     temporary = output.with_name(output.name + ".part")
+    receipt_digest = hashlib.sha256(receipt_bytes).hexdigest()
+    receipt_version = receipt.get("schema_version", 1)
     quality = {"schema_version": 1, "created_utc": utc_now(), "source": "whoisalyx",
                "license": "CC-BY-NC-SA-4.0", "config": config.to_dict(),
-               "source_receipt_sha256": hashlib.sha256(receipt_bytes).hexdigest(), "sessions": []}
-    provenance = output.parent / "provenance" / ("receipt_" + quality["source_receipt_sha256"] + ".json")
+               "source_receipt_sha256": receipt_digest,
+               "source_receipt_schema_version": receipt_version,
+               "source_inventory_file_sha256": inventory_file_digest,
+               "source_record_inventory_sha256": record_digest, "sessions": []}
+    provenance_root = output.parent / "provenance"
+    provenance = provenance_root / ("receipt_" + receipt_digest + ".json")
+    inventory_snapshot = provenance_root / ("inventory_" + inventory_file_digest + ".json")
+    recording_paths = [_validated_record(r, data_root) for r in inventory]
+    protected_paths = [("source inventory", inventory_path), ("source receipt", receipt_path),
+                       *(("source recording", path) for path in recording_paths),
+                       ("receipt snapshot", provenance), ("inventory snapshot", inventory_snapshot)]
+    _guard_ingest_write_paths((("HDF5 output", output), ("quality report", report),
+                               ("temporary HDF5", temporary)), protected_paths)
+    _reject_recording_aliases((
+        ("HDF5 output", output), ("quality report", report), ("temporary HDF5", temporary),
+        ("receipt snapshot", provenance), ("inventory snapshot", inventory_snapshot),
+    ), data_root)
+    output.parent.mkdir(parents=True, exist_ok=True)
     provenance.parent.mkdir(parents=True, exist_ok=True)
     if provenance.exists() and provenance.read_bytes() != receipt_bytes:
         raise ValueError("receipt snapshot checksum collision or corrupted provenance")
     if not provenance.exists():
         provenance.write_bytes(receipt_bytes)
+    if inventory_snapshot.exists() and inventory_snapshot.read_bytes() != inventory_bytes:
+        raise ValueError("inventory snapshot checksum collision or corrupted provenance")
+    if not inventory_snapshot.exists():
+        inventory_snapshot.write_bytes(inventory_bytes)
     started = time.perf_counter()
     try:
         with h5py.File(temporary, "w") as store:
@@ -83,11 +135,14 @@ def ingest_alyx(data_root, output, report, config: PipelineConfig):
             store.attrs["interpolation"] = "offline bracketing SLERP, not a zero-delay sensor pipeline"
             store.attrs["config_json"] = json.dumps(config.to_dict(), sort_keys=True)
             store.attrs["source_receipt_sha256"] = quality["source_receipt_sha256"]
+            store.attrs["source_receipt_schema_version"] = receipt_version
+            store.attrs["source_inventory_file_sha256"] = inventory_file_digest
+            store.attrs["source_record_inventory_sha256"] = record_digest
             for (user, session), records in sorted(groups.items()):
                 # A split recording is one source session, so trimming, filtering
                 # and the duration cap are applied once, not once per file.
                 records.sort(key=lambda r: (Path(r["relative_path"]).name != "vr-controllers.csv", r["source_path"]))
-                expected = records[0].get("expected_session_paths")
+                expected = inventory_sessions[(user, session)]
                 downloaded_paths = {r["source_path"] for r in records}
                 complete = (isinstance(expected, list) and expected and
                             all(r.get("expected_session_paths") == expected for r in records) and

@@ -17,7 +17,7 @@ def record(user=42, size=100):
 
 def manifest(tmp_path, records, source="whoisalyx"):
     path = tmp_path / "inventory.json"
-    write_json(path, {"source": source, "license": "CC-BY-NC-SA-4.0",
+    write_json(path, {"schema_version": 1, "source": source, "license": "CC-BY-NC-SA-4.0",
                       "revision": SOURCE_REVISION, "records": records})
     return path
 
@@ -93,6 +93,18 @@ def _mock_discovery(monkeypatch, mutation=None):
     # Frozen digest of these two original fixtures, not their mutated versions.
     monkeypatch.setattr(sources, "POINTER_INVENTORY_SHA256",
                         "7106c6596b4c4e81b19f5ef11f93e23d1b081e91c84c183802b9c882e07eb533")
+    parsed_records = []
+    for user, letter, size in [(42, "a", 100), (43, "b", 200)]:
+        md5 = letter * 32
+        session = "2022-05-19"
+        filename = "vr-controllers.csv"
+        parsed_records.append({"source": "whoisalyx", "user_id": f"alyx_{user:02d}",
+            "session_id": session, "source_path": f"players/{user}/{session}/{filename}.dvc",
+            "source_revision": SOURCE_REVISION, "relative_path": f"raw/whoisalyx/{user}/{session}/{filename}",
+            "expected_bytes": size, "md5": md5,
+            "url": sources.REMOTE + md5[:2] + "/" + md5[2:]})
+    monkeypatch.setattr(sources, "RECORD_INVENTORY_SHA256",
+                        sources._record_inventory_digest(parsed_records))
 
 
 def test_discovery_accepts_reviewed_sha256_inventory(tmp_path, monkeypatch):

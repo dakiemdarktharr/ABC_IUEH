@@ -11,6 +11,7 @@ from abc_iueh.config import PipelineConfig
 from abc_iueh.dataset import (check_hdf5, create_user_split, ingest_alyx,
                               iter_windows, read_alyx_motion)
 from abc_iueh.geometry import exp_so3
+from abc_iueh import sources
 from abc_iueh.sources import SOURCE_REVISION, REMOTE, sha256_file, write_json
 
 
@@ -36,14 +37,28 @@ def synthetic_record(root, *, filename="vr-controllers.csv", offset=0.0):
             "url": REMOTE + md5[:2] + "/" + md5[2:], "sha256": sha256_file(path)}
 
 
-def receipt(root, records):
+def receipt(root, records, monkeypatch, extra_inventory_records=()):
+    inventory_records = [dict(record) for record in records] + [dict(record) for record in extra_inventory_records]
+    record_digest = sources._record_inventory_digest(inventory_records)
+    monkeypatch.setattr(sources, "RECORD_INVENTORY_SHA256", record_digest)
+    inventory_path = root / "alyx_inventory.json"
+    write_json(inventory_path, {"schema_version": 1, "source": "whoisalyx",
+        "license": "CC-BY-NC-SA-4.0", "revision": SOURCE_REVISION,
+        "records": inventory_records})
+    inventory_digest = sha256_file(inventory_path)
     grouped = {}
-    for record in records:
+    for record in inventory_records:
         grouped.setdefault((record["user_id"], record["session_id"]), []).append(record["source_path"])
-    records = [{**r, "expected_session_paths": r.get("expected_session_paths", sorted(grouped[(r["user_id"], r["session_id"])]))}
+    records = [{**r, "expected_session_paths": sorted(grouped[(r["user_id"], r["session_id"])]),
+                "downloaded_bytes_this_run": 0, "cached": True,
+                "verified_utc": "2026-10-28T00:00:00+00:00"}
                for r in records]
-    write_json(root / "download_receipt.json", {"source": "whoisalyx",
-               "noncommercial_research_confirmed": True, "records": records})
+    write_json(root / "download_receipt.json", {"schema_version": 2, "source": "whoisalyx",
+               "license": "CC-BY-NC-SA-4.0", "noncommercial_research_confirmed": True,
+               "record_inventory_sha256": record_digest,
+               "inventory_bindings": [{"manifest_sha256": inventory_digest,
+                                       "record_inventory_sha256": record_digest}],
+               "records": records})
 
 
 def test_named_columns_milliseconds_and_no_extra_fields(tmp_path):
@@ -54,11 +69,12 @@ def test_named_columns_milliseconds_and_no_extra_fields(tmp_path):
     np.testing.assert_allclose(q[0], [1, 0, 0, 0], atol=1e-12)
 
 
-def test_real_schema_end_to_end_and_no_smoke_training(tmp_path):
+def test_real_schema_end_to_end_and_no_smoke_training(tmp_path, monkeypatch):
     record = synthetic_record(tmp_path)
-    receipt(tmp_path, [record])
+    receipt(tmp_path, [record], monkeypatch)
     hdf5, report = tmp_path / "processed/data.h5", tmp_path / "quality.json"
-    quality = ingest_alyx(tmp_path, hdf5, report, PipelineConfig())
+    quality = ingest_alyx(tmp_path, hdf5, report, PipelineConfig(),
+                          inventory_path=tmp_path / "alyx_inventory.json")
     assert quality["eligible_user_count"] == 1
     assert not quality["confirmatory_data_gate_passed"]
     summary = check_hdf5(hdf5, PipelineConfig())
@@ -81,22 +97,32 @@ def test_real_schema_end_to_end_and_no_smoke_training(tmp_path):
         create_user_split(hdf5, split_path, PipelineConfig(), smoke=True)
 
 
-def test_multiple_files_share_session_and_clock_reset_is_not_repaired(tmp_path):
+def test_multiple_files_share_session_and_clock_reset_is_not_repaired(tmp_path, monkeypatch):
     records = [synthetic_record(tmp_path), synthetic_record(tmp_path, filename="vr-controllers2.csv")]
-    receipt(tmp_path, records)
-    result = ingest_alyx(tmp_path, tmp_path / "out.h5", tmp_path / "quality.json", PipelineConfig())
+    receipt(tmp_path, records, monkeypatch)
+    result = ingest_alyx(tmp_path, tmp_path / "out.h5", tmp_path / "quality.json", PipelineConfig(),
+                         inventory_path=tmp_path / "alyx_inventory.json")
     assert len(result["sessions"]) == 1
     assert result["sessions"][0]["source_files"] == 2
     assert result["sessions"][0]["reason"] == "backward_timestamps"
     assert result["eligible_user_count"] == 0
 
 
-def test_incomplete_source_session_cannot_qualify_on_its_active_prefix(tmp_path):
+def test_incomplete_source_session_cannot_qualify_on_its_active_prefix(tmp_path, monkeypatch):
     record = synthetic_record(tmp_path)
-    record["expected_session_paths"] = sorted([record["source_path"],
-        "players/42/2022-05-19/vr-controllers2.csv.dvc"])
-    receipt(tmp_path, [record])
-    result = ingest_alyx(tmp_path, tmp_path / "out.h5", tmp_path / "quality.json", PipelineConfig())
+    missing = dict(record)
+    missing["source_path"] = "players/42/2022-05-19/vr-controllers2.csv.dvc"
+    missing["relative_path"] = "raw/whoisalyx/42/2022-05-19/vr-controllers2.csv"
+    missing["md5"] = "b" * 32
+    missing["expected_bytes"] = 1
+    missing["url"] = REMOTE + "bb/" + "b" * 30
+    missing.pop("sha256")
+    receipt(tmp_path, [record], monkeypatch, extra_inventory_records=[missing])
+    def no_recording_read(*args, **kwargs):
+        pytest.fail("incomplete source session must be rejected before payload I/O")
+    monkeypatch.setattr("abc_iueh.dataset._verify_record", no_recording_read)
+    result = ingest_alyx(tmp_path, tmp_path / "out.h5", tmp_path / "quality.json", PipelineConfig(),
+                         inventory_path=tmp_path / "alyx_inventory.json")
     assert result["sessions"][0]["reason"] == "source_session_incomplete_or_unverified"
     assert result["eligible_user_count"] == 0
 
@@ -126,10 +152,11 @@ def test_split_is_user_disjoint_reproducible_and_data_bound(tmp_path):
         next(iter_windows(path, tmp_path / "a.json", "train"))
 
 
-def test_ingest_does_not_overwrite_raw_or_receipt(tmp_path):
+def test_ingest_does_not_overwrite_raw_or_receipt(tmp_path, monkeypatch):
     record = synthetic_record(tmp_path)
-    receipt(tmp_path, [record])
+    receipt(tmp_path, [record], monkeypatch)
     raw = tmp_path / record["relative_path"]
     with pytest.raises(ValueError, match="overwrite"):
-        ingest_alyx(tmp_path, raw, tmp_path / "quality.json", PipelineConfig())
+        ingest_alyx(tmp_path, raw, tmp_path / "quality.json", PipelineConfig(),
+                    inventory_path=tmp_path / "alyx_inventory.json")
     assert sha256_file(raw) == record["sha256"]

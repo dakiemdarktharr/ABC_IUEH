@@ -6,7 +6,7 @@ from pathlib import Path
 
 from .config import PipelineConfig
 from .dataset import check_hdf5, create_user_split, ingest_alyx
-from .sources import SOURCE_REVISION, discover_alyx, fetch_alyx
+from .sources import SOURCE_REVISION, discover_alyx, fetch_alyx, reseal_legacy_receipt
 
 
 def main(argv=None):
@@ -22,11 +22,25 @@ def main(argv=None):
     fetch.add_argument("--max-files", type=int, default=2)
     fetch.add_argument("--max-total-mib", type=int, default=256)
     fetch.add_argument("--users", nargs="+")
+    fetch.add_argument("--receipt", default="data/download_receipt_v2.json",
+                       help="new v2 receipt path; existing receipts are never overwritten")
+    fetch.add_argument("--previous-receipt", default=None,
+                       help="optional earlier receipt to extend; defaults to the legacy data/download_receipt.json when present")
     ingest = commands.add_parser("ingest", help="Verify recordings and build gap-safe HDF5")
     ingest.add_argument("--data-root", default="data")
     ingest.add_argument("--output", default="data/processed/alyx.h5")
     ingest.add_argument("--report", default="data/quality_report.json")
     ingest.add_argument("--config", default="configs/pipeline.json")
+    ingest.add_argument("--manifest", default="data/alyx_inventory.json",
+                        help="complete authenticated source inventory used for this receipt")
+    ingest.add_argument("--receipt", default="data/download_receipt_v2.json",
+                        help="versioned receipt to validate and ingest")
+    reseal = commands.add_parser("reseal-receipt", help="Metadata-only validate and version a legacy download receipt")
+    reseal.add_argument("--manifest", default="data/alyx_inventory.json")
+    reseal.add_argument("--receipt", default="data/download_receipt.json")
+    reseal.add_argument("--data-root", default="data")
+    reseal.add_argument("--output", required=True,
+                        help="new output path; historical receipt and inventory are never overwritten")
     split = commands.add_parser("split", help="Lock disjoint user assignments before windowing")
     split.add_argument("--hdf5", default="data/processed/alyx.h5")
     split.add_argument("--output", default="data/user_split.json")
@@ -77,11 +91,16 @@ def main(argv=None):
         elif args.command == "fetch":
             records = fetch_alyx(args.manifest, args.data_root, noncommercial=args.noncommercial,
                                  max_files=args.max_files, max_total_bytes=args.max_total_mib * 1024**2,
-                                 users=args.users)
-            result = {"verified_files": len(records), "verified_bytes": sum(r["expected_bytes"] for r in records)}
+                                 users=args.users, receipt_path=args.receipt,
+                                 previous_receipt_path=args.previous_receipt)
+            result = {"verified_files": len(records), "verified_bytes": sum(r["expected_bytes"] for r in records),
+                      "receipt_path": str(args.receipt)}
         elif args.command == "ingest":
-            result = ingest_alyx(args.data_root, args.output, args.report, PipelineConfig.load(args.config))
+            result = ingest_alyx(args.data_root, args.output, args.report, PipelineConfig.load(args.config),
+                                 inventory_path=args.manifest, receipt_path=args.receipt)
             result = {k: v for k, v in result.items() if k not in {"sessions", "eligible_users"}}
+        elif args.command == "reseal-receipt":
+            result = reseal_legacy_receipt(args.manifest, args.receipt, args.output, args.data_root)
         elif args.command == "split":
             result = create_user_split(args.hdf5, args.output, PipelineConfig.load(args.config), smoke=args.smoke)
             result = {**{k: v for k, v in result.items() if k != "partitions"},
