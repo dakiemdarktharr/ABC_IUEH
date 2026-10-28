@@ -13,6 +13,8 @@ The main question is whether mature multi-step prediction errors help select a h
 
 This is research infrastructure, not a trained submission. No head-motion forecasting accuracy, foundation-model capability, competition eligibility or target-XR latency has been established. JEPA and EBM are optional later experiments.
 
+**Verified preparation run, 2026-10-28:** 70 source files verified; 67 of 69 sessions retained; 35 eligible users, 134 continuous segments and 8,026,425 quaternion samples. The user split is locked at **15 train / 5 development / 15 final** with seed20261026. HDF5 integrity checks and 49 synthetic tests passed. No model fitting or forecast-error evaluation has occurred. See the [aggregate preparation receipt](docs/data_preparation_summary.json); participant/session manifests and recordings are private.
+
 ## Data-use status
 
 | Source | Current use decision |

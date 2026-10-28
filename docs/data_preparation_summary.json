@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-28",
+  "scope": "data_preparation_only_no_forecasting_results",
+  "source": "WhoIsAlyx later cohort",
+  "source_revision": "5da510121f99fc8a6cc51e570770ca93e5745646",
+  "data_license": "CC-BY-NC-SA-4.0",
+  "use_scope": "conditional_noncommercial_research_pilot",
+  "BOXRR_enabled": false,
+  "Alyx_only_challenge_eligibility": "unconfirmed",
+  "source_files_verified": 70,
+  "source_bytes_verified": 5756954043,
+  "source_sessions": 69,
+  "session_dispositions": {
+    "accepted": 67,
+    "motion_filter_failed": 1,
+    "backward_timestamps": 1
+  },
+  "native_rate_hz_min_median_max": [
+    92.25092250993593,
+    95.87727708507416,
+    100.00000000009095
+  ],
+  "nonfinite_or_nearzero_quaternion_rows_dropped": 1788,
+  "gap_splits_after_cap": 133,
+  "short_segments_discarded": 66,
+  "hdf5_bytes": 133424800,
+  "local_ingest_seconds": 173.37280750001082,
+  "hdf5_integrity_check": {
+    "users": 35,
+    "sessions": 67,
+    "segments": 134,
+    "samples": 8026425,
+    "windows": 7970279,
+    "maximum_norm_error": 1.1920928955078125e-07,
+    "minimum_adjacent_dot": 0.9915772080421448
+  },
+  "split": {
+    "unit": "user_before_windowing",
+    "seed": 20261026,
+    "mode": "locked_confirmatory",
+    "counts": {
+      "final": 15,
+      "development": 5,
+      "train": 15
+    }
+  },
+  "unit_tests_passed": 49,
+  "trained_models_in_this_stage": 0,
+  "forecast_errors_evaluated_in_this_stage": false,
+  "GPU_training_in_this_stage": false,
+  "timing_dispute": "20 samples / 100 Hz / 100 ms unresolved",
+  "pipeline_revision_before_this_report": "08627930f7e37834c67a7489628ec46e25e1b2b2",
+  "limitations": [
+    "Data-quality checks do not establish prediction quality or target-XR latency.",
+    "Pipeline timing is local CPU data ingestion including IO, not model inference.",
+    "The number of overlapping windows is not the number of independent users.",
+    "Source license review does not establish every recipient institutional obligation."
+  ]
+}
