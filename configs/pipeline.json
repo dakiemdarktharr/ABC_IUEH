@@ -1,0 +1,22 @@
+{
+  "target_rate_hz": 100.0,
+  "native_rate_min_hz": 85.0,
+  "native_rate_max_hz": 110.0,
+  "trim_seconds": 5.0,
+  "max_gap_seconds": 0.05,
+  "norm_epsilon": 1e-8,
+  "min_segment_samples": 1000,
+  "filter_window_seconds": 5.0,
+  "min_filter_window_samples": 10,
+  "sweep_threshold_deg": 17.0,
+  "velocity_threshold_deg_s": 15.0,
+  "threshold_operator": "gt",
+  "tail_window_policy": "partial_elapsed",
+  "session_cap_seconds": 1200.0,
+  "context_samples": 400,
+  "horizon_samples": 20,
+  "split_seed": 20261026,
+  "minimum_confirmatory_users": 30,
+  "development_users": 5,
+  "minimum_final_users": 12
+}

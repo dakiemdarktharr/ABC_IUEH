@@ -1,0 +1,38 @@
+# Independent pipeline review
+
+Review date: **2026-10-28**. Scope: configuration, source acquisition, CSV parsing, quaternion geometry, preprocessing, HDF5 storage, user splits, window iteration, reference baselines, CLI, tests, and publication boundaries. The reviewer changed only this report. All reviewer fixtures were synthetic; HTTP was mocked. This review did not download recordings, train a model, evaluate human forecasting performance, or establish institutional approval or challenge eligibility.
+
+## Findings and disposition
+
+Severity reflects the consequence if the trigger occurs, not evidence that a real dataset has already been affected. Line references describe the implementation reviewed on this date and can move with later edits.
+
+| Severity | Finding and reproducible trigger | Disposition |
+|---|---|---|
+| P1 | **Validate all records before applying a byte budget.** Summing sizes before rejecting malformed records allowed a later negative size to cancel an earlier positive size. An offline mock with sizes `1024` and `-1023` transferred 1024 synthetic bytes under a 1-byte budget before raising an error. | **Fixed and rechecked.** `sources.py` now validates selected and previously receipted records before summation or network access. `tests/test_sources.py::test_negative_size_cannot_cancel_budget` rejects this case without network access. |
+| P1 | **Bind grouping identity to source provenance.** A record could initially retain a valid path/checksum while changing its user or session identifier, corrupting the unit used for leakage prevention. | **Fixed and rechecked.** `src/abc_iueh/sources.py:103` binds source path, cohort, revision, user, session, destination, checksum format and reviewed remote. Identity/path tampering is covered by parameterized tests. Discovery also verifies the DVC pointer's Git blob digest. |
+| P2 | **Reject invalid split counts before slicing.** A negative development-user count initially produced a manifest labelled training-allowed with one train/final overlap in a 30-user synthetic inventory. The downstream window reader rejected the overlap, but split creation should never emit it. | **Fixed and rechecked.** `src/abc_iueh/config.py:31` rejects nonpositive, fractional and Boolean counts and invalid cohort settings. Existing reader overlap and HDF5-hash checks remain necessary. |
+| P2 | **Do not treat a downloaded prefix as a complete source session.** `src/abc_iueh/dataset.py:79` initially grouped only receipt entries, with no comparison against the pinned inventory's expected session parts. A bounded file selection could therefore filter a prefix and count its user as eligible. An offline two-part control passed on its active first part and failed when the full session's stationary remainder was included. | **Fixed and rechecked.** Fetch receipts now carry the full inventory's expected source-part paths. Ingestion rejects missing, inconsistent or incomplete part sets before filtering or user eligibility. `tests/test_dataset.py::test_incomplete_source_session_cannot_qualify_on_its_active_prefix` covers the failure. |
+
+## Critical failure conditions checked
+
+1. **Wrong units, scalar order, invalid clock, or ineligible native rate.** A deliberately shuffled CSV header parsed by the named `hmd_rot_w/x/y/z` fields and converted elapsed milliseconds to seconds. Tests reject duplicate/backward/nonfinite timestamps without sorting, including when the corresponding orientation row is invalid. A native 60 Hz recording remains rejected before SLERP; invalid quaternion removal does not redefine the native clock rate. This verifies the declared parser contract, not the semantics of an uninspected recording.
+2. **Interpolation or velocity across dropout, incomplete sessions, or repeated trim/cap per file.** Tests cover bad quaternion rows exposing a long gap, separate uniform segments, masking cross-gap velocity differences and incomplete-part rejection. Independent complete two-file synthetic ingestion produced one session, trimmed once at 5 seconds and capped once at 25 seconds for a 20-second retained interval: 2001 output samples. Filtering precedes the cap. Clock resets across files are rejected rather than sorted or concatenated into an artificial clock.
+3. **Leakage through windowing, smoke training, holdout access, or data changes.** Splits are assigned by user before iteration; windows remain within one stored segment. Smoke-to-train access is rejected, final access requires explicit opt-in, duplicate/overlapping user assignments are rejected, and changing HDF5 after locking the split invalidates the reader hash check. Returned window arrays are read-only. There is no training/pretraining implementation in the reviewed pipeline; a future trainer must preserve the prohibition on development/final-user fitting and self-supervised pretraining. An explicit final-access flag is not itself proof of a locked model configuration.
+4. **Unexpected source, path, revision, checksum, or unbounded acquisition.** Tests reject BOXRR and missing noncommercial confirmation before network access, and reject changed source identity/path/revision/remote. File size and DVC MD5 plus local SHA-256 are checked; selected and previously receipted sizes are included in the configured byte budget. Negative-size cancellation is now rejected before acquisition. The review used mocked responses and did not exercise a real network transfer.
+5. **Incorrect geometric interface or claims of measured efficacy.** Unit-quaternion, sign, principal log/exp, geodesic-degree and SLERP tests passed. Independent constant-angular-velocity probes with sign changes returned `float32 [1,20,4]` and agreed with analytic motion within `5e-5` degrees for bandwidths 1, 5 and 20. These are numerical correctness checks, not evidence of predictive accuracy, latency, or model advantage on people. The disputed 20-sample / 100 Hz / 100 ms wording remains unresolved.
+
+## Validation receipt
+
+After the fixes above, the independent final full-suite run completed with **49 passed**:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q --basetemp=data/reviewer_pytest_final_20261028
+```
+
+The explicit workspace-local temporary directory avoids a sandbox-specific Windows temporary-directory rename restriction observed in the first run. No implementation failure was inferred from that environment error. The additional independent probes above ran inline with temporary synthetic files; they are described separately from committed regression tests.
+
+## Publication and remaining limits
+
+The reviewed ignore rules exclude data, private receipts/manifests, recordings, HDF5, learned weights, environment files and local logs. The visible public source/configuration/documentation scan found no machine-specific absolute paths, credentials, or recorded human samples at review time. Ignore patterns are not a substitute for inspecting the final staged files. This report contains no actual participant/session identifiers, private access attestations, or local machine paths.
+
+`docs/data_sources.md` separates code/data licensing, owner terms, collection consent, recipient obligations and challenge eligibility. This engineering review did not independently adjudicate those external rights or approvals. BOXRR remains disabled. Actual Alyx timestamp semantics, physical coordinate conventions, usable-user counts and quality must be supported by separate source-data pilot receipts; this synthetic review alone cannot establish them. A successful pipeline check must not be described as a completed confirmatory study, approved challenge submission, or forecasting result.
