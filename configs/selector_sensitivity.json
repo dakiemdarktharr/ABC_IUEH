@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "stage": "train_development_selector_R_sensitivity_only",
+  "partitions": ["train", "development"],
+  "evidence_lengths": [128, 256],
+  "variants": ["h1_a0", "h20_a0"],
+  "context_samples": 400,
+  "horizon_samples": 20,
+  "stride": 1,
+  "selector": {
+    "architecture": [10, 16, 4], "parameters": 244, "dense_MACs": 224,
+    "steps": 2000, "batch_size": 128, "optimizer": "SGD", "learning_rate": 0.001,
+    "momentum": 0.0, "weight_decay": 0.0, "seeds": [20261026, 20261027],
+    "loss": "expected_individual_expert_endpoint20_angular_loss", "early_stopping": false,
+    "initialization": "normal_std_0.02_zero_bias", "same_initial_state_per_seed_across_variants": true,
+    "sampling": "uniform_global_train_origins_with_replacement", "same_origin_batches_per_seed_across_variants": true
+  },
+  "feature_standardization": "independent_train_only_window_weighted_population_mean_std_epsilon_1e-8_float64_then_float32",
+  "uncertainty": {
+    "cluster": "user", "bootstrap_resamples": 2000, "seed": 20261026,
+    "estimand": "window_weighted_ratio", "development_inference": "exploratory_only_five_users"
+  },
+  "success_thresholds_unchanged": {
+    "relative_improvement_minimum": 0.03, "absolute_improvement_degrees_minimum": 0.05,
+    "paired_user_bootstrap_CI_upper_delta_below_zero": true, "users_improved_fraction_minimum": 0.60,
+    "confirmatory_partition": "final_not_accessed_in_this_study"
+  },
+  "primary_contrast": "h20_a0_minus_h1_a0_two_seed_mean_errors",
+  "evaluation_batch_size": 65536,
+  "device_required": "cuda", "precision": "float32_no_autocast_no_TF32", "deterministic_algorithms": true,
+  "R_selection_allowed": false, "final_access_allowed": false, "model_or_feature_artifacts_public": false,
+  "cloud_approved_cost": 0,
+  "paper_scope": "exploratory_train_development_study_with_sealed_final_holdout",
+  "parent_main_config_sha256": "13f313a391504bae77a0e4bbc6de53d0383349c384a76ef984f46e4d0527e598"
+}

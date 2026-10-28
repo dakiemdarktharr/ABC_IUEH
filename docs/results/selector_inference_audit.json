@@ -1,0 +1,1933 @@
+{
+  "created_utc": "2026-10-28T05:44:22.137394+00:00",
+  "stage": "numerical_portability_and_local_cost_not_accuracy_selection",
+  "status": "PASS",
+  "all_fixed_numerical_gates_passed": true,
+  "results": {
+    "h1_a0": {
+      "variant": "h1_a0",
+      "seed": 20261026,
+      "evidence_length": 80,
+      "trainable_parameters": 244,
+      "graph_bytes": 56218,
+      "graph_sha256": "699dbe17084743c453738a5a7b0509542f016ca679621fc26dd6a24bedbc0c79",
+      "inventory": {
+        "opset_imports": {
+          "ai.onnx": 17
+        },
+        "signature": {
+          "inputs": {
+            "context": [
+              1,
+              400,
+              4
+            ]
+          },
+          "outputs": {
+            "prediction": [
+              1,
+              20,
+              4
+            ]
+          }
+        },
+        "operators": {
+          "Abs": 10,
+          "Add": 34,
+          "And": 1,
+          "Atan": 2,
+          "Clip": 21,
+          "Concat": 10,
+          "Constant": 254,
+          "Cos": 2,
+          "Div": 24,
+          "Equal": 3,
+          "Gather": 11,
+          "Gemm": 2,
+          "Greater": 5,
+          "Less": 4,
+          "Mul": 90,
+          "Neg": 2,
+          "Not": 2,
+          "Or": 1,
+          "ReduceMax": 8,
+          "ReduceMean": 1,
+          "ReduceSum": 15,
+          "Relu": 1,
+          "Reshape": 2,
+          "Sin": 2,
+          "Slice": 48,
+          "Softmax": 1,
+          "Sqrt": 13,
+          "Sub": 19,
+          "Unsqueeze": 7,
+          "Where": 10
+        },
+        "tensor_types": {
+          "BOOL": 16,
+          "FLOAT": 441,
+          "INT64": 417
+        },
+        "domains": [
+          ""
+        ],
+        "node_count": 605,
+        "file_bytes": 56218,
+        "operator_output_elements": {
+          "Abs": 7455,
+          "Add": 7787,
+          "And": 243,
+          "Atan": 563,
+          "Clip": 4035,
+          "Concat": 7246,
+          "Constant": 503,
+          "Cos": 340,
+          "Div": 15672,
+          "Equal": 729,
+          "Gather": 1979,
+          "Gemm": 20,
+          "Greater": 1146,
+          "Less": 1049,
+          "Mul": 28726,
+          "Neg": 969,
+          "Not": 486,
+          "Or": 243,
+          "ReduceMax": 1723,
+          "ReduceMean": 4,
+          "ReduceSum": 2635,
+          "Relu": 16,
+          "Reshape": 1292,
+          "Sin": 340,
+          "Slice": 11114,
+          "Softmax": 4,
+          "Sqrt": 2629,
+          "Sub": 4185,
+          "Unsqueeze": 1935,
+          "Where": 2438
+        },
+        "elementwise_scalar_evaluations": {
+          "Add": 7787,
+          "Sub": 4185,
+          "Mul": 28726,
+          "Div": 15672,
+          "Sqrt": 2629,
+          "Sin": 340,
+          "Cos": 340,
+          "Atan": 563,
+          "Abs": 7455,
+          "Neg": 969,
+          "Relu": 16
+        },
+        "reduction_scalar_additions": 7312,
+        "reduction_scalar_divisions": 4,
+        "reduction_max_comparisons": 5169,
+        "gemm_bias_additions": 20,
+        "unknown_output_shape_nodes": [],
+        "selector_dense_macs": 224,
+        "cost_scope": "static ONNX operator output elements plus reduction arithmetic; not total MACs or latency",
+        "algorithm_workload": {
+          "parameters": 244,
+          "selector_dense_macs": 224,
+          "mac_definition": "one dense weight multiplication and accumulation; biases/nonlinear/geometry excluded",
+          "stateless_context_samples": 400,
+          "earliest_context_index_used": 299,
+          "velocity_relative_quaternions": 243,
+          "replayed_expert_quaternions": 320,
+          "replayed_geodesic_errors": 320,
+          "output_quaternions": 20,
+          "replay_horizons": 1
+        }
+      },
+      "parity": {
+        "train": {
+          "eager_cpu": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.025757646894784,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.025757773798915,
+            "sampled_mean_endpoint20_error_change_deg": 1.2690413075944207e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 1.2690413075944207e-07,
+            "max_trajectory_geodesic_drift_deg": 0.00012345998174386548,
+            "mean_trajectory_geodesic_drift_deg": 1.5139774312510613e-05,
+            "max_output_norm_deviation": 1.7090764781180212e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.025757646894784,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.025757717328002,
+            "sampled_mean_endpoint20_error_change_deg": 7.043321748056997e-08,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 7.043321748056997e-08,
+            "max_trajectory_geodesic_drift_deg": 0.00012976439828108407,
+            "mean_trajectory_geodesic_drift_deg": 1.5003455290762075e-05,
+            "max_output_norm_deviation": 1.2933763904321438e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.025757646894784,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.0257570945783385,
+            "sampled_mean_endpoint20_error_change_deg": -5.523164459120267e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 5.523164459120267e-07,
+            "max_trajectory_geodesic_drift_deg": 0.0001234019865354054,
+            "mean_trajectory_geodesic_drift_deg": 1.5068840892442678e-05,
+            "max_output_norm_deviation": 1.2576265318031687e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 8.725053432379798e-05
+        },
+        "development": {
+          "eager_cpu": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.004901298987626,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.004903944692014,
+            "sampled_mean_endpoint20_error_change_deg": 2.6457043880157016e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.6457043880157016e-06,
+            "max_trajectory_geodesic_drift_deg": 0.00011079473511951995,
+            "mean_trajectory_geodesic_drift_deg": 1.4129617635220437e-05,
+            "max_output_norm_deviation": 1.540459075854983e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.004901298987626,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.004903600879936,
+            "sampled_mean_endpoint20_error_change_deg": 2.301892309652942e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.301892309652942e-06,
+            "max_trajectory_geodesic_drift_deg": 0.000114971250471054,
+            "mean_trajectory_geodesic_drift_deg": 1.4052877461412132e-05,
+            "max_output_norm_deviation": 1.22149616865741e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.004901298987626,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.004903894036763,
+            "sampled_mean_endpoint20_error_change_deg": 2.5950491373549767e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.5950491373549767e-06,
+            "max_trajectory_geodesic_drift_deg": 0.00011467346441470242,
+            "mean_trajectory_geodesic_drift_deg": 1.4060273185685293e-05,
+            "max_output_norm_deviation": 1.1506440189545941e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 6.148049488060327e-05
+        }
+      },
+      "latency": {
+        "eager_cpu": {
+          "median_ms": 0.8834,
+          "p95_ms": 1.2111549999999998,
+          "p99_ms": 1.620828,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "ORT_CPU": {
+          "median_ms": 0.4157,
+          "p95_ms": 0.488525,
+          "p99_ms": 0.552901,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "eager_CUDA": {
+          "median_ms": 3.659648060798645,
+          "p95_ms": 4.708908939361572,
+          "p99_ms": 5.908220052719114,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "synchronized_CUDA_events_resident_input",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target",
+          "synchronized_wall": {
+            "median_ms": 3.6733000000000002,
+            "p95_ms": 4.752249999999999,
+            "p99_ms": 5.9224999999999985,
+            "repetitions": 500,
+            "warmup": 50,
+            "clock": "CPU_perf_counter_ns_with_CUDA_synchronization",
+            "batch_size": 1,
+            "resident_input": true,
+            "file_IO_included": false,
+            "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+          }
+        }
+      },
+      "synthetic_actual_checkpoint_probe": {
+        "cases": 4,
+        "synthetic_inputs_only": true,
+        "max_trajectory_drift_deg": {
+          "eager_cpu": 0.00029693403177878593,
+          "ORT_CPU": 0.0002903474709366059,
+          "eager_CUDA": 0.0002903474709366059
+        },
+        "fixed_gate_deg": 0.02
+      },
+      "all_fixed_numerical_gates_passed": true
+    },
+    "h20_a0": {
+      "variant": "h20_a0",
+      "seed": 20261026,
+      "evidence_length": 80,
+      "trainable_parameters": 244,
+      "graph_bytes": 56218,
+      "graph_sha256": "cbbe1a68a941318027b02921ff06e225d523eb938adc68ca3e1432b3e84e8783",
+      "inventory": {
+        "opset_imports": {
+          "ai.onnx": 17
+        },
+        "signature": {
+          "inputs": {
+            "context": [
+              1,
+              400,
+              4
+            ]
+          },
+          "outputs": {
+            "prediction": [
+              1,
+              20,
+              4
+            ]
+          }
+        },
+        "operators": {
+          "Abs": 10,
+          "Add": 34,
+          "And": 1,
+          "Atan": 2,
+          "Clip": 21,
+          "Concat": 10,
+          "Constant": 254,
+          "Cos": 2,
+          "Div": 24,
+          "Equal": 3,
+          "Gather": 11,
+          "Gemm": 2,
+          "Greater": 5,
+          "Less": 4,
+          "Mul": 90,
+          "Neg": 2,
+          "Not": 2,
+          "Or": 1,
+          "ReduceMax": 8,
+          "ReduceMean": 1,
+          "ReduceSum": 15,
+          "Relu": 1,
+          "Reshape": 2,
+          "Sin": 2,
+          "Slice": 48,
+          "Softmax": 1,
+          "Sqrt": 13,
+          "Sub": 19,
+          "Unsqueeze": 7,
+          "Where": 10
+        },
+        "tensor_types": {
+          "BOOL": 16,
+          "FLOAT": 441,
+          "INT64": 417
+        },
+        "domains": [
+          ""
+        ],
+        "node_count": 605,
+        "file_bytes": 56218,
+        "operator_output_elements": {
+          "Abs": 7455,
+          "Add": 7787,
+          "And": 243,
+          "Atan": 563,
+          "Clip": 4035,
+          "Concat": 7246,
+          "Constant": 503,
+          "Cos": 340,
+          "Div": 15672,
+          "Equal": 729,
+          "Gather": 1979,
+          "Gemm": 20,
+          "Greater": 1146,
+          "Less": 1049,
+          "Mul": 28726,
+          "Neg": 969,
+          "Not": 486,
+          "Or": 243,
+          "ReduceMax": 1723,
+          "ReduceMean": 4,
+          "ReduceSum": 2635,
+          "Relu": 16,
+          "Reshape": 1292,
+          "Sin": 340,
+          "Slice": 11114,
+          "Softmax": 4,
+          "Sqrt": 2629,
+          "Sub": 4185,
+          "Unsqueeze": 1935,
+          "Where": 2438
+        },
+        "elementwise_scalar_evaluations": {
+          "Add": 7787,
+          "Sub": 4185,
+          "Mul": 28726,
+          "Div": 15672,
+          "Sqrt": 2629,
+          "Sin": 340,
+          "Cos": 340,
+          "Atan": 563,
+          "Abs": 7455,
+          "Neg": 969,
+          "Relu": 16
+        },
+        "reduction_scalar_additions": 7312,
+        "reduction_scalar_divisions": 4,
+        "reduction_max_comparisons": 5169,
+        "gemm_bias_additions": 20,
+        "unknown_output_shape_nodes": [],
+        "selector_dense_macs": 224,
+        "cost_scope": "static ONNX operator output elements plus reduction arithmetic; not total MACs or latency",
+        "algorithm_workload": {
+          "parameters": 244,
+          "selector_dense_macs": 224,
+          "mac_definition": "one dense weight multiplication and accumulation; biases/nonlinear/geometry excluded",
+          "stateless_context_samples": 400,
+          "earliest_context_index_used": 280,
+          "velocity_relative_quaternions": 243,
+          "replayed_expert_quaternions": 320,
+          "replayed_geodesic_errors": 320,
+          "output_quaternions": 20,
+          "replay_horizons": 1
+        }
+      },
+      "parity": {
+        "train": {
+          "eager_cpu": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.032537400766216,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.032537399574311,
+            "sampled_mean_endpoint20_error_change_deg": -1.1919052411712983e-09,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 1.1919052411712983e-09,
+            "max_trajectory_geodesic_drift_deg": 0.00012209193671513106,
+            "mean_trajectory_geodesic_drift_deg": 1.4981236951641154e-05,
+            "max_output_norm_deviation": 1.466133079386367e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.032537400766216,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.03253778425834,
+            "sampled_mean_endpoint20_error_change_deg": 3.8349212339028327e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 3.8349212339028327e-07,
+            "max_trajectory_geodesic_drift_deg": 0.00011944418165158211,
+            "mean_trajectory_geodesic_drift_deg": 1.4819835298208526e-05,
+            "max_output_norm_deviation": 1.2968347173902828e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.032537400766216,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.032537032734577,
+            "sampled_mean_endpoint20_error_change_deg": -3.680316389420568e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 3.680316389420568e-07,
+            "max_trajectory_geodesic_drift_deg": 0.00012113209988166177,
+            "mean_trajectory_geodesic_drift_deg": 1.4832448563165803e-05,
+            "max_output_norm_deviation": 1.2485218947588805e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 8.840617434616236e-05
+        },
+        "development": {
+          "eager_cpu": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.0086409088153205,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.008643221285557,
+            "sampled_mean_endpoint20_error_change_deg": 2.312470236631725e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.312470236631725e-06,
+            "max_trajectory_geodesic_drift_deg": 8.89015108940131e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.4155359032804884e-05,
+            "max_output_norm_deviation": 1.4369739886888055e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.0086409088153205,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.008642955395486,
+            "sampled_mean_endpoint20_error_change_deg": 2.046580165782075e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.046580165782075e-06,
+            "max_trajectory_geodesic_drift_deg": 9.328858113785991e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.390814693466369e-05,
+            "max_output_norm_deviation": 1.2441192676071466e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.0086409088153205,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.008642993686863,
+            "sampled_mean_endpoint20_error_change_deg": 2.0848715420740405e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.0848715420740405e-06,
+            "max_trajectory_geodesic_drift_deg": 9.328858113785991e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.3878893544403137e-05,
+            "max_output_norm_deviation": 1.1715836434333937e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 6.41272613510328e-05
+        }
+      },
+      "latency": {
+        "eager_cpu": {
+          "median_ms": 0.7907,
+          "p95_ms": 0.9449299999999999,
+          "p99_ms": 1.063766,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "ORT_CPU": {
+          "median_ms": 0.422,
+          "p95_ms": 0.56565,
+          "p99_ms": 0.6380999999999999,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "eager_CUDA": {
+          "median_ms": 4.444783926010132,
+          "p95_ms": 7.233383989334104,
+          "p99_ms": 10.952063198089599,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "synchronized_CUDA_events_resident_input",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target",
+          "synchronized_wall": {
+            "median_ms": 4.4674,
+            "p95_ms": 7.269664999999996,
+            "p99_ms": 11.026809,
+            "repetitions": 500,
+            "warmup": 50,
+            "clock": "CPU_perf_counter_ns_with_CUDA_synchronization",
+            "batch_size": 1,
+            "resident_input": true,
+            "file_IO_included": false,
+            "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+          }
+        }
+      },
+      "synthetic_actual_checkpoint_probe": {
+        "cases": 4,
+        "synthetic_inputs_only": true,
+        "max_trajectory_drift_deg": {
+          "eager_cpu": 0.00029693403177878593,
+          "ORT_CPU": 0.0002903474709366059,
+          "eager_CUDA": 0.0002903474709366059
+        },
+        "fixed_gate_deg": 0.02
+      },
+      "all_fixed_numerical_gates_passed": true
+    },
+    "h20_a20": {
+      "variant": "h20_a20",
+      "seed": 20261026,
+      "evidence_length": 80,
+      "trainable_parameters": 244,
+      "graph_bytes": 56218,
+      "graph_sha256": "a5f6228b12d0abaa52f1827f50dabbf36a501f3063be66d59454697ce5283f93",
+      "inventory": {
+        "opset_imports": {
+          "ai.onnx": 17
+        },
+        "signature": {
+          "inputs": {
+            "context": [
+              1,
+              400,
+              4
+            ]
+          },
+          "outputs": {
+            "prediction": [
+              1,
+              20,
+              4
+            ]
+          }
+        },
+        "operators": {
+          "Abs": 10,
+          "Add": 34,
+          "And": 1,
+          "Atan": 2,
+          "Clip": 21,
+          "Concat": 10,
+          "Constant": 254,
+          "Cos": 2,
+          "Div": 24,
+          "Equal": 3,
+          "Gather": 11,
+          "Gemm": 2,
+          "Greater": 5,
+          "Less": 4,
+          "Mul": 90,
+          "Neg": 2,
+          "Not": 2,
+          "Or": 1,
+          "ReduceMax": 8,
+          "ReduceMean": 1,
+          "ReduceSum": 15,
+          "Relu": 1,
+          "Reshape": 2,
+          "Sin": 2,
+          "Slice": 48,
+          "Softmax": 1,
+          "Sqrt": 13,
+          "Sub": 19,
+          "Unsqueeze": 7,
+          "Where": 10
+        },
+        "tensor_types": {
+          "BOOL": 16,
+          "FLOAT": 441,
+          "INT64": 417
+        },
+        "domains": [
+          ""
+        ],
+        "node_count": 605,
+        "file_bytes": 56218,
+        "operator_output_elements": {
+          "Abs": 7455,
+          "Add": 7787,
+          "And": 243,
+          "Atan": 563,
+          "Clip": 4035,
+          "Concat": 7246,
+          "Constant": 503,
+          "Cos": 340,
+          "Div": 15672,
+          "Equal": 729,
+          "Gather": 1979,
+          "Gemm": 20,
+          "Greater": 1146,
+          "Less": 1049,
+          "Mul": 28726,
+          "Neg": 969,
+          "Not": 486,
+          "Or": 243,
+          "ReduceMax": 1723,
+          "ReduceMean": 4,
+          "ReduceSum": 2635,
+          "Relu": 16,
+          "Reshape": 1292,
+          "Sin": 340,
+          "Slice": 11114,
+          "Softmax": 4,
+          "Sqrt": 2629,
+          "Sub": 4185,
+          "Unsqueeze": 1935,
+          "Where": 2438
+        },
+        "elementwise_scalar_evaluations": {
+          "Add": 7787,
+          "Sub": 4185,
+          "Mul": 28726,
+          "Div": 15672,
+          "Sqrt": 2629,
+          "Sin": 340,
+          "Cos": 340,
+          "Atan": 563,
+          "Abs": 7455,
+          "Neg": 969,
+          "Relu": 16
+        },
+        "reduction_scalar_additions": 7312,
+        "reduction_scalar_divisions": 4,
+        "reduction_max_comparisons": 5169,
+        "gemm_bias_additions": 20,
+        "unknown_output_shape_nodes": [],
+        "selector_dense_macs": 224,
+        "cost_scope": "static ONNX operator output elements plus reduction arithmetic; not total MACs or latency",
+        "algorithm_workload": {
+          "parameters": 244,
+          "selector_dense_macs": 224,
+          "mac_definition": "one dense weight multiplication and accumulation; biases/nonlinear/geometry excluded",
+          "stateless_context_samples": 400,
+          "earliest_context_index_used": 260,
+          "velocity_relative_quaternions": 243,
+          "replayed_expert_quaternions": 320,
+          "replayed_geodesic_errors": 320,
+          "output_quaternions": 20,
+          "replay_horizons": 1
+        }
+      },
+      "parity": {
+        "train": {
+          "eager_cpu": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.038122936078711,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.038123320968632,
+            "sampled_mean_endpoint20_error_change_deg": 3.8488992082363893e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 3.8488992082363893e-07,
+            "max_trajectory_geodesic_drift_deg": 0.0001175783159651274,
+            "mean_trajectory_geodesic_drift_deg": 1.4940303777731595e-05,
+            "max_output_norm_deviation": 1.6049423900987847e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.038122936078711,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.038123323245536,
+            "sampled_mean_endpoint20_error_change_deg": 3.871668248223159e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 3.871668248223159e-07,
+            "max_trajectory_geodesic_drift_deg": 0.00011879198078432039,
+            "mean_trajectory_geodesic_drift_deg": 1.4719202838998635e-05,
+            "max_output_norm_deviation": 1.2559352668972679e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.038122936078711,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.03812270654607,
+            "sampled_mean_endpoint20_error_change_deg": -2.295326408940923e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.295326408940923e-07,
+            "max_trajectory_geodesic_drift_deg": 0.00011757656091532542,
+            "mean_trajectory_geodesic_drift_deg": 1.4725620201944921e-05,
+            "max_output_norm_deviation": 1.343635165351742e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 8.451956440911074e-05
+        },
+        "development": {
+          "eager_cpu": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.017619967291724,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.017622751287048,
+            "sampled_mean_endpoint20_error_change_deg": 2.7839953240516024e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.7839953240516024e-06,
+            "max_trajectory_geodesic_drift_deg": 8.358670789887013e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.37171210429069e-05,
+            "max_output_norm_deviation": 1.4278179194526786e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.017619967291724,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.017622362531439,
+            "sampled_mean_endpoint20_error_change_deg": 2.395239715013986e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.395239715013986e-06,
+            "max_trajectory_geodesic_drift_deg": 9.3741686343604e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.3654866097619846e-05,
+            "max_output_norm_deviation": 1.2311441555112879e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.017619967291724,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.017622505512028,
+            "sampled_mean_endpoint20_error_change_deg": 2.538220304160177e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.538220304160177e-06,
+            "max_trajectory_geodesic_drift_deg": 9.336442132838391e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.3532329801784337e-05,
+            "max_output_norm_deviation": 1.1630486518310335e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 6.148394797713088e-05
+        }
+      },
+      "latency": {
+        "eager_cpu": {
+          "median_ms": 0.79855,
+          "p95_ms": 1.02883,
+          "p99_ms": 1.2428379999999999,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "ORT_CPU": {
+          "median_ms": 0.42875,
+          "p95_ms": 0.52308,
+          "p99_ms": 0.670915,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "eager_CUDA": {
+          "median_ms": 3.905120015144348,
+          "p95_ms": 8.278673315048213,
+          "p99_ms": 11.458990583419796,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "synchronized_CUDA_events_resident_input",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target",
+          "synchronized_wall": {
+            "median_ms": 3.92875,
+            "p95_ms": 8.334164999999993,
+            "p99_ms": 11.506151999999997,
+            "repetitions": 500,
+            "warmup": 50,
+            "clock": "CPU_perf_counter_ns_with_CUDA_synchronization",
+            "batch_size": 1,
+            "resident_input": true,
+            "file_IO_included": false,
+            "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+          }
+        }
+      },
+      "synthetic_actual_checkpoint_probe": {
+        "cases": 4,
+        "synthetic_inputs_only": true,
+        "max_trajectory_drift_deg": {
+          "eager_cpu": 0.00029693403177878593,
+          "ORT_CPU": 0.0002903474709366059,
+          "eager_CUDA": 0.0002903474709366059
+        },
+        "fixed_gate_deg": 0.02
+      },
+      "all_fixed_numerical_gates_passed": true
+    },
+    "complete_horizon": {
+      "variant": "complete_horizon",
+      "seed": 20261026,
+      "evidence_length": 80,
+      "trainable_parameters": 244,
+      "graph_bytes": 68455,
+      "graph_sha256": "612767daae0c4ca66fa0988605ef1922367f08dc3eb525bfad1c15c9f40d2201",
+      "inventory": {
+        "opset_imports": {
+          "ai.onnx": 17
+        },
+        "signature": {
+          "inputs": {
+            "context": [
+              1,
+              400,
+              4
+            ]
+          },
+          "outputs": {
+            "prediction": [
+              1,
+              20,
+              4
+            ]
+          }
+        },
+        "operators": {
+          "Abs": 10,
+          "Add": 34,
+          "And": 1,
+          "Atan": 2,
+          "Clip": 21,
+          "Concat": 10,
+          "Constant": 254,
+          "Cos": 2,
+          "Div": 24,
+          "Equal": 3,
+          "Gather": 11,
+          "Gemm": 2,
+          "Greater": 5,
+          "Less": 4,
+          "Mul": 90,
+          "Neg": 2,
+          "Not": 2,
+          "Or": 1,
+          "ReduceMax": 8,
+          "ReduceMean": 1,
+          "ReduceSum": 15,
+          "Relu": 1,
+          "Reshape": 2,
+          "Sin": 2,
+          "Slice": 48,
+          "Softmax": 1,
+          "Sqrt": 13,
+          "Sub": 19,
+          "Unsqueeze": 7,
+          "Where": 10
+        },
+        "tensor_types": {
+          "BOOL": 16,
+          "FLOAT": 441,
+          "INT64": 417
+        },
+        "domains": [
+          ""
+        ],
+        "node_count": 605,
+        "file_bytes": 68455,
+        "operator_output_elements": {
+          "Abs": 92575,
+          "Add": 111147,
+          "And": 243,
+          "Atan": 6643,
+          "Clip": 49635,
+          "Concat": 86286,
+          "Constant": 503,
+          "Cos": 6420,
+          "Div": 185912,
+          "Equal": 729,
+          "Gather": 14139,
+          "Gemm": 20,
+          "Greater": 13306,
+          "Less": 7129,
+          "Mul": 387446,
+          "Neg": 5529,
+          "Not": 486,
+          "Or": 243,
+          "ReduceMax": 21483,
+          "ReduceMean": 4,
+          "ReduceSum": 34555,
+          "Relu": 16,
+          "Reshape": 7372,
+          "Sin": 6420,
+          "Slice": 96234,
+          "Softmax": 4,
+          "Sqrt": 34549,
+          "Sub": 58905,
+          "Unsqueeze": 1935,
+          "Where": 20678
+        },
+        "elementwise_scalar_evaluations": {
+          "Add": 111147,
+          "Sub": 58905,
+          "Mul": 387446,
+          "Div": 185912,
+          "Sqrt": 34549,
+          "Sin": 6420,
+          "Cos": 6420,
+          "Atan": 6643,
+          "Abs": 92575,
+          "Neg": 5529,
+          "Relu": 16
+        },
+        "reduction_scalar_additions": 96992,
+        "reduction_scalar_divisions": 4,
+        "reduction_max_comparisons": 64449,
+        "gemm_bias_additions": 20,
+        "unknown_output_shape_nodes": [],
+        "selector_dense_macs": 224,
+        "cost_scope": "static ONNX operator output elements plus reduction arithmetic; not total MACs or latency",
+        "algorithm_workload": {
+          "parameters": 244,
+          "selector_dense_macs": 224,
+          "mac_definition": "one dense weight multiplication and accumulation; biases/nonlinear/geometry excluded",
+          "stateless_context_samples": 400,
+          "earliest_context_index_used": 280,
+          "velocity_relative_quaternions": 243,
+          "replayed_expert_quaternions": 6400,
+          "replayed_geodesic_errors": 6400,
+          "output_quaternions": 20,
+          "replay_horizons": 20
+        }
+      },
+      "parity": {
+        "train": {
+          "eager_cpu": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.034056797583664,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.034056884556225,
+            "sampled_mean_endpoint20_error_change_deg": 8.697256159706512e-08,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 8.697256159706512e-08,
+            "max_trajectory_geodesic_drift_deg": 0.00011757656495534395,
+            "mean_trajectory_geodesic_drift_deg": 1.5025524706174005e-05,
+            "max_output_norm_deviation": 1.5904065064908934e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.034056797583664,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.0340567070672995,
+            "sampled_mean_endpoint20_error_change_deg": -9.051636418178077e-08,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 9.051636418178077e-08,
+            "max_trajectory_geodesic_drift_deg": 0.00011597141058046912,
+            "mean_trajectory_geodesic_drift_deg": 1.488759043719828e-05,
+            "max_output_norm_deviation": 1.2463719856192768e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.034056797583664,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.034056434075301,
+            "sampled_mean_endpoint20_error_change_deg": -3.635083629660585e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 3.635083629660585e-07,
+            "max_trajectory_geodesic_drift_deg": 0.00011757656495534395,
+            "mean_trajectory_geodesic_drift_deg": 1.4893645706038134e-05,
+            "max_output_norm_deviation": 1.280500465661305e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 8.128771939342093e-05
+        },
+        "development": {
+          "eager_cpu": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.010597497037534,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.010600250310318,
+            "sampled_mean_endpoint20_error_change_deg": 2.753272783984073e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.753272783984073e-06,
+            "max_trajectory_geodesic_drift_deg": 9.590592923212389e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.4097156007026051e-05,
+            "max_output_norm_deviation": 1.363764179362903e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.010597497037534,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.010600126819337,
+            "sampled_mean_endpoint20_error_change_deg": 2.629781802987452e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.629781802987452e-06,
+            "max_trajectory_geodesic_drift_deg": 9.716608435238598e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.3910469837922839e-05,
+            "max_output_norm_deviation": 1.2502208268649895e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.010597497037534,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.010600219744869,
+            "sampled_mean_endpoint20_error_change_deg": 2.7227073342572794e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.7227073342572794e-06,
+            "max_trajectory_geodesic_drift_deg": 9.680205522738858e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.385489553229343e-05,
+            "max_output_norm_deviation": 1.233385473753401e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 6.676697767863402e-05
+        }
+      },
+      "latency": {
+        "eager_cpu": {
+          "median_ms": 2.69435,
+          "p95_ms": 5.426459999999998,
+          "p99_ms": 6.975022999999994,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "ORT_CPU": {
+          "median_ms": 3.5903,
+          "p95_ms": 5.8015099999999995,
+          "p99_ms": 7.065373999999998,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "eager_CUDA": {
+          "median_ms": 3.5906240940093994,
+          "p95_ms": 4.4652543544769285,
+          "p99_ms": 5.150892958641049,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "synchronized_CUDA_events_resident_input",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target",
+          "synchronized_wall": {
+            "median_ms": 3.60595,
+            "p95_ms": 4.48429,
+            "p99_ms": 5.616410999999999,
+            "repetitions": 500,
+            "warmup": 50,
+            "clock": "CPU_perf_counter_ns_with_CUDA_synchronization",
+            "batch_size": 1,
+            "resident_input": true,
+            "file_IO_included": false,
+            "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+          }
+        }
+      },
+      "synthetic_actual_checkpoint_probe": {
+        "cases": 4,
+        "synthetic_inputs_only": true,
+        "max_trajectory_drift_deg": {
+          "eager_cpu": 0.00029693403177878593,
+          "ORT_CPU": 0.0002903474709366059,
+          "eager_CUDA": 0.0002903474709366059
+        },
+        "fixed_gate_deg": 0.02
+      },
+      "all_fixed_numerical_gates_passed": true
+    },
+    "motion_only": {
+      "variant": "motion_only",
+      "seed": 20261026,
+      "evidence_length": 80,
+      "trainable_parameters": 244,
+      "graph_bytes": 45725,
+      "graph_sha256": "e089a79c82b068d0cf69b1593a6bfb9a3a1e6c88542f6706225e88226f19ca20",
+      "inventory": {
+        "opset_imports": {
+          "ai.onnx": 17
+        },
+        "signature": {
+          "inputs": {
+            "context": [
+              1,
+              400,
+              4
+            ]
+          },
+          "outputs": {
+            "prediction": [
+              1,
+              20,
+              4
+            ]
+          }
+        },
+        "operators": {
+          "Abs": 7,
+          "Add": 26,
+          "And": 2,
+          "Atan": 2,
+          "Clip": 15,
+          "Concat": 8,
+          "Constant": 232,
+          "Cos": 1,
+          "Div": 19,
+          "Equal": 6,
+          "Gather": 11,
+          "Gemm": 2,
+          "Greater": 5,
+          "Less": 6,
+          "Mul": 71,
+          "Neg": 2,
+          "Not": 4,
+          "Or": 2,
+          "ReduceMax": 5,
+          "ReduceSum": 13,
+          "Relu": 1,
+          "Reshape": 1,
+          "Sin": 1,
+          "Slice": 43,
+          "Softmax": 1,
+          "Sqrt": 11,
+          "Sub": 16,
+          "Unsqueeze": 4,
+          "Where": 13
+        },
+        "tensor_types": {
+          "BOOL": 25,
+          "FLOAT": 380,
+          "INT64": 370
+        },
+        "domains": [
+          ""
+        ],
+        "node_count": 530,
+        "file_bytes": 45725,
+        "operator_output_elements": {
+          "Abs": 1780,
+          "Add": 196,
+          "And": 4,
+          "Atan": 4,
+          "Clip": 918,
+          "Concat": 214,
+          "Constant": 237,
+          "Cos": 20,
+          "Div": 3603,
+          "Equal": 12,
+          "Gather": 66,
+          "Gemm": 20,
+          "Greater": 28,
+          "Less": 12,
+          "Mul": 2449,
+          "Neg": 12,
+          "Not": 8,
+          "Or": 4,
+          "ReduceMax": 444,
+          "ReduceSum": 481,
+          "Relu": 16,
+          "Reshape": 12,
+          "Sin": 20,
+          "Slice": 177,
+          "Softmax": 4,
+          "Sqrt": 475,
+          "Sub": 119,
+          "Unsqueeze": 15,
+          "Where": 44
+        },
+        "elementwise_scalar_evaluations": {
+          "Add": 196,
+          "Sub": 119,
+          "Mul": 2449,
+          "Div": 3603,
+          "Sqrt": 475,
+          "Sin": 20,
+          "Cos": 20,
+          "Atan": 4,
+          "Abs": 1780,
+          "Neg": 12,
+          "Relu": 16
+        },
+        "reduction_scalar_additions": 1409,
+        "reduction_scalar_divisions": 0,
+        "reduction_max_comparisons": 1332,
+        "gemm_bias_additions": 20,
+        "unknown_output_shape_nodes": [],
+        "selector_dense_macs": 224,
+        "cost_scope": "static ONNX operator output elements plus reduction arithmetic; not total MACs or latency",
+        "algorithm_workload": {
+          "parameters": 244,
+          "selector_dense_macs": 224,
+          "mac_definition": "one dense weight multiplication and accumulation; biases/nonlinear/geometry excluded",
+          "stateless_context_samples": 400,
+          "earliest_context_index_used": 299,
+          "velocity_relative_quaternions": 3,
+          "replayed_expert_quaternions": 0,
+          "replayed_geodesic_errors": 0,
+          "output_quaternions": 20,
+          "replay_horizons": 0
+        }
+      },
+      "parity": {
+        "train": {
+          "eager_cpu": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 3.9542676176761935,
+            "emitted_sampled_mean_endpoint20_error_deg": 3.954267974640968,
+            "sampled_mean_endpoint20_error_change_deg": 3.569647746282101e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 3.569647746282101e-07,
+            "max_trajectory_geodesic_drift_deg": 0.0001231370967868368,
+            "mean_trajectory_geodesic_drift_deg": 1.5482089294797883e-05,
+            "max_output_norm_deviation": 1.5664677877058608e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 3.9542676176761935,
+            "emitted_sampled_mean_endpoint20_error_deg": 3.954268007657399,
+            "sampled_mean_endpoint20_error_change_deg": 3.899812055507823e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 3.899812055507823e-07,
+            "max_trajectory_geodesic_drift_deg": 0.0001231355508967029,
+            "mean_trajectory_geodesic_drift_deg": 1.5384015070076697e-05,
+            "max_output_norm_deviation": 1.3675740928587032e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 3.9542676176761935,
+            "emitted_sampled_mean_endpoint20_error_deg": 3.9542674825607205,
+            "sampled_mean_endpoint20_error_change_deg": -1.3511547303224347e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 1.3511547303224347e-07,
+            "max_trajectory_geodesic_drift_deg": 0.0001231370967868368,
+            "mean_trajectory_geodesic_drift_deg": 1.5407670085013315e-05,
+            "max_output_norm_deviation": 1.2162315543573499e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 9.200159628275103e-05
+        },
+        "development": {
+          "eager_cpu": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 3.9747786380210206,
+            "emitted_sampled_mean_endpoint20_error_deg": 3.9747809981496314,
+            "sampled_mean_endpoint20_error_change_deg": 2.360128610767731e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.360128610767731e-06,
+            "max_trajectory_geodesic_drift_deg": 0.0001384226619324089,
+            "mean_trajectory_geodesic_drift_deg": 1.4480959824547279e-05,
+            "max_output_norm_deviation": 1.331915928659555e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 3.9747786380210206,
+            "emitted_sampled_mean_endpoint20_error_deg": 3.97478066305536,
+            "sampled_mean_endpoint20_error_change_deg": 2.025034339325771e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.025034339325771e-06,
+            "max_trajectory_geodesic_drift_deg": 0.0001355968627577938,
+            "mean_trajectory_geodesic_drift_deg": 1.4299754974848568e-05,
+            "max_output_norm_deviation": 1.197295576016444e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 3.9747786380210206,
+            "emitted_sampled_mean_endpoint20_error_deg": 3.9747810316275665,
+            "sampled_mean_endpoint20_error_change_deg": 2.3936065458585176e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.3936065458585176e-06,
+            "max_trajectory_geodesic_drift_deg": 0.00013562849698944105,
+            "mean_trajectory_geodesic_drift_deg": 1.4281162774820186e-05,
+            "max_output_norm_deviation": 1.1314232473136343e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 7.940409893749459e-05
+        }
+      },
+      "latency": {
+        "eager_cpu": {
+          "median_ms": 0.4839,
+          "p95_ms": 0.6699299999999998,
+          "p99_ms": 0.8103899999999995,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "ORT_CPU": {
+          "median_ms": 0.1416,
+          "p95_ms": 0.1651149999999999,
+          "p99_ms": 0.22422899999999968,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "eager_CUDA": {
+          "median_ms": 3.107919931411743,
+          "p95_ms": 3.7487040519714334,
+          "p99_ms": 4.161265335083007,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "synchronized_CUDA_events_resident_input",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target",
+          "synchronized_wall": {
+            "median_ms": 3.13075,
+            "p95_ms": 3.81719,
+            "p99_ms": 4.3195739999999985,
+            "repetitions": 500,
+            "warmup": 50,
+            "clock": "CPU_perf_counter_ns_with_CUDA_synchronization",
+            "batch_size": 1,
+            "resident_input": true,
+            "file_IO_included": false,
+            "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+          }
+        }
+      },
+      "synthetic_actual_checkpoint_probe": {
+        "cases": 4,
+        "synthetic_inputs_only": true,
+        "max_trajectory_drift_deg": {
+          "eager_cpu": 0.00029693403177878593,
+          "ORT_CPU": 0.0002903474709366059,
+          "eager_CUDA": 0.0002903474709366059
+        },
+        "fixed_gate_deg": 0.02
+      },
+      "all_fixed_numerical_gates_passed": true
+    },
+    "h1_a19": {
+      "variant": "h1_a19",
+      "seed": 20261026,
+      "evidence_length": 80,
+      "trainable_parameters": 244,
+      "graph_bytes": 56218,
+      "graph_sha256": "fc8d19e1d401feb4576c70debdce91bd9b863c4d84fa278c1e08e79d033c736e",
+      "inventory": {
+        "opset_imports": {
+          "ai.onnx": 17
+        },
+        "signature": {
+          "inputs": {
+            "context": [
+              1,
+              400,
+              4
+            ]
+          },
+          "outputs": {
+            "prediction": [
+              1,
+              20,
+              4
+            ]
+          }
+        },
+        "operators": {
+          "Abs": 10,
+          "Add": 34,
+          "And": 1,
+          "Atan": 2,
+          "Clip": 21,
+          "Concat": 10,
+          "Constant": 254,
+          "Cos": 2,
+          "Div": 24,
+          "Equal": 3,
+          "Gather": 11,
+          "Gemm": 2,
+          "Greater": 5,
+          "Less": 4,
+          "Mul": 90,
+          "Neg": 2,
+          "Not": 2,
+          "Or": 1,
+          "ReduceMax": 8,
+          "ReduceMean": 1,
+          "ReduceSum": 15,
+          "Relu": 1,
+          "Reshape": 2,
+          "Sin": 2,
+          "Slice": 48,
+          "Softmax": 1,
+          "Sqrt": 13,
+          "Sub": 19,
+          "Unsqueeze": 7,
+          "Where": 10
+        },
+        "tensor_types": {
+          "BOOL": 16,
+          "FLOAT": 441,
+          "INT64": 417
+        },
+        "domains": [
+          ""
+        ],
+        "node_count": 605,
+        "file_bytes": 56218,
+        "operator_output_elements": {
+          "Abs": 7455,
+          "Add": 7787,
+          "And": 243,
+          "Atan": 563,
+          "Clip": 4035,
+          "Concat": 7246,
+          "Constant": 503,
+          "Cos": 340,
+          "Div": 15672,
+          "Equal": 729,
+          "Gather": 1979,
+          "Gemm": 20,
+          "Greater": 1146,
+          "Less": 1049,
+          "Mul": 28726,
+          "Neg": 969,
+          "Not": 486,
+          "Or": 243,
+          "ReduceMax": 1723,
+          "ReduceMean": 4,
+          "ReduceSum": 2635,
+          "Relu": 16,
+          "Reshape": 1292,
+          "Sin": 340,
+          "Slice": 11114,
+          "Softmax": 4,
+          "Sqrt": 2629,
+          "Sub": 4185,
+          "Unsqueeze": 1935,
+          "Where": 2438
+        },
+        "elementwise_scalar_evaluations": {
+          "Add": 7787,
+          "Sub": 4185,
+          "Mul": 28726,
+          "Div": 15672,
+          "Sqrt": 2629,
+          "Sin": 340,
+          "Cos": 340,
+          "Atan": 563,
+          "Abs": 7455,
+          "Neg": 969,
+          "Relu": 16
+        },
+        "reduction_scalar_additions": 7312,
+        "reduction_scalar_divisions": 4,
+        "reduction_max_comparisons": 5169,
+        "gemm_bias_additions": 20,
+        "unknown_output_shape_nodes": [],
+        "selector_dense_macs": 224,
+        "cost_scope": "static ONNX operator output elements plus reduction arithmetic; not total MACs or latency",
+        "algorithm_workload": {
+          "parameters": 244,
+          "selector_dense_macs": 224,
+          "mac_definition": "one dense weight multiplication and accumulation; biases/nonlinear/geometry excluded",
+          "stateless_context_samples": 400,
+          "earliest_context_index_used": 280,
+          "velocity_relative_quaternions": 243,
+          "replayed_expert_quaternions": 320,
+          "replayed_geodesic_errors": 320,
+          "output_quaternions": 20,
+          "replay_horizons": 1
+        }
+      },
+      "parity": {
+        "train": {
+          "eager_cpu": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.036954097720607,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.036954160706995,
+            "sampled_mean_endpoint20_error_change_deg": 6.298638766111253e-08,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 6.298638766111253e-08,
+            "max_trajectory_geodesic_drift_deg": 0.00012153249686963108,
+            "mean_trajectory_geodesic_drift_deg": 1.49385929207432e-05,
+            "max_output_norm_deviation": 1.4399415271260096e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.036954097720607,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.03695425014073,
+            "sampled_mean_endpoint20_error_change_deg": 1.524201227454114e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 1.524201227454114e-07,
+            "max_trajectory_geodesic_drift_deg": 0.00012153249686963108,
+            "mean_trajectory_geodesic_drift_deg": 1.4780281131863758e-05,
+            "max_output_norm_deviation": 1.2085482026247263e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 390,
+            "output_quaternions": 7800,
+            "reference_sampled_mean_endpoint20_error_deg": 4.036954097720607,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.036953811427458,
+            "sampled_mean_endpoint20_error_change_deg": -2.8629314918759974e-07,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.8629314918759974e-07,
+            "max_trajectory_geodesic_drift_deg": 0.00012153249686963108,
+            "mean_trajectory_geodesic_drift_deg": 1.478130066705508e-05,
+            "max_output_norm_deviation": 1.252401162776806e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 8.177941584363002e-05
+        },
+        "development": {
+          "eager_cpu": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.016457907560912,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.016460823752576,
+            "sampled_mean_endpoint20_error_change_deg": 2.916191664148471e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.916191664148471e-06,
+            "max_trajectory_geodesic_drift_deg": 0.00010115601290078209,
+            "mean_trajectory_geodesic_drift_deg": 1.3985169085190557e-05,
+            "max_output_norm_deviation": 1.4430213290950178e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_CPU": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.016457907560912,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.0164602502739974,
+            "sampled_mean_endpoint20_error_change_deg": 2.342713085745629e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.342713085745629e-06,
+            "max_trajectory_geodesic_drift_deg": 9.969839819699101e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.3928083753290725e-05,
+            "max_output_norm_deviation": 1.2016184358643045e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "eager_CUDA": {
+            "contexts": 130,
+            "output_quaternions": 2600,
+            "reference_sampled_mean_endpoint20_error_deg": 4.016457907560912,
+            "emitted_sampled_mean_endpoint20_error_deg": 4.016460373233792,
+            "sampled_mean_endpoint20_error_change_deg": 2.465672880092029e-06,
+            "absolute_sampled_mean_endpoint20_error_change_deg": 2.465672880092029e-06,
+            "max_trajectory_geodesic_drift_deg": 9.969839819699101e-05,
+            "mean_trajectory_geodesic_drift_deg": 1.3785844958051257e-05,
+            "max_output_norm_deviation": 1.248543648468825e-07,
+            "all_outputs_finite": true,
+            "numerical_gate_checks": {
+              "trajectory_drift_within_fixed_0_02_deg": true,
+              "absolute_partition_mean_endpoint_error_change_within_fixed_0_01_deg": true
+            }
+          },
+          "ORT_vs_eager_CPU_max_trajectory_drift_deg": 6.777782986844321e-05
+        }
+      },
+      "latency": {
+        "eager_cpu": {
+          "median_ms": 0.87175,
+          "p95_ms": 1.4391749999999999,
+          "p99_ms": 1.5649729999999997,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "ORT_CPU": {
+          "median_ms": 0.43865,
+          "p95_ms": 0.66001,
+          "p99_ms": 0.8167899999999997,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "CPU_perf_counter_ns_wall",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+        },
+        "eager_CUDA": {
+          "median_ms": 3.8516799211502075,
+          "p95_ms": 9.519105911254881,
+          "p99_ms": 13.257856464385986,
+          "repetitions": 500,
+          "warmup": 50,
+          "clock": "synchronized_CUDA_events_resident_input",
+          "batch_size": 1,
+          "resident_input": true,
+          "file_IO_included": false,
+          "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target",
+          "synchronized_wall": {
+            "median_ms": 3.87615,
+            "p95_ms": 9.599305,
+            "p99_ms": 13.296785,
+            "repetitions": 500,
+            "warmup": 50,
+            "clock": "CPU_perf_counter_ns_with_CUDA_synchronization",
+            "batch_size": 1,
+            "resident_input": true,
+            "file_IO_included": false,
+            "scope": "local_full_stateless_400_to_20_forward_not_organizer_XR_target"
+          }
+        }
+      },
+      "synthetic_actual_checkpoint_probe": {
+        "cases": 4,
+        "synthetic_inputs_only": true,
+        "max_trajectory_drift_deg": {
+          "eager_cpu": 0.00029693403177878593,
+          "ORT_CPU": 0.0002903474709366059,
+          "eager_CUDA": 0.0002903474709366059
+        },
+        "fixed_gate_deg": 0.02
+      },
+      "all_fixed_numerical_gates_passed": true
+    }
+  },
+  "sampling": {
+    "train": {
+      "users": 15,
+      "contexts": 390,
+      "contexts_per_user": 26,
+      "population_windows": 3330312
+    },
+    "development": {
+      "users": 5,
+      "contexts": 130,
+      "contexts_per_user": 26,
+      "population_windows": 1189027
+    }
+  },
+  "sample_schedule_sha256": "f143cfc07845400a6d1fc80d3ae7c831ba6cfeac7d4f92dd619fb46095b0a7cd",
+  "config_sha256": "b1a19605be10d1bba298cba698e5692bbcdcd638e3084e5a2c672275138e542b",
+  "bindings": {
+    "main_receipt_sha256": "d618b05d5490f7abef80743213b8e60a814ef76b70059b0b12982ddc18bbeadd",
+    "main_artifact_sha256": {
+      "experiment_plan.json": "dc8f1c9db364ae0af87797e6965321be6e579e00c0ecc80ed0c9084a5635a9b0",
+      "errors.h5": "a3af43e5772c2f97b03f45ac9de7cf3fdf75c592fdf59e9e12e68a1a744df8e2",
+      "diagnostics.h5": "8599294de087ae24bb460b5926d6c55b9440713532ed0f5d89f7be1e12f12260",
+      "private_user_stats.json": "169b4ea3c01c00432830fd8101e57e2901775af9ea4c30c57bccd8d45133b55d",
+      "training_receipts.json": "e60f0b12cb4f1b85255171c23b20e96be5992b1fb6faa7e1158ea0254a711282",
+      "summary.json": "3c2fb6cb85d2d62d63c9e7ebcc7adca02997d6a36d618ae2f7de0cf69ef1291a",
+      "sampled_train_origins_seed_20261026.npy": "6ab875fc0769f228633ce48c28fbd14b0a2b136c4118aebfc7664c34e0d0aafe",
+      "sampled_train_origins_seed_20261027.npy": "ec012c162df05c62eda088b0286ae1ae0fdbe7ef504ee2cd58d5aabb60af1b7d"
+    },
+    "main_checkpoint_sha256": {
+      "Selector_h1_a0_seed_20261026": "d2b09f53480ae88841e1ca6a9a5c5c284c891479c87a6e47bd8b9cfcb2f56c34",
+      "Selector_h20_a0_seed_20261026": "28f2521715588f5ae7f38b83955aa6c9f16d9181f0dcd7f6fba87e2042766bfc",
+      "Selector_h20_a20_seed_20261026": "ca6e4fb359edd22ffa73d07967575d08a215135afba71e8f20977723417ffdae",
+      "Selector_complete_horizon_seed_20261026": "9d8808c14ee01be4c7cc6f44e9b48b5477ed86a249e954f1e8b9c9a9ea1bc665",
+      "Selector_motion_only_seed_20261026": "63ac30797a163b46692e7a54911ef3cb7a0b56f3a7b684f60594166ecb872bf1",
+      "Selector_h1_a19_seed_20261026": "d81fed3f56b449ed5ef21f273ba6b25d7003f3b82de5d015c77384af244fc2b0",
+      "Selector_h1_a0_seed_20261027": "8672404df57150c113ea0e890ea32f0678eea9e4a51bf15b7e4ba21c0f213ba3",
+      "Selector_h20_a0_seed_20261027": "d37ffca30409e641ca0af5b60ebed9437fda40d9e39abcd3208929d43a9dd7b9",
+      "Selector_h20_a20_seed_20261027": "26c71bce8fbadbabc8b93aa262a3bb79d8d85ee417bd5c01938810331119f39f",
+      "Selector_complete_horizon_seed_20261027": "1ed778308e561bb2f647e4382dbdbb420c0628dae9760996d5da31268484d69f",
+      "Selector_motion_only_seed_20261027": "347887732f2453a0d78e3c126c5b41e1e9d80b38ed63a9a4a1f3186fd53d4bd3",
+      "Selector_h1_a19_seed_20261027": "08980ce4194d474584b294efcd45058afe2c9284c7b01d3a0a542acf92ed6483"
+    },
+    "bindings": {
+      "baseline_feature_cache_sha256": "41235cfba9cd00201dedabf06c65c1df56d424cd724d5aeb51f94bb4d6edc691",
+      "baseline_scalers_sha256": "d17a78dc01005a12450137b5d18ad64c681a6c963ab4aa8a5befc4a7899f14d1",
+      "source_hdf5_sha256": "0986c483c2dc800ff8be1a2a8d2e82d909193f4c3e7c9f7b1eae3e2ea055ea62",
+      "split_sha256": "9d7f342c15231a3f7f61fd8c9b95b75adc6aff641e7071d95a43a3832db49256",
+      "selector_config_sha256": "13f313a391504bae77a0e4bbc6de53d0383349c384a76ef984f46e4d0527e598",
+      "feature_receipt_sha256": "bfd15dc174dc8e12336ff0ff2ebae7f2ae504cda4fc071efb23c7bb3f4ea78b6",
+      "baseline_experiment_plan_sha256": "1e953572f72d3f65f0b140d307dea355ca78b24668edd6891641310f9019d082",
+      "baseline_analytic_errors_sha256": "00b0a37d602fc0b199a64e72ce699e095bb8a08e5b9cd717a45b0c81a32a17a1",
+      "baseline_analytic_user_statistics_sha256": "7712ba15be00eefa81cef8708abbf96660f1e6039615df398fd9d5e73a099c26"
+    },
+    "main_implementation_sources_sha256": {
+      "selector.py": "7ce8a292b562a4b3d07e34bcb83b04b1ca4b80b13087ed5ecb51f72af80fa83f",
+      "selector_experiment.py": "58604ef6d4522935560726bb3a2cd1d3c76ef199c2936c648a6f88b16a456e24",
+      "selector_metrics.py": "4f80ea3a25d22a6d8b31e2d7cbcf94ec6d069b3274e36aecd6714580d4eed430",
+      "stage.py": "895ea151b3fa97186952e57fb1ff0d00879c26a52a9512e26f3acd93b8c93bf7",
+      "evidence.py": "fc81f8efdddb8833497ac307ec10edaff5510a63968ba8cc76b090b9a6524687",
+      "geometry.py": "0a845c81029c6433562cb3d31b8ddbc531aab3fb0979f5eb6d18613ff71cbd14",
+      "evaluation.py": "4b6d7a23bcc883bbeca38a16b63b6f3bda5375f31912eef489efc77150726294"
+    },
+    "inference_implementation_sources_sha256": {
+      "inference_audit.py": "ea8c080e22e746b24617d173cb4cad22607b91f259602e4887068ec6ded85879",
+      "selector_inference.py": "103f41babfa32114d2f4c3389a1fb79b3656896498164f4532b5fa97c91b09a7",
+      "selector.py": "7ce8a292b562a4b3d07e34bcb83b04b1ca4b80b13087ed5ecb51f72af80fa83f",
+      "evidence.py": "fc81f8efdddb8833497ac307ec10edaff5510a63968ba8cc76b090b9a6524687",
+      "geometry.py": "0a845c81029c6433562cb3d31b8ddbc531aab3fb0979f5eb6d18613ff71cbd14",
+      "stage.py": "895ea151b3fa97186952e57fb1ff0d00879c26a52a9512e26f3acd93b8c93bf7",
+      "sources.py": "97218e8d2a689a2f7370711f8ce65a18d3b57d73c5f814a8edf109aca241e298"
+    }
+  },
+  "runtime": {
+    "python_version": "3.11.9",
+    "operating_system": "Windows",
+    "numpy_version": "2.4.6",
+    "torch_version": "2.9.1+cu128",
+    "torch_cuda_version": "12.8",
+    "onnx_version": "1.18.0",
+    "onnxruntime_version": "1.22.1",
+    "ORT_available_providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "ORT_measured_provider": "CPUExecutionProvider",
+    "ORT_intra_op_threads": 1,
+    "ORT_inter_op_threads": 1,
+    "torch_CPU_threads": 1,
+    "cuda_measured": true,
+    "tf32_matmul_allowed": false,
+    "cuda_autocast_enabled": false,
+    "device_name": "NVIDIA GeForce RTX 5050 Laptop GPU",
+    "timing_scope": "local_desktop_no_competing_study_local_batch1_not_organizer_XR_target",
+    "peak_allocated_vram_bytes": 10175488,
+    "peak_reserved_vram_bytes": 23068672
+  },
+  "audit_before": {
+    "source_hdf5_sha256": "0986c483c2dc800ff8be1a2a8d2e82d909193f4c3e7c9f7b1eae3e2ea055ea62",
+    "split_sha256": "9d7f342c15231a3f7f61fd8c9b95b75adc6aff641e7071d95a43a3832db49256",
+    "data_and_split_unchanged": true,
+    "final_quaternion_datasets_read": 0,
+    "accessed_user_count": 0,
+    "segment_reads": {
+      "train": 0,
+      "development": 0
+    }
+  },
+  "audit_after": {
+    "source_hdf5_sha256": "0986c483c2dc800ff8be1a2a8d2e82d909193f4c3e7c9f7b1eae3e2ea055ea62",
+    "split_sha256": "9d7f342c15231a3f7f61fd8c9b95b75adc6aff641e7071d95a43a3832db49256",
+    "data_and_split_unchanged": true,
+    "final_quaternion_datasets_read": 0,
+    "accessed_user_count": 20,
+    "segment_reads": {
+      "train": 52,
+      "development": 23
+    }
+  },
+  "checkpoint_choice": "first_predeclared_seed_for_every_variant_no_development_selection",
+  "seed": 20261026,
+  "sampled_score_scope": "balanced26_contexts_per_allowed_user_portability_diagnostic_not_all_window_accuracy",
+  "parameter_scope": "244_trainable_parameters_224_selector_dense_MACs_whole_graph_inventory_separate",
+  "latency_scope": "local_batch1_forward_excludes_file_IO_not_organizer_XR_target",
+  "final_holdout_evaluated": false,
+  "model_selection_performed": false,
+  "artifact_public": false,
+  "elapsed_seconds": 76.00159989998792
+}

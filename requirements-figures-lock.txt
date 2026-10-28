@@ -1,0 +1,2 @@
+# Optional aggregate-only scientific plotting; install base requirements first.
+matplotlib==3.11.1

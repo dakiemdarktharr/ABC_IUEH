@@ -107,10 +107,36 @@ NumPy and does not require PyTorch or a GPU.
 The six feature variants have ten raw columns each. Future endpoint losses are
 stored separately as labels. Train-only population scalers are ready for the
 later learned selector; analytic routers use raw past errors in degrees.
-The 244-parameter learned h1/h20 selector is outside this baseline stage.
+The 244-parameter learned h1/h20 selector is measured in the subsequent GPU
+stage below; it was outside the earlier baseline stage.
 Recordings, caches, per-user errors, scalers and weights remain private.
 See the [measured aggregate results](docs/baseline_results_2026-10-28.md) and
 [independent implementation review](docs/baseline_stage_review.md).
+
+## Selector GPU study and inference audit
+
+The follow-up selector study completed **20 GPU fits**: 12 R80 fits across six
+variants and two seeds, then eight h1/h20 sensitivity fits at R128 and R256.
+The development results are exploratory and do not meet the predeclared
+practical-improvement thresholds. The final 15 users remain sealed. A full
+reproduction requires the locally held source HDF5, split, baseline cache and
+train-only scalers whose hashes are bound in the configs; these data and model
+artifacts are not published.
+
+For the optional CUDA stage, install the pinned GPU build after the base setup
+above. The full reproduction commands, dependencies, output scope and measured
+results are in [reproduction notes](docs/reproduction.md). The [selector
+results](docs/selector_results_2026-10-28.md) include the aggregate metrics,
+limits and machine-readable JSON. The separate inference audit requires the
+optional ONNX dependencies. It measures portability and local cost, not
+challenge-device latency or predictive improvement.
+
+The local synthetic suite reported 329 passing tests; those checks do not
+recreate the GPU results. CI status for the published revision is available in
+[GitHub Actions](https://github.com/dakiemdarktharr/ABC_IUEH/actions).
+The paper source and PDF remain local for review; no preprint has been posted.
+JEPA/EBM experiments have not started. Alyx-only challenge eligibility and the
+20-sample / 100 Hz / 100 ms specification remain unresolved.
 
 ## Protocol and outputs
 

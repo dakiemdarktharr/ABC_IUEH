@@ -1,0 +1,14 @@
+{
+  "stage": "numerical_portability_and_local_cost_not_accuracy_selection",
+  "main_selector_study": "data/selector_runs/20261028_r80_gpu",
+  "variants": ["h1_a0", "h20_a0", "h20_a20", "complete_horizon", "motion_only", "h1_a19"],
+  "seed": 20261026,
+  "checkpoint_choice": "first_predeclared_seed_for_every_variant_no_development_selection",
+  "graph": {"input_name": "context", "input_shape": [1,400,4], "output_name": "prediction", "output_shape": [1,20,4], "dtype": "float32", "opset": 17, "dynamic_axes": false, "float64_allowed": false, "state": "stateless"},
+  "parity_sampling": {"partitions": ["train", "development"], "contexts_per_user": 26, "seed": 20261028, "sampling": "uniform_complete_origins_within_each_user_without_replacement"},
+  "numerical_gates": {"max_synthetic_trajectory_geodesic_drift_deg": 0.02, "max_sampled_real_trajectory_geodesic_drift_deg": 0.02, "absolute_sampled_mean_endpoint20_error_change_deg": 0.01, "interpretation": "numerical_portability_only_not_predictive_improvement"},
+  "latency": {"warmup": 50, "repetitions": 500, "CPU_ORT_threads": 1, "report": ["median_ms", "p95_ms", "p99_ms"], "scope": "local_batch1_forward_excludes_file_IO_not_organizer_XR_target", "CUDA_timing_if_measured": "synchronized_resident_input_kernel_time_separate_from_CPU_ORT"},
+  "parameter_count": {"trainable": 244, "selector_dense_MACs": 224, "whole_graph_cost": "operator_and_scalar_arithmetic_inventory_with_nonlinear_operations_separate"},
+  "final_access_allowed": false,
+  "artifact_public": false
+}

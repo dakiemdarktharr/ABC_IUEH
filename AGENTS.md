@@ -16,5 +16,7 @@ separate from code licensing. Do not download BOXRR until its recipient review
 requirements are resolved. Do not infer challenge eligibility from a permissive
 license or a successful alternative-dataset pilot.
 
-If delegating, all agents must use gpt-6.1-sol with xhigh reasoning and
-fork_turns="none". At most coordinator + three workers; no nested delegation.
+For the current paper goal, the user's newer instruction allows gpt-6.1-sol
+or gpt-6-luna with xhigh reasoning, chosen by workload, and fork_turns="none".
+At most coordinator + three workers; no nested delegation. Keep a recorded
+role/ownership/acceptance contract and use independent research/code review.
