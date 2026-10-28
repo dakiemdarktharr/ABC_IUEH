@@ -1,4 +1,5 @@
 import json
+import hashlib
 import pytest
 
 from abc_iueh.sources import (REMOTE, SOURCE_REVISION, _validated_record,
@@ -51,3 +52,62 @@ def test_negative_size_cannot_cancel_budget(tmp_path, monkeypatch):
 def test_source_identity_and_paths_are_bound(tmp_path, patch):
     with pytest.raises(ValueError):
         _validated_record({**record(), **patch}, tmp_path)
+
+
+def _mock_discovery(monkeypatch, mutation=None):
+    from abc_iueh import sources
+
+    entries, pointers = [], {}
+    for user, letter, size in [(42, "a", 100), (43, "b", 200)]:
+        path = f"players/{user}/2022-05-19/vr-controllers.csv.dvc"
+        body = (f"outs:\n- md5: {letter * 32}\n  size: {size}\n  path: vr-controllers.csv\n").encode()
+        entries.append({"path": path, "sha": str(user) * 20})
+        pointers[path] = body
+    if mutation == "content":
+        pointers[entries[0]["path"]] = pointers[entries[0]["path"]].replace(b"a" * 32, b"c" * 32)
+    elif mutation == "comment":
+        pointers[entries[0]["path"]] += b"# changed without changing parsed fields\n"
+    elif mutation == "path":
+        old = entries[0]["path"]
+        entries[0]["path"] = old.replace("2022-05-19", "2022-05-20")
+        pointers[entries[0]["path"]] = pointers.pop(old)
+    elif mutation == "missing":
+        entries.pop()
+    elif mutation == "duplicate":
+        entries.append(entries[0].copy())
+    raw_base = f"https://raw.githubusercontent.com/{sources.SOURCE_REPO}/{sources.SOURCE_REVISION}/"
+
+    def small_get(url, limit=8 * 1024 * 1024):
+        if "/git/trees/" in url:
+            return json.dumps({"truncated": False, "tree": entries}).encode()
+        path = url.removeprefix(raw_base)
+        if path == ".dvc/config":
+            return f"[remote]\nurl = {sources.REMOTE}\n".encode()
+        if path in {"Readme.md", "License.md"}:
+            return b"synthetic source terms\n"
+        if path in pointers:
+            return pointers[path]
+        pytest.fail("unexpected metadata request")
+
+    monkeypatch.setattr(sources, "_small_get", small_get)
+    # Frozen digest of these two original fixtures, not their mutated versions.
+    monkeypatch.setattr(sources, "POINTER_INVENTORY_SHA256",
+                        "7106c6596b4c4e81b19f5ef11f93e23d1b081e91c84c183802b9c882e07eb533")
+
+
+def test_discovery_accepts_reviewed_sha256_inventory(tmp_path, monkeypatch):
+    from abc_iueh.sources import discover_alyx
+    _mock_discovery(monkeypatch)
+    result = discover_alyx(tmp_path / "inventory.json")
+    assert result["recording_files"] == 2
+    body = b"outs:\n- md5: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n  size: 100\n  path: vr-controllers.csv\n"
+    assert result["records"][0]["pointer_sha256"] == hashlib.sha256(body).hexdigest()
+
+
+@pytest.mark.parametrize("mutation", ["content", "comment", "path", "missing", "duplicate"])
+def test_discovery_rejects_tampered_pointer_snapshot(tmp_path, monkeypatch, mutation):
+    from abc_iueh.sources import discover_alyx
+    _mock_discovery(monkeypatch, mutation)
+    with pytest.raises(ValueError, match="SHA-256 snapshot"):
+        discover_alyx(tmp_path / "inventory.json")
+    assert not (tmp_path / "inventory.json").exists()

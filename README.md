@@ -15,6 +15,8 @@ This is research infrastructure, not a trained submission. No head-motion foreca
 
 **Verified preparation run, 2026-10-28:** 70 source files verified; 67 of 69 sessions retained; 35 eligible users, 134 continuous segments and 8,026,425 quaternion samples. The user split is locked at **15 train / 5 development / 15 final** with seed20261026. HDF5 integrity checks and 49 synthetic tests passed. No model fitting or forecast-error evaluation has occurred. See the [aggregate preparation receipt](docs/data_preparation_summary.json); participant/session manifests and recordings are private.
 
+The subsequent [metadata-integrity update](docs/metadata_integrity.md) pins SHA-256 for the reviewed DVC pointer inventory, removes the SHA-1 computation, and adds six regression cases. The current suite contains **55 tests**; CI separately checks the reported Semgrep rule.
+
 ## Data-use status
 
 | Source | Current use decision |

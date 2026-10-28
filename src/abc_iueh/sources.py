@@ -11,6 +11,9 @@ from urllib.request import Request, urlopen
 
 SOURCE_REPO = "cschell/who-is-alyx"
 SOURCE_REVISION = "5da510121f99fc8a6cc51e570770ca93e5745646"
+# SHA-256 of the sorted (source path, SHA-256 of raw DVC pointer bytes) inventory.
+# This anchors the reviewed metadata independently of upstream Git object IDs.
+POINTER_INVENTORY_SHA256 = "a3a8cdcdf2a70ce6a28b0a09c7c688568bb457d7e2f8faae1dd3dc233932ecd9"
 REMOTE = "https://downloads.hci.informatik.uni-wuerzburg.de/cschell/who-is-alyx/"
 LICENSE_URL = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 MOTION_PATTERN = re.compile(r"^players/(\d+)/([^/]+)/(vr-controllers[^/]*\.csv)\.dvc$")
@@ -45,6 +48,14 @@ def _small_get(url, limit=8 * 1024 * 1024):
     return content
 
 
+def _verify_pointer_inventory(records):
+    entries = sorted(({"path": r["source_path"], "sha256": r["pointer_sha256"]}
+                      for r in records), key=lambda item: item["path"])
+    canonical = json.dumps(entries, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    if hashlib.sha256(canonical).hexdigest() != POINTER_INVENTORY_SHA256:
+        raise ValueError("DVC pointer inventory differs from the reviewed SHA-256 snapshot")
+
+
 def discover_alyx(output, revision=SOURCE_REVISION):
     """Read only public repository metadata, not recording bodies."""
     if revision != SOURCE_REVISION:
@@ -70,9 +81,7 @@ def discover_alyx(output, revision=SOURCE_REVISION):
     def read_pointer(candidate):
         entry, (user, session, filename) = candidate
         pointer_bytes = _small_get(raw_base + entry["path"], limit=16384)
-        blob_digest = hashlib.sha1(b"blob " + str(len(pointer_bytes)).encode() + b"\0" + pointer_bytes).hexdigest()
-        if blob_digest != entry["sha"]:
-            raise ValueError("DVC pointer does not match pinned repository blob")
+        pointer_sha256 = hashlib.sha256(pointer_bytes).hexdigest()
         pointer = pointer_bytes.decode("utf-8")
         checksum = re.search(r"(?:^|\s)md5:\s*([0-9a-f]{32})(?:\s|$)", pointer)
         size = re.search(r"(?:^|\s)size:\s*(\d+)(?:\s|$)", pointer)
@@ -84,14 +93,17 @@ def discover_alyx(output, revision=SOURCE_REVISION):
         return {"source": "whoisalyx", "user_id": f"alyx_{int(user):02d}",
                 "session_id": session, "source_path": entry["path"],
                 "pointer_blob_sha": entry["sha"], "source_revision": revision,
+                "pointer_sha256": pointer_sha256,
                 "expected_bytes": int(size[1]), "md5": md5,
                 "url": REMOTE + md5[:2] + "/" + md5[2:], "relative_path": relative}
 
     with ThreadPoolExecutor(max_workers=4) as pool:
         records = list(pool.map(read_pointer, candidates))
     records.sort(key=lambda r: r["source_path"])
+    _verify_pointer_inventory(records)
     manifest = {"schema_version": 1, "created_utc": utc_now(), "source": "whoisalyx",
                 "repository": SOURCE_REPO, "revision": revision,
+                "pointer_inventory_sha256": POINTER_INVENTORY_SHA256,
                 "license": "CC-BY-NC-SA-4.0", "license_url": LICENSE_URL,
                 "recording_files": len(records), "potential_users": len({r["user_id"] for r in records}),
                 "expected_total_bytes": sum(r["expected_bytes"] for r in records),
