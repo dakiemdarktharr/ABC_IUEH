@@ -581,6 +581,83 @@ def fit_fold_references(store, fold, *, sample_size=65536, seed=20261028):
             "prior_probabilities":prior,"sample_schedule_sha256":hashlib.sha256(indexes.astype("<i8").tobytes()).hexdigest()}
 
 
+def _require_exact_artifact(actual, expected, label):
+    """Exact schema/types/content; do not let bool compare equal to an int."""
+    if type(actual) is not type(expected):
+        raise ValueError(f"{label} has an unexpected value type")
+    if isinstance(expected, dict):
+        if set(actual) != set(expected):
+            raise ValueError(f"{label} has unexpected keys")
+        for key in expected:
+            _require_exact_artifact(actual[key], expected[key], f"{label}.{key}")
+    elif isinstance(expected, list):
+        if len(actual) != len(expected):
+            raise ValueError(f"{label} has an unexpected length")
+        for index, (left, right) in enumerate(zip(actual, expected)):
+            _require_exact_artifact(left, right, f"{label}[{index}]")
+    elif isinstance(expected, float):
+        if not np.isfinite(actual) or actual.hex() != expected.hex():
+            raise ValueError(f"{label} differs from deterministic expected content")
+    elif actual != expected:
+        raise ValueError(f"{label} differs from deterministic expected content")
+
+
+def canonical_fold_payload(users, *, seed=20261028):
+    """Recompute the assignment, including its exact JSON representation."""
+    folds = make_inner_folds(users, seed=seed)
+    canonical = json.loads(json.dumps(folds, ensure_ascii=True))
+    return {"folds": canonical, "fold_digest": _digest_json(canonical)}
+
+
+def validate_saved_folds(payload, users, *, seed=20261028):
+    expected = canonical_fold_payload(users, seed=seed)
+    _require_exact_artifact(payload, expected, "fold manifest")
+
+
+def _serial_reference_payload(reference):
+    return {key: value.tolist() if isinstance(value, np.ndarray) else value
+            for key, value in reference.items()}
+
+
+def validate_reloaded_fold_reference(payload, store, fold, bindings, *, sample_size=65536, seed=20261028):
+    """Rebuild references from this fold's fit data before any unit reuse.
+
+    The supplied schedule hash and global bindings are necessary but are not
+    trusted to establish fold ownership. The actual deterministic calibration,
+    static fit and prior must agree with a fresh rederivation from fit data.
+    No neural fit or inner-validation score is computed by this guard.
+    """
+    if not isinstance(payload, dict):
+        raise ValueError("fold reference must be an object")
+    _require_exact_artifact(payload.get("bindings"), bindings, "fold reference.bindings")
+    if type(payload.get("fold")) is not int or payload["fold"] != fold["fold"]:
+        raise ValueError("fold reference belongs to a different fold")
+    raw = payload.get("calibration_indexes")
+    if (not isinstance(raw, list) or len(raw) != sample_size
+            or any(type(value) is not int or not 0 <= value < len(store) for value in raw)):
+        raise ValueError("fold reference calibration indexes have an invalid type, count or range")
+    indexes = np.asarray(raw, dtype=np.int64)
+    if not np.array_equal(indexes, np.unique(indexes)):
+        raise ValueError("fold reference calibration indexes must be sorted and unique")
+    eligible = store.indexes_for_users(fold["fit_users"])
+    if not np.isin(indexes, eligible).all():
+        raise ValueError("fold reference calibration includes held-out origins")
+    actual_hash = hashlib.sha256(indexes.astype("<i8", copy=False).tobytes()).hexdigest()
+    if payload.get("sample_schedule_sha256") != actual_hash:
+        raise ValueError("fold reference calibration schedule hash is invalid")
+    for field, width in (("static_weights", 4), ("prior_probabilities", 21)):
+        values = payload.get(field)
+        if (not isinstance(values, list) or len(values) != width
+                or any(type(value) is not float or not np.isfinite(value) or value < 0 for value in values)
+                or not np.isclose(sum(values), 1.0, atol=1e-6, rtol=0)):
+            raise ValueError(f"fold reference {field} must be a finite simplex of the expected shape")
+    expected = fit_fold_references(store, fold, sample_size=sample_size, seed=seed)
+    expected_payload = {**_serial_reference_payload(expected), "bindings": bindings}
+    _require_exact_artifact(payload, expected_payload, "fold reference")
+    # Use verified rederived arrays, not casts of untrusted serialized values.
+    return expected
+
+
 def _models(seed,device):
     models = {arm:ArcModel(arm,seed).to(device) for arm in ARMS}
     if {arm:sum(p.numel() for p in model.parameters()) for arm,model in models.items()} != PARAMETER_COUNTS:
@@ -1068,10 +1145,16 @@ def run_arc_pilot(stage,baseline_dir,output_dir,config,*,config_path,device="cud
             if (output/"summary.json").exists():
                 return json.loads((output/"summary.json").read_text(encoding="utf-8"))
             folds = make_inner_folds(stage.partitions["train"],seed=config["folds"]["seed"])
+            fold_path = output/"private_folds.json"
+            expected_folds = canonical_fold_payload(stage.partitions["train"],seed=config["folds"]["seed"])
+            if fold_path.exists():
+                validate_saved_folds(json.loads(fold_path.read_text(encoding="utf-8")),
+                                     stage.partitions["train"],seed=config["folds"]["seed"])
+            else:
+                _exclusive_json(fold_path,expected_folds)
             store = FlatTrainWindows(stage.iter_segments("train"),device=actual_device)
             if len(store)!=3330312 or set(store.users)!=set(stage.partitions["train"]):
                 raise ValueError("all source origins must equal original R80 outer train population")
-            _exclusive_json(output/"private_folds.json",{"folds":folds,"fold_digest":_digest_json(folds)}) if not (output/"private_folds.json").exists() else None
             label_started = time.perf_counter()
             store.precompute_costs()
             runtime["label_cache_preparation_seconds"] = time.perf_counter()-label_started
@@ -1084,15 +1167,12 @@ def run_arc_pilot(stage,baseline_dir,output_dir,config,*,config_path,device="cud
                 fold_dir.mkdir(exist_ok=True)
                 reference_path = fold_dir/"private_references.json"
                 if reference_path.exists():
-                    reference = json.loads(reference_path.read_text())
-                    if reference["bindings"]!=bindings:
-                        raise ValueError("fold reference binding mismatch")
-                    reference["static_weights"] = np.asarray(reference["static_weights"])
-                    reference["prior_probabilities"] = np.asarray(reference["prior_probabilities"],dtype=np.float32)
+                    reference = validate_reloaded_fold_reference(
+                        json.loads(reference_path.read_text(encoding="utf-8")),store,fold,bindings,
+                        sample_size=config["static_fit"]["sampled_fold_fit_origins"],seed=config["static_fit"]["seed"])
                 else:
                     reference = fit_fold_references(store,fold,sample_size=config["static_fit"]["sampled_fold_fit_origins"],seed=config["static_fit"]["seed"])
-                    serial = {key:(value.tolist() if isinstance(value,np.ndarray) else value) for key,value in reference.items()}
-                    _exclusive_json(reference_path,{**serial,"bindings":bindings})
+                    _exclusive_json(reference_path,{**_serial_reference_payload(reference),"bindings":bindings})
                 for seed in config["training"]["seeds"]:
                     directory = fold_dir/f"seed_{seed}"
                     if (directory/"receipt.json").exists():
