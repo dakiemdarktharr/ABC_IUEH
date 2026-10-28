@@ -12,13 +12,13 @@ Primary references: [The Data](https://sites.google.com/view/9th-abc-challenge/h
 [Artifacts](https://sites.google.com/view/9th-abc-challenge/home/submitting-artifacts).
 
 Preserve scalar-first wxyz, float32 static graph shapes [1,400,4] -> [1,20,4],
-strict causality and shift1. Only output20 mean geodesic degrees is the primary
+strict causality and shift 1. Only output 20 mean geodesic degrees is the primary
 accuracy statistic; no per-user gradient updates at inference. State, if added,
 must derive from the past and reset per session. This pipeline is stateless.
 
-The 20-sample /100 Hz /100 ms contradiction and minimum actual context remain
-unresolved. Use all400 context samples for the initial neural baseline. Do not
-replace20 outputs with10 or change the clock to200 Hz to reconcile the text.
+The 20-sample  / 100 Hz  / 100 ms contradiction and minimum actual context remain
+unresolved. Use all 400 context samples for the initial neural baseline. Do not
+replace 20 outputs with 10 or change the clock to 200 Hz to reconcile the text.
 
 ## Source and preprocessing sequence
 
@@ -32,32 +32,32 @@ replace20 outputs with10 or change the clock to200 Hz to reconcile the text.
    no unverified handedness conversion is applied.
 4. Reject nonfinite, duplicate or backward timestamps; do not sort them. Estimate
    native rate from median original timestamp differences, before dropping bad
-   quaternion rows, trimming or interpolation. Keep85–110 Hz.
+   quaternion rows, trimming or interpolation. Keep 85–110 Hz.
 5. Drop nonfinite/near-zero quaternion rows, normalize and align hemispheres.
-   Trim the first5 seconds anchored to the original clock. Missing/invalid rows
+   Trim the first 5 seconds anchored to the original clock. Missing/invalid rows
    expose real gaps rather than being replaced by invented orientations.
 6. Apply session motion filtering to the **whole trimmed recording**, before the
-  20-minute cap. Five-second nonoverlapping windows, at least10 valid samples:
-   Euler xyz90th-minus10th-percentile sweep; shortest wrapped angular differences
+  20-minute cap. Five-second nonoverlapping windows, at least 10 valid samples:
+   Euler xyz 90th-minus-10th-percentile sweep; shortest wrapped angular differences
    for velocity. Take median per axis across windows, then max across axes for
    each statistic. Sweep and velocity maxima may come from different axes.
-7. Keep sweep>17 degrees and velocity>15 degrees/s under the tutorial interpretation.
+7. Keep sweep > 17 degrees and velocity > 15 degrees/s under the tutorial interpretation.
    Record `>=` sensitivity and boundary equality; the official comparison conflict
    is not resolved by this choice. The filter statistics are not model metrics.
-8. Cap at20 minutes after trimming, split gaps>50 ms, and SLERP independently
-   inside each retained segment onto a100 Hz grid. Keep segments>=1000 samples.
+8. Cap at 20 minutes after trimming, split gaps>50 ms, and SLERP independently
+   inside each retained segment onto a 100 Hz grid. Keep segments >= 1000 samples.
    This is **offline bracketing interpolation**; it is not a claim about a
    zero-delay native sensor preprocessing system.
 9. Write chunked HDF5 without materializing overlapping windows.
 
 ## Explicit team choices and limitations
 
-The50 ms gap,1000-sample floor,20-minute cap, norm epsilon1e-8, SciPy active
+The 50 ms gap, 1000-sample floor, 20-minute cap, norm epsilon 1e-8, SciPy active
 extrinsic `xyz` convention and tail handling are implementation choices. They
 are recorded in configuration and HDF5 metadata, not organizer clarifications.
 Sweep is not unwrapped; only velocity differences are wrapped. Gimbal-lock
 warnings and dropped rows are counted. Velocity pairs spanning large gaps are
-excluded. Full filter windows use5 seconds as denominator; partial tail windows
+excluded. Full filter windows use 5 seconds as denominator; partial tail windows
 use last-valid minus first-valid time. `tail_window_policy=drop` is available for
 a documented sensitivity run, not retrospective outcome selection.
 
@@ -68,9 +68,9 @@ a session or user eligible.
 
 ## User split, holdout and windowing
 
-After eligibility is measured, hash-sort user IDs with seed20261026. Final count
-is max(12,round(0.43*N)), development count5, training is the remainder. Require
-N>=30. For35 users this gives15 train /5 development /15 final. Keep every session
+After eligibility is measured, hash-sort user IDs with seed 20261026. Final count
+is max(12,round(0.43*N)), development count 5, training is the remainder. Require
+N >= 30. For 35 users this gives 15 train / 5 development / 15 final. Keep every session
 of a user in the same partition. Lock the manifest before inspecting forecast
 errors; it refuses overwrite and includes the exact source-HDF5 SHA-256.
 
@@ -85,11 +85,11 @@ endpoint20 is s+419. Stride1 windows stay inside one segment. Exposed NumPy view
 are read-only; make a copy before augmentation. CAV estimates use past samples
 only. Metrics do not treat overlapping windows as independent participants.
 
-The main study will compare ZV, CAV bandwidth1/5/20, fixed/equal mixtures,
+The main study will compare ZV, CAV bandwidths 1/5/20, fixed/equal mixtures,
 individual/complete-horizon evidence and learned selectors. The contrast of
-h20,a0 against h1,a0 uses the same244-parameter selector and matched data/compute.
-The predeclared practical threshold is>=3% relative AND0.05 degrees absolute,
-with95% paired user-cluster CI upper delta<0 and improvement in>=60% of users.
+h20,a0 against h1,a0 uses the same 244-parameter selector and matched data/compute.
+The predeclared practical threshold is >= 3% relative AND 0.05 degrees absolute,
+with 95% paired user-cluster CI upper delta < 0 and improvement in >= 60% of users.
 These thresholds and the split cannot be changed after viewing final results.
 Final holdout forecast evaluation requires the later locked model/configuration;
 it is outside the current data-pipeline stage.

@@ -2,14 +2,14 @@
 
 No source recordings or cleaned motion datasets are distributed in this repo.
 WhoIsAlyx data are supplied by their creators under
-[CC BY-NC-SA4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), independently
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), independently
 of any eventual software license chosen for this code.
 
 Primary citation:
 
 Rack, C., Fernando, T., Yalcin, M., Hotho, A., and Latoschik, M. E. (2023).
 **Who is Alyx? A new behavioral biometric dataset for user identification in XR.**
-Frontiers in Virtual Reality4. [DOI10.3389/frvir.2023.1272234](https://doi.org/10.3389/frvir.2023.1272234).
+Frontiers in Virtual Reality 4. [DOI 10.3389/frvir.2023.1272234](https://doi.org/10.3389/frvir.2023.1272234).
 
 Source repository pinned to
 [5da510121f99fc8a6cc51e570770ca93e5745646](https://github.com/cschell/who-is-alyx/tree/5da510121f99fc8a6cc51e570770ca93e5745646).
