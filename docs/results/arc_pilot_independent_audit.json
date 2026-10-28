@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "audit_status": "PASS_MECHANICAL_RECOMPUTATION",
+  "frozen_bindings_verified": true,
+  "source_config_unchanged": true,
+  "scopes": {
+    "fixed_5000_updates_primary": {
+      "scope": "matched_updates_primary",
+      "validation": {
+        "users": 15,
+        "folds": 3,
+        "origins": 3330312
+      },
+      "methods": {
+        "nll21_median": {
+          "mean_geodesic_deg": 2.8775879417059094,
+          "p95_geodesic_deg": 9.739988439477006,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.6045230586355426,
+            3.1136781803514437
+          ]
+        },
+        "nll21_mean": {
+          "mean_geodesic_deg": 2.9138839036553126,
+          "p95_geodesic_deg": 9.953340525440133,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.6439147743035853,
+            3.1447842777295194
+          ]
+        },
+        "nll21_map": {
+          "mean_geodesic_deg": 3.101420220442399,
+          "p95_geodesic_deg": 9.882148799274463,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.817063502443482,
+            3.3478402758614165
+          ]
+        },
+        "scalar_angle": {
+          "mean_geodesic_deg": 2.8830124428028965,
+          "p95_geodesic_deg": 9.755039907415284,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.613432768055623,
+            3.116939538570222
+          ]
+        },
+        "scalar_pinball": {
+          "mean_geodesic_deg": 2.903429758366171,
+          "p95_geodesic_deg": 9.90550393742643,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.624688858317676,
+            3.1468242288707087
+          ]
+        },
+        "risk21": {
+          "mean_geodesic_deg": 2.8913388457077334,
+          "p95_geodesic_deg": 9.737560820669971,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.6215688631969623,
+            3.1238880761143095
+          ]
+        },
+        "vector_angle": {
+          "mean_geodesic_deg": 2.5286547434900353,
+          "p95_geodesic_deg": 8.185466832065986,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.2709098964424728,
+            2.775735112364892
+          ]
+        },
+        "static_mixture": {
+          "mean_geodesic_deg": 3.3137693790199085,
+          "p95_geodesic_deg": 11.715986661656329,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.0302620631001576,
+            3.5598748973490406
+          ]
+        },
+        "prior_median": {
+          "mean_geodesic_deg": 3.285227972305149,
+          "p95_geodesic_deg": 11.44857542117455,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.9933963995903023,
+            3.5344129868322343
+          ]
+        },
+        "prior_mean": {
+          "mean_geodesic_deg": 3.3798525838012554,
+          "p95_geodesic_deg": 12.117483783228097,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.098115528056679,
+            3.622108467493945
+          ]
+        },
+        "prior_map": {
+          "mean_geodesic_deg": 3.569728171243762,
+          "p95_geodesic_deg": 12.086160880501534,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.2319602655713706,
+            3.8591904451096797
+          ]
+        },
+        "ZV": {
+          "mean_geodesic_deg": 7.057531552808173,
+          "p95_geodesic_deg": 26.06328488342997,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            6.547762033798209,
+            7.518385244276275
+          ]
+        },
+        "CAV_W1": {
+          "mean_geodesic_deg": 3.569728173195692,
+          "p95_geodesic_deg": 12.086123527970003,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.2319602668554035,
+            3.859190436556684
+          ]
+        },
+        "CAV_W5": {
+          "mean_geodesic_deg": 4.105020742694544,
+          "p95_geodesic_deg": 13.953203046909728,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.72034593874926,
+            4.434070133176655
+          ]
+        },
+        "CAV_W20": {
+          "mean_geodesic_deg": 5.6019902204382355,
+          "p95_geodesic_deg": 19.16384205128545,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            5.093522906902831,
+            6.039453864604616
+          ]
+        }
+      },
+      "nll21_median_conjunctive_gate_passed": false,
+      "mandatory_comparator_contrasts": {
+        "static_mixture": {
+          "mean_delta_deg": -0.43618143731399917,
+          "absolute_improvement_deg": 0.43618143731399917,
+          "relative_improvement_fraction": 0.13162697442843946,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.4819021666640441,
+            -0.3886400352573956
+          ],
+          "both_seed_directions_improve": true,
+          "folds_improved": 3,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "scalar_angle": {
+          "mean_delta_deg": -0.005424501096987111,
+          "absolute_improvement_deg": 0.005424501096987111,
+          "relative_improvement_fraction": 0.001881539259578551,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.012786231434289985,
+            0.0021402597479948126
+          ],
+          "both_seed_directions_improve": false,
+          "folds_improved": 2,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "risk21": {
+          "mean_delta_deg": -0.013750904001823994,
+          "absolute_improvement_deg": 0.013750904001823994,
+          "relative_improvement_fraction": 0.00475589501460113,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.0252015108306058,
+            -0.0011161849875565054
+          ],
+          "both_seed_directions_improve": true,
+          "folds_improved": 2,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "scalar_pinball": {
+          "mean_delta_deg": -0.02584181666026142,
+          "absolute_improvement_deg": 0.02584181666026142,
+          "relative_improvement_fraction": 0.00890044492579811,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.03911080553970838,
+            -0.011643786184199877
+          ],
+          "both_seed_directions_improve": true,
+          "folds_improved": 2,
+          "exploratory_pilot_thresholds_passed": false
+        }
+      },
+      "posthoc_vector_angle_minus_static_mixture": {
+        "contrast": "vector_angle_minus_static_mixture_posthoc",
+        "mean_delta_deg": -0.7851146355298733,
+        "absolute_improvement_deg": 0.7851146355298733,
+        "relative_improvement_fraction": 0.23692494731244132,
+        "conditional_user_cluster_95_CI_delta_deg": [
+          -0.8821512675020796,
+          -0.6842138730143427
+        ],
+        "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+          0.20415333248899062,
+          0.264882869208672
+        ],
+        "folds_improved": 3,
+        "users_improved": 15,
+        "posthoc_not_predeclared_gate": true
+      },
+      "bootstrap": {
+        "resamples": 2000,
+        "cluster": "whole_user",
+        "scope": "conditional on fixed two seeds and three fitted folds"
+      }
+    },
+    "equal_training_time_secondary": {
+      "scope": "matched_training_time_secondary",
+      "validation": {
+        "users": 15,
+        "folds": 3,
+        "origins": 3330312
+      },
+      "methods": {
+        "nll21_median": {
+          "mean_geodesic_deg": 2.876845746420157,
+          "p95_geodesic_deg": 9.75964884666962,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.603491048852035,
+            3.110716636813199
+          ]
+        },
+        "nll21_mean": {
+          "mean_geodesic_deg": 2.919945435434631,
+          "p95_geodesic_deg": 9.991049798040336,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.652355859502146,
+            3.1481634646417676
+          ]
+        },
+        "nll21_map": {
+          "mean_geodesic_deg": 3.0972225603104384,
+          "p95_geodesic_deg": 9.862789329701506,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.812379427198819,
+            3.3445722400056526
+          ]
+        },
+        "scalar_angle": {
+          "mean_geodesic_deg": 2.9738666447962436,
+          "p95_geodesic_deg": 10.11484826523437,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.696606418323198,
+            3.2136711185405975
+          ]
+        },
+        "scalar_pinball": {
+          "mean_geodesic_deg": 2.9045876520523617,
+          "p95_geodesic_deg": 9.904555665303764,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.6256285359812086,
+            3.14597898713316
+          ]
+        },
+        "risk21": {
+          "mean_geodesic_deg": 2.8913388457077334,
+          "p95_geodesic_deg": 9.737560820669971,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.6215688631969623,
+            3.1238880761143095
+          ]
+        },
+        "vector_angle": {
+          "mean_geodesic_deg": 2.5802914804869235,
+          "p95_geodesic_deg": 8.434105179567265,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.3223058698825576,
+            2.8243534344275543
+          ]
+        },
+        "static_mixture": {
+          "mean_geodesic_deg": 3.3137693790199085,
+          "p95_geodesic_deg": 11.715986661656329,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.0302620631001576,
+            3.5598748973490406
+          ]
+        },
+        "prior_median": {
+          "mean_geodesic_deg": 3.285227972305149,
+          "p95_geodesic_deg": 11.44857542117455,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.9933963995903023,
+            3.5344129868322343
+          ]
+        },
+        "prior_mean": {
+          "mean_geodesic_deg": 3.3798525838012554,
+          "p95_geodesic_deg": 12.117483783228097,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.098115528056679,
+            3.622108467493945
+          ]
+        },
+        "prior_map": {
+          "mean_geodesic_deg": 3.569728171243762,
+          "p95_geodesic_deg": 12.086160880501534,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.2319602655713706,
+            3.8591904451096797
+          ]
+        },
+        "ZV": {
+          "mean_geodesic_deg": 7.057531552808173,
+          "p95_geodesic_deg": 26.06328488342997,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            6.547762033798209,
+            7.518385244276275
+          ]
+        },
+        "CAV_W1": {
+          "mean_geodesic_deg": 3.569728173195692,
+          "p95_geodesic_deg": 12.086123527970003,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.2319602668554035,
+            3.859190436556684
+          ]
+        },
+        "CAV_W5": {
+          "mean_geodesic_deg": 4.105020742694544,
+          "p95_geodesic_deg": 13.953203046909728,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.72034593874926,
+            4.434070133176655
+          ]
+        },
+        "CAV_W20": {
+          "mean_geodesic_deg": 5.6019902204382355,
+          "p95_geodesic_deg": 19.16384205128545,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            5.093522906902831,
+            6.039453864604616
+          ]
+        }
+      },
+      "nll21_median_conjunctive_gate_passed": false,
+      "mandatory_comparator_contrasts": {
+        "static_mixture": {
+          "mean_delta_deg": -0.4369236325997514,
+          "absolute_improvement_deg": 0.4369236325997514,
+          "relative_improvement_fraction": 0.13185094755416485,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.4808007922937338,
+            -0.3911262252659867
+          ],
+          "both_seed_directions_improve": true,
+          "folds_improved": 3,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "scalar_angle": {
+          "mean_delta_deg": -0.09702089837608652,
+          "absolute_improvement_deg": 0.09702089837608652,
+          "relative_improvement_fraction": 0.03262449530003521,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.11110300470070282,
+            -0.08474199854286543
+          ],
+          "both_seed_directions_improve": true,
+          "folds_improved": 3,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "risk21": {
+          "mean_delta_deg": -0.01449309928757625,
+          "absolute_improvement_deg": 0.01449309928757625,
+          "relative_improvement_fraction": 0.005012591073194907,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.024131966755032985,
+            -0.004381722497748404
+          ],
+          "both_seed_directions_improve": true,
+          "folds_improved": 3,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "scalar_pinball": {
+          "mean_delta_deg": -0.027741905632204578,
+          "absolute_improvement_deg": 0.027741905632204578,
+          "relative_improvement_fraction": 0.00955106505827164,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.039314365886772305,
+            -0.015751002526561912
+          ],
+          "both_seed_directions_improve": false,
+          "folds_improved": 3,
+          "exploratory_pilot_thresholds_passed": false
+        }
+      },
+      "posthoc_vector_angle_minus_static_mixture": {
+        "contrast": "vector_angle_minus_static_mixture_posthoc",
+        "mean_delta_deg": -0.7334778985329851,
+        "absolute_improvement_deg": 0.7334778985329851,
+        "relative_improvement_fraction": 0.22134246974963626,
+        "conditional_user_cluster_95_CI_delta_deg": [
+          -0.8283382373358988,
+          -0.6328447536231175
+        ],
+        "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+          0.18897009370900228,
+          0.2483288408563447
+        ],
+        "folds_improved": 3,
+        "users_improved": 15,
+        "posthoc_not_predeclared_gate": true
+      },
+      "bootstrap": {
+        "resamples": 2000,
+        "cluster": "whole_user",
+        "scope": "conditional on fixed two seeds and three fitted folds"
+      }
+    }
+  },
+  "fold_and_training_integrity": {
+    "users": 15,
+    "folds": 3,
+    "validation_users_per_fold": 5,
+    "fits": 30,
+    "updates_per_fit": 5000,
+    "batch_size": 128,
+    "fold_assignment_fit_only_references_and_schedules_verified": true,
+    "all_checkpoint_clocks_and_timing_only_selections_verified": true
+  },
+  "resources": {
+    "cuda_context_session_count": 3,
+    "cuda_context_total_hours": 1.0873768976388964,
+    "primary_fixed_update_training_time_total_max_min_ratio": 2.3427535893722533,
+    "primary_fixed_update_training_time_worst_fold_seed_max_min_ratio": 2.3609164645385756,
+    "primary_fixed_update_strong_same_wall_compute_claim_allowed": false,
+    "primary_controls_match_updates_batch_and_examples": true,
+    "equal_training_time_secondary_total_max_min_ratio": 1.026656,
+    "equal_training_time_secondary_worst_fold_seed_max_min_ratio": 1.038280,
+    "equal_training_time_secondary_checkpoint_interval_steps": 100,
+    "equal_training_time_secondary_is_approximate_not_exact_flop_equality": true,
+    "static_neural_compute_matched": false,
+    "training_times_include_paging_effects": true,
+    "memory_trim_events": 2
+  },
+  "data_access": {
+    "auditor_source_quaternion_values_read": 0,
+    "auditor_development_values_read": 0,
+    "auditor_final_values_read": 0,
+    "development_signal_values_read_by_run": 0,
+    "final_array_values_read_by_run": 0
+  },
+  "privacy_scan": {
+    "report_and_json_user_identifier_tokens": 0,
+    "public_json_forbidden_private_field_names": 0,
+    "local_or_private_absolute_paths": 0,
+    "report_and_json_weights_or_per_user_vectors": false,
+    "scan_scope": "audit report, public result JSON, and sanitized audit JSON"
+  },
+  "limits": [
+    "single conditional Alyx corpus",
+    "inner validation is exploratory, not independent confirmation",
+    "bootstrap intervals condition on fixed seeds and folds",
+    "no foundation-model, challenge-eligibility, acceptance, or final-set claim",
+    "official 20-sample, 100 Hz, 100 ms discrepancy remains unresolved"
+  ]
+}

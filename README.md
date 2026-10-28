@@ -1,8 +1,8 @@
 # ABC_IUEH
 
-Reproducible data preparation and train/development experiments for **Forecast Horizon and Feedback Age in Zero-Shot Head-Orientation Prediction**, a proposed study for the 9th ABC Challenge.
+Reproducible data preparation, exploratory head-orientation studies and an audited GPU architecture pilot for the 9th ABC Challenge.
 
-The main question is whether mature multi-step prediction errors help select a head-orientation extrapolator after controlling feedback age. Quaternion representation, constant angular velocity, ensemble routing and ordinary neural backbones are inherited components, not novelty claims.
+The original study, **Forecast Horizon and Feedback Age in Zero-Shot Head-Orientation Prediction**, asks whether mature multi-step prediction errors help select a head-orientation extrapolator after controlling feedback age. The subsequent pilot tests a constrained angular-exposure distribution against direct scalar, angular-risk and vector prediction. Quaternion representation, constant angular velocity, ensemble routing, residual prediction and ordinary neural backbones are inherited components, not novelty claims.
 
 ## Current scope
 
@@ -137,6 +137,47 @@ recreate the GPU results. CI status for the published revision is available in
 The paper source and PDF remain local for review; no preprint has been posted.
 JEPA/EBM experiments have not started. Alyx-only challenge eligibility and the
 20-sample / 100 Hz / 100 ms specification remain unresolved.
+
+## Angular-exposure GPU pilot: completed, 2026-10-28
+
+The separate [frozen pilot plan](docs/arc_pilot_plan.md) completed 30 actual
+RTX 5050 Laptop fits: three user-disjoint inner folds within the existing
+15 training users, two seeds and five learned arms. Each fit used ten users
+and validated on the other five. The old five development users and the
+15 final users were not evaluated. Each analysis scored the same 3,330,312
+inner-validation origins.
+
+| Method | Same 5,000 updates: endpoint20 mean (degrees) | Approximate same training time (degrees) |
+|---|---:|---:|
+| Fold-fitted static mixture | 3.313769 | 3.313769 |
+| NLL exposure + median | 2.877588 | 2.876846 |
+| Direct scalar-angle | 2.883012 | 2.973867 |
+| Angular-risk21 | 2.891339 | 2.891339 |
+| Scalar-pinball | 2.903430 | 2.904588 |
+| Direct vector-angle | **2.528655** | **2.580291** |
+
+The NLL model improved over static mixture, but **failed its predeclared
+practical-benefit gate in both comparisons**. Its small advantage over direct
+scalar and angular-risk does not justify a positive architecture claim.
+The vector control is a useful baseline; its post-hoc improvement is not a
+replacement primary hypothesis or evidence of architectural novelty.
+The time-matched secondary uses timing-only checkpoint prefixes and unequal
+update counts; the primary matches examples/updates, not elapsed training
+time. Static calibration is a separate inexpensive reference.
+
+All 30 fits used 1,238.49 synchronized training seconds; complete CUDA-context
+sessions totaled 3,914.56 seconds, including preparation, validation and I/O.
+No GPU rental was used. Independent recomputation passed. The post-run local
+synthetic suite passed **421 tests**, with 14 legacy ONNX deprecation warnings;
+it does not reproduce the real-data efficacy run. Trained pilot batch1/ONNX
+and target-XR latency have not been audited.
+
+Read the [actual results](docs/arc_pilot_results_2026-10-28.md),
+[independent audit](docs/arc_pilot_results_audit.md),
+[Vietnamese research decision](docs/arc_pilot_decision_vi.md),
+[aggregate JSON](docs/results/arc_pilot_20261028.json) and
+[reproduction notes](docs/reproduction.md#angular-exposure-pilot).
+The earlier selector results and local manuscript remain separate.
 
 ## Protocol and outputs
 

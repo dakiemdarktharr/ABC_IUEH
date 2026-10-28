@@ -1,4 +1,4 @@
-# Reproducing the selector pilot
+# Reproducing the selector and angular-exposure pilots
 
 Updated 2026-10-28. This is a train/development research pilot, not a challenge
 submission or final-holdout evaluation.
@@ -134,3 +134,88 @@ that registration or challenge submission occurred.
 
 Private arrays, participant-level outputs, model weights and exported graphs
 remain outside the repository.
+
+## Angular-exposure pilot
+
+This is a separate, completed exploratory inner-validation experiment. It used
+only the existing 15 outer-training users: three user-disjoint folds of ten
+fit/five validation users, two seeds and five learned arms, totaling 30 fits.
+The old five development users and 15 final users were not evaluated or used
+for fitting. Development origin-index integrity metadata was checked; no
+development signal or feature values were read. Whole-file hashes are opaque
+integrity checks, not final-set evaluation.
+
+The exact measured source is commit
+`13c74071156b5b8dfc893f42107ad2cb82ea6921`, with configuration
+[`configs/arc_pilot.json`](../configs/arc_pilot.json). Git stores the runner
+with LF line endings; the measured Windows worktree had CRLF. A private
+receipt binds raw bytes, normalized bytes and the Git blob. Exact raw measured
+sources were archived locally before any later changes. After completion and
+independent audit, resume guards were strengthened to reject copied or altered
+fold/reference artifacts. That separate repair changes no model, loss,
+schedule or measured efficacy result; see [review closure](arc_pilot_code_review.md).
+
+With the pinned dependencies, deterministic environment above, and the
+matching private HDF5/split/baseline-index artifacts, the measured command was:
+
+```powershell
+.\.venv\Scripts\python.exe -u -m abc_iueh.arc_experiment --config configs/arc_pilot.json --output data/arc_pilot/20261028 --device cuda
+```
+
+For a new replication use a **new output directory**. An unchanged interrupted
+run resumes from its immutable checkpoints; incompatible sources/configuration
+are rejected. In particular, do not point the post-repair runner at the old
+completed output and describe that as an identical-source rerun. No replication
+or additional GPU fit is required to read the public aggregates. The private
+source data and artifacts remain prerequisites for reproducing real outcomes.
+
+The primary gives every arm 5,000 Adam updates, batch size 128, learning rate
+0.001 and a common fold/seed origin schedule. All arms share encoder
+initialization within a cell. Natural loss units differ and are recorded in
+the config/plan. The 1,649–1,717 parameter models have nearly matched encoder
+MACs; equal updates are not equal elapsed time. Each fold's static mixture
+and exposure prior are fit on the same fitting-only 65,536-origin sample,
+without using the old all-training scaler or weights.
+
+The predeclared timing-only secondary selects the last saved 100-step
+checkpoint below the minimum final per-arm training time in each cell. It
+uses the same validation origins and performs no extra fit or accuracy-based
+checkpoint selection. Selected training times have maximum/minimum ratios
+1.026656 overall and 1.038280 in the worst cell; update/example counts differ.
+The corresponding fixed-update time ratios are 2.343 and 2.361. Static fitting
+is not matched to neural optimizer compute. Neither analysis establishes equal
+FLOPs or equal end-to-end cost on other hardware.
+
+To rebuild the aggregate-only report from the locally held completed summary
+and session ledgers, without loading human vectors or fitting:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/build_arc_pilot_report.py --help
+.\.venv\Scripts\python.exe scripts/build_arc_pilot_report.py
+```
+
+The independent audit separately streamed the private errors and verified
+fold membership, fitting-only calibration, common schedules, checkpoint
+selection, bootstrap arithmetic and source bindings. Both practical-benefit
+gates failed. The [results](arc_pilot_results_2026-10-28.md),
+[independent audit](arc_pilot_results_audit.md),
+[aggregate](results/arc_pilot_20261028.json),
+[audit aggregate](results/arc_pilot_independent_audit.json) and
+[research decision](arc_pilot_decision_vi.md) preserve positive and negative
+findings. User-bootstrap uncertainty is conditional on these fixed CV fits
+and two seeds; overlapping windows are not treated as independent users.
+
+Actual GPU: RTX 5050 Laptop, PyTorch 2.9.1+cu128. Training totaled 1,238.49
+synchronized seconds; all three CUDA-context sessions totaled 3,914.56
+seconds. Peak allocated/reserved CUDA memory of the shared worker was
+452.57/486.00 MiB, including data caches and five resident arms. Two host-RAM
+guard pauses resumed unchanged; one own-process working-set trim relieved
+resident memory. Timings include paging effects. No cloud GPU was rented.
+
+After the guard repair, the local synthetic suite passed 421 tests with
+14 existing legacy ONNX deprecation warnings in 71.49 seconds. Run the suite
+with the deterministic environment above; a restricted Windows sandbox may
+need a new disposable `--basetemp` under `data/`. These tests do not prove
+trained pilot export, clean-Linux compatibility, XR latency, foundation-model
+transfer, challenge eligibility or a final-holdout result. The old study's
+ONNX receipts apply to its selector models, not these new trained models.

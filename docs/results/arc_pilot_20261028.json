@@ -1,0 +1,4274 @@
+{
+  "status": "complete_exploratory_outer_train_inner_cv_only",
+  "matched_updates_primary": {
+    "scope": "fixed5000_updates_same640000_examples_per_fit",
+    "metrics": {
+      "schema_version": 1,
+      "scope": "exploratory_outer_train_user_disjoint_inner_validation_only",
+      "methods": {
+        "nll21_median": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.8775879417059094,
+          "p95_geodesic_deg": 9.739988439477006,
+          "user_macro_mean_deg": 2.831405528668459,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.604523058635542,
+            3.113678180351443
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.5528901629577403,
+            3.0901728993578503
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.8908536484289145,
+              "p95_geodesic_deg": 9.802710191365435,
+              "user_macro_mean_deg": 2.8446108001276666,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.61312833212691,
+                3.128167383373287
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.5624095697012876,
+                3.10576642066232
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.864322234982904,
+              "p95_geodesic_deg": 9.736851764463937,
+              "user_macro_mean_deg": 2.81820025720925,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.5943805703641276,
+                3.0989219361502336
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.5403753834341694,
+                3.0728322454859165
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.02653141344601062,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.7597571437706603,
+              "per_seed_mean_geodesic_deg": [
+                2.7629349264162544,
+                2.756579361125066
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.01075789652889,
+              "per_seed_mean_geodesic_deg": [
+                3.037610532894426,
+                2.9839052601633553
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.8632241634642965,
+              "per_seed_mean_geodesic_deg": [
+                2.87328748582206,
+                2.8531608411065332
+              ]
+            }
+          }
+        },
+        "nll21_mean": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.9138839036553126,
+          "p95_geodesic_deg": 9.953340525440133,
+          "user_macro_mean_deg": 2.8691201265399475,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.643914774303586,
+            3.1447842777295194
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.5944578614117955,
+            3.1246763770525225
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.9181646645550403,
+              "p95_geodesic_deg": 9.987093697793327,
+              "user_macro_mean_deg": 2.8732494774199813,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.6475697686152992,
+                3.152149316567657
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.5959026646366525,
+                3.1314673752679894
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.9096031427555835,
+              "p95_geodesic_deg": 9.953950230311797,
+              "user_macro_mean_deg": 2.864990775659913,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.642428081489824,
+                3.136794504930263
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.593903957381554,
+                3.117689738789935
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.008561521799456795,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.7980183845788718,
+              "per_seed_mean_geodesic_deg": [
+                2.7790845845811214,
+                2.816952184576622
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.0689841707616603,
+              "per_seed_mean_geodesic_deg": [
+                3.0981783134413465,
+                3.0397900280819745
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.877963068630853,
+              "per_seed_mean_geodesic_deg": [
+                2.8806081559749206,
+                2.875317981286785
+              ]
+            }
+          }
+        },
+        "nll21_map": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.101420220442399,
+          "p95_geodesic_deg": 9.882148799274463,
+          "user_macro_mean_deg": 3.05283265481659,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.817063502443482,
+            3.3478402758614165
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.7596337028327236,
+            3.3219154939880813
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.1261526685003163,
+              "p95_geodesic_deg": 10.076654909163945,
+              "user_macro_mean_deg": 3.078485503883909,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.8388743437010215,
+                3.3736029318840965
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.7865565094615543,
+                3.3491635624187173
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.0766877723844828,
+              "p95_geodesic_deg": 9.9152945712476,
+              "user_macro_mean_deg": 3.0271798057492707,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.793961175346885,
+                3.3224134086234893
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.73536768126231,
+                3.2925097330294593
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.04946489611583349,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.994152155899987,
+              "per_seed_mean_geodesic_deg": [
+                3.0287283005029995,
+                2.9595760112969747
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.2237919887492867,
+              "per_seed_mean_geodesic_deg": [
+                3.261625141908744,
+                3.1859588355898287
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.0873155718773706,
+              "per_seed_mean_geodesic_deg": [
+                3.0913841927421526,
+                3.083246951012589
+              ]
+            }
+          }
+        },
+        "scalar_angle": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.8830124428028965,
+          "p95_geodesic_deg": 9.755039907415284,
+          "user_macro_mean_deg": 2.836352742186518,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.613432768055623,
+            3.116939538570222
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.558762155112331,
+            3.091490124448632
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.8821690736325705,
+              "p95_geodesic_deg": 9.77545633419421,
+              "user_macro_mean_deg": 2.8353199037578674,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.6116189656018056,
+                3.1177391887709396
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.5565030058308147,
+                3.091532677946844
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.883855811973223,
+              "p95_geodesic_deg": 9.775554338646256,
+              "user_macro_mean_deg": 2.8373855806151673,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.6164217186965693,
+                3.116725658864723
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.56179317070215,
+                3.0917472062028493
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0016867383406524716,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.775073754891355,
+              "per_seed_mean_geodesic_deg": [
+                2.7711101561470324,
+                2.7790373536356783
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 2.9999333084924706,
+              "per_seed_mean_geodesic_deg": [
+                2.999668464502776,
+                3.0001981524821657
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.8744295010411447,
+              "per_seed_mean_geodesic_deg": [
+                2.875866240519789,
+                2.8729927615625006
+              ]
+            }
+          }
+        },
+        "scalar_pinball": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.903429758366171,
+          "p95_geodesic_deg": 9.90550393742643,
+          "user_macro_mean_deg": 2.8549885410271583,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.624688858317676,
+            3.1468242288707087
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.5659349689214705,
+            3.1185806035583985
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.894139244752418,
+              "p95_geodesic_deg": 9.88092401133792,
+              "user_macro_mean_deg": 2.846442583447024,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.617288430731907,
+                3.136357256226485
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.561662815294816,
+                3.1077359299656666
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.9127202719799237,
+              "p95_geodesic_deg": 10.000678458249464,
+              "user_macro_mean_deg": 2.8635344986072924,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.6332914174611624,
+                3.1564880984688366
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.571850268445403,
+                3.1294640129881937
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.018581027227505764,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.802848342409963,
+              "per_seed_mean_geodesic_deg": [
+                2.80430542804677,
+                2.8013912567731567
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.0098512190962827,
+              "per_seed_mean_geodesic_deg": [
+                2.9985142144410952,
+                3.0211882237514702
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.8977150684402635,
+              "per_seed_mean_geodesic_deg": [
+                2.880619268159046,
+                2.914810868721482
+              ]
+            }
+          }
+        },
+        "risk21": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.8913388457077334,
+          "p95_geodesic_deg": 9.737560820669971,
+          "user_macro_mean_deg": 2.8458056315726314,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.6215688631969623,
+            3.123888076114309
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.5705041761074234,
+            3.099967105643324
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.892060641697554,
+              "p95_geodesic_deg": 9.733577589979939,
+              "user_macro_mean_deg": 2.8468182025847404,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.620571311667732,
+                3.123713240628489
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.570003552629693,
+                3.1010472486389076
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.8906170497179144,
+              "p95_geodesic_deg": 9.792238553780283,
+              "user_macro_mean_deg": 2.8447930605605225,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.6218884608789694,
+                3.1213876733048367
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.571536955169409,
+                3.100252682722057
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0014435919796396135,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.7974910586534985,
+              "per_seed_mean_geodesic_deg": [
+                2.806742743768743,
+                2.788239373538254
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.018271946913778,
+              "per_seed_mean_geodesic_deg": [
+                3.020676497448299,
+                3.0158673963792566
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.8610650715483414,
+              "per_seed_mean_geodesic_deg": [
+                2.8526076314916313,
+                2.8695225116050516
+              ]
+            }
+          }
+        },
+        "vector_angle": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.5286547434900357,
+          "p95_geodesic_deg": 8.185466832065986,
+          "user_macro_mean_deg": 2.4885223295183008,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.2709098964424737,
+            2.775735112364892
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.224352852503997,
+            2.744878560989881
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.5184377076147366,
+              "p95_geodesic_deg": 8.197209951479188,
+              "user_macro_mean_deg": 2.477927574173142,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.2594513950545507,
+                2.7637331104469913
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.214457497341494,
+                2.7367398323690826
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.5388717793653344,
+              "p95_geodesic_deg": 8.206213749484416,
+              "user_macro_mean_deg": 2.49911708486346,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.2794141997911628,
+                2.7819634866874354
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.2347015007079722,
+                2.753527747106614
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.02043407175059775,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.3849841521249298,
+              "per_seed_mean_geodesic_deg": [
+                2.375859111514712,
+                2.394109192735148
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 2.6071116243232813,
+              "per_seed_mean_geodesic_deg": [
+                2.5877658704845485,
+                2.6264573781620153
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.5868757205075594,
+              "per_seed_mean_geodesic_deg": [
+                2.58391663526536,
+                2.5898348057497587
+              ]
+            }
+          }
+        },
+        "static_mixture": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.3137693790199085,
+          "p95_geodesic_deg": 11.715986661656329,
+          "user_macro_mean_deg": 3.263859458096929,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.0302620631001576,
+            3.5598748973490406
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.972052051377021,
+            3.5332236103421732
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.3137693790199085,
+              "p95_geodesic_deg": 11.715986661656329,
+              "user_macro_mean_deg": 3.263859458096929,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.0302620631001576,
+                3.5598748973490406
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.972052051377021,
+                3.5332236103421732
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.3137693790199085,
+              "p95_geodesic_deg": 11.715986661656329,
+              "user_macro_mean_deg": 3.263859458096929,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.0302620631001576,
+                3.5598748973490406
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.972052051377021,
+                3.5332236103421732
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 3.247241686937024,
+              "per_seed_mean_geodesic_deg": [
+                3.247241686937024,
+                3.247241686937024
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.4708313817655743,
+              "per_seed_mean_geodesic_deg": [
+                3.4708313817655743,
+                3.4708313817655743
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.231768592077474,
+              "per_seed_mean_geodesic_deg": [
+                3.231768592077474,
+                3.231768592077474
+              ]
+            }
+          }
+        },
+        "prior_median": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.285227972305149,
+          "p95_geodesic_deg": 11.44857542117455,
+          "user_macro_mean_deg": 3.235351186178074,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.9933963995903015,
+            3.5344129868322343
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.9377838311534914,
+            3.5120538701014623
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.285227972305149,
+              "p95_geodesic_deg": 11.44857542117455,
+              "user_macro_mean_deg": 3.235351186178074,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.9933963995903015,
+                3.5344129868322343
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.9377838311534914,
+                3.5120538701014623
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.285227972305149,
+              "p95_geodesic_deg": 11.44857542117455,
+              "user_macro_mean_deg": 3.235351186178074,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.9933963995903015,
+                3.5344129868322343
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.9377838311534914,
+                3.5120538701014623
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 3.2071371548399226,
+              "per_seed_mean_geodesic_deg": [
+                3.2071371548399226,
+                3.2071371548399226
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.434697526642784,
+              "per_seed_mean_geodesic_deg": [
+                3.434697526642784,
+                3.434697526642784
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.2204640102519355,
+              "per_seed_mean_geodesic_deg": [
+                3.2204640102519355,
+                3.2204640102519355
+              ]
+            }
+          }
+        },
+        "prior_mean": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.3798525838012554,
+          "p95_geodesic_deg": 12.117483783228097,
+          "user_macro_mean_deg": 3.329318526670228,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.098115528056679,
+            3.622108467493945
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            3.0350399102922645,
+            3.5964391285997532
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.3798525838012554,
+              "p95_geodesic_deg": 12.117483783228097,
+              "user_macro_mean_deg": 3.329318526670228,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.098115528056679,
+                3.622108467493945
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.0350399102922645,
+                3.5964391285997532
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.3798525838012554,
+              "p95_geodesic_deg": 12.117483783228097,
+              "user_macro_mean_deg": 3.329318526670228,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.098115528056679,
+                3.622108467493945
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.0350399102922645,
+                3.5964391285997532
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 3.3309548645418148,
+              "per_seed_mean_geodesic_deg": [
+                3.3309548645418148,
+                3.3309548645418148
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.5477876069786327,
+              "per_seed_mean_geodesic_deg": [
+                3.5477876069786327,
+                3.5477876069786327
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.272205725276541,
+              "per_seed_mean_geodesic_deg": [
+                3.272205725276541,
+                3.272205725276541
+              ]
+            }
+          }
+        },
+        "prior_map": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.569728171243762,
+          "p95_geodesic_deg": 12.086160880501534,
+          "user_macro_mean_deg": 3.5128381832021516,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.2319602655713706,
+            3.8591904451096797
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            3.1618730693848374,
+            3.8347964411759135
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.569728171243762,
+              "p95_geodesic_deg": 12.086160880501534,
+              "user_macro_mean_deg": 3.5128381832021516,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.2319602655713706,
+                3.8591904451096797
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.1618730693848374,
+                3.8347964411759135
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.569728171243762,
+              "p95_geodesic_deg": 12.086160880501534,
+              "user_macro_mean_deg": 3.5128381832021516,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.2319602655713706,
+                3.8591904451096797
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.1618730693848374,
+                3.8347964411759135
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 3.474836995828697,
+              "per_seed_mean_geodesic_deg": [
+                3.474836995828697,
+                3.474836995828697
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.711465280663599,
+              "per_seed_mean_geodesic_deg": [
+                3.711465280663599,
+                3.711465280663599
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.5270308528899337,
+              "per_seed_mean_geodesic_deg": [
+                3.5270308528899337,
+                3.5270308528899337
+              ]
+            }
+          }
+        },
+        "ZV": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 7.057531552808173,
+          "p95_geodesic_deg": 26.06328488342997,
+          "user_macro_mean_deg": 6.945546367899221,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            6.547762033798209,
+            7.518385244276275
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            6.405349319962477,
+            7.446566185644312
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 7.057531552808173,
+              "p95_geodesic_deg": 26.06328488342997,
+              "user_macro_mean_deg": 6.945546367899221,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                6.547762033798209,
+                7.518385244276275
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                6.405349319962477,
+                7.446566185644312
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 7.057531552808173,
+              "p95_geodesic_deg": 26.06328488342997,
+              "user_macro_mean_deg": 6.945546367899221,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                6.547762033798209,
+                7.518385244276275
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                6.405349319962477,
+                7.446566185644312
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 7.174965165111091,
+              "per_seed_mean_geodesic_deg": [
+                7.174965165111091,
+                7.174965165111091
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 7.406150213416817,
+              "per_seed_mean_geodesic_deg": [
+                7.406150213416817,
+                7.406150213416817
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 6.637438571150903,
+              "per_seed_mean_geodesic_deg": [
+                6.637438571150903,
+                6.637438571150903
+              ]
+            }
+          }
+        },
+        "CAV_W1": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.569728173195692,
+          "p95_geodesic_deg": 12.086123527970003,
+          "user_macro_mean_deg": 3.5128381837614073,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.2319602668554035,
+            3.859190436556684
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            3.161873061408587,
+            3.834796462197601
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.569728173195692,
+              "p95_geodesic_deg": 12.086123527970003,
+              "user_macro_mean_deg": 3.5128381837614073,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.2319602668554035,
+                3.859190436556684
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.161873061408587,
+                3.834796462197601
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.569728173195692,
+              "p95_geodesic_deg": 12.086123527970003,
+              "user_macro_mean_deg": 3.5128381837614073,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.2319602668554035,
+                3.859190436556684
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.161873061408587,
+                3.834796462197601
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 3.4748369989509618,
+              "per_seed_mean_geodesic_deg": [
+                3.4748369989509618,
+                3.4748369989509618
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.71146525234345,
+              "per_seed_mean_geodesic_deg": [
+                3.71146525234345,
+                3.71146525234345
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.5270308811113082,
+              "per_seed_mean_geodesic_deg": [
+                3.5270308811113082,
+                3.5270308811113082
+              ]
+            }
+          }
+        },
+        "CAV_W5": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 4.105020742694544,
+          "p95_geodesic_deg": 13.953203046909728,
+          "user_macro_mean_deg": 4.039838149905637,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.72034593874926,
+            4.434070133176655
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            3.6411315637265096,
+            4.406482957350706
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 4.105020742694544,
+              "p95_geodesic_deg": 13.953203046909728,
+              "user_macro_mean_deg": 4.039838149905637,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.72034593874926,
+                4.434070133176655
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.6411315637265096,
+                4.406482957350706
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 4.105020742694544,
+              "p95_geodesic_deg": 13.953203046909728,
+              "user_macro_mean_deg": 4.039838149905637,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.72034593874926,
+                4.434070133176655
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.6411315637265096,
+                4.406482957350706
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 4.006061277565415,
+              "per_seed_mean_geodesic_deg": [
+                4.006061277565415,
+                4.006061277565415
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 4.27333167661216,
+              "per_seed_mean_geodesic_deg": [
+                4.27333167661216,
+                4.27333167661216
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 4.041994253517783,
+              "per_seed_mean_geodesic_deg": [
+                4.041994253517783,
+                4.041994253517783
+              ]
+            }
+          }
+        },
+        "CAV_W20": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 5.6019902204382355,
+          "p95_geodesic_deg": 19.16384205128545,
+          "user_macro_mean_deg": 5.514645334750894,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            5.093522906902831,
+            6.039453864604616
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            4.985670811950008,
+            5.990668289220289
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 5.6019902204382355,
+              "p95_geodesic_deg": 19.16384205128545,
+              "user_macro_mean_deg": 5.514645334750894,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                5.093522906902831,
+                6.039453864604616
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                4.985670811950008,
+                5.990668289220289
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 5.6019902204382355,
+              "p95_geodesic_deg": 19.16384205128545,
+              "user_macro_mean_deg": 5.514645334750894,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                5.093522906902831,
+                6.039453864604616
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                4.985670811950008,
+                5.990668289220289
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 5.519748631126873,
+              "per_seed_mean_geodesic_deg": [
+                5.519748631126873,
+                5.519748631126873
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 5.869309133366367,
+              "per_seed_mean_geodesic_deg": [
+                5.869309133366367,
+                5.869309133366367
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 5.434595137804976,
+              "per_seed_mean_geodesic_deg": [
+                5.434595137804976,
+                5.434595137804976
+              ]
+            }
+          }
+        }
+      },
+      "contrasts": {
+        "nll21_median_minus_nll21_mean": {
+          "mean_delta_deg": -0.03629596194940321,
+          "absolute_improvement_deg": 0.03629596194940321,
+          "relative_improvement_fraction": 0.012456214162778364,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.04931823812602894,
+            -0.023564489861976737
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.007672008919481157,
+            0.01762285396529028
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.027311016126125853,
+            -0.04528090777267968
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.03826124080821147,
+            -0.05822627423277016,
+            -0.014738905166556293
+          ],
+          "folds_improved": 3,
+          "users_improved": 14,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "nll21_median_minus_nll21_map": {
+          "mean_delta_deg": -0.2238322787364897,
+          "absolute_improvement_deg": 0.2238322787364897,
+          "relative_improvement_fraction": 0.07217089682370142,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.2391873490801382,
+            -0.20946442695307518
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.06858843435776782,
+            0.0763947477929191
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.2352990200714018,
+            -0.21236553740157893
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.23439501212932656,
+            -0.2130340922203966,
+            -0.22409140841307407
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_scalar_angle": {
+          "mean_delta_deg": -0.005424501096987111,
+          "absolute_improvement_deg": 0.005424501096987111,
+          "relative_improvement_fraction": 0.001881539259578551,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.012786231434289985,
+            0.0021402597479956674
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            -0.0007352023292507701,
+            0.004687385466154562
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            0.008684574796343991,
+            -0.0195335769903191
+          ],
+          "both_seed_directions_improve": false,
+          "fold_delta_deg": [
+            -0.015316611120694823,
+            0.010824588036419502,
+            -0.011205337576848162
+          ],
+          "folds_improved": 2,
+          "users_improved": 9,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "nll21_median_minus_scalar_pinball": {
+          "mean_delta_deg": -0.02584181666026142,
+          "absolute_improvement_deg": 0.02584181666026142,
+          "relative_improvement_fraction": 0.00890044492579811,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.039110805539708374,
+            -0.011643786184200745
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.0042051301933253155,
+            0.01297465423786849
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.003285596323503448,
+            -0.04839803699701983
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.043091198639302775,
+            0.0009066774326074167,
+            -0.03449090497596696
+          ],
+          "folds_improved": 2,
+          "users_improved": 10,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "nll21_median_minus_risk21": {
+          "mean_delta_deg": -0.013750904001823994,
+          "absolute_improvement_deg": 0.013750904001823994,
+          "relative_improvement_fraction": 0.00475589501460113,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.025201510830606677,
+            -0.0011161849875565054
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.00035575298420320193,
+            0.00902334375762198
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.0012069932686396,
+            -0.026294814735010608
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.03773391488283817,
+            -0.007514050384887838,
+            0.0021590919159550914
+          ],
+          "folds_improved": 2,
+          "users_improved": 13,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "nll21_median_minus_vector_angle": {
+          "mean_delta_deg": 0.34893319821587365,
+          "absolute_improvement_deg": -0.34893319821587365,
+          "relative_improvement_fraction": -0.13799163334345832,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            0.29198907258890644,
+            0.4029729535480373
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            -0.162927182529768,
+            -0.11077665812552508
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            0.37241594081417784,
+            0.32545045561756947
+          ],
+          "both_seed_directions_improve": false,
+          "fold_delta_deg": [
+            0.3747729916457305,
+            0.4036462722056089,
+            0.2763484429567371
+          ],
+          "folds_improved": 0,
+          "users_improved": 0,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "nll21_median_minus_static_mixture": {
+          "mean_delta_deg": -0.43618143731399917,
+          "absolute_improvement_deg": 0.43618143731399917,
+          "relative_improvement_fraction": 0.13162697442843946,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.4819021666640441,
+            -0.38864003525739566
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.11554337870552002,
+            0.14657780954983549
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.4229157305909941,
+            -0.4494471440370047
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.4874845431663637,
+            -0.4600734852366841,
+            -0.3685444286131774
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_prior_median": {
+          "mean_delta_deg": -0.4076400305992398,
+          "absolute_improvement_deg": 0.4076400305992398,
+          "relative_improvement_fraction": 0.12408272242769522,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.4477188849163846,
+            -0.3670354565102171
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.11130256674394412,
+            0.13622480656191083
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.3943743238762347,
+            -0.42090573732224534
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.4473800110692623,
+            -0.4239396301138938,
+            -0.357239846787639
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_prior_mean": {
+          "mean_delta_deg": -0.502264642095346,
+          "absolute_improvement_deg": 0.502264642095346,
+          "relative_improvement_fraction": 0.14860548785546696,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.5583909338354142,
+            -0.4435995325236351
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.12952443076853257,
+            0.16669467667388663
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.48899893537234096,
+            -0.5155303488183516
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.5711977207711545,
+            -0.5370297104497426,
+            -0.40898156181224454
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_prior_map": {
+          "mean_delta_deg": -0.6921402295378525,
+          "absolute_improvement_deg": 0.6921402295378525,
+          "relative_improvement_fraction": 0.1938915783878013,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.7552070552058792,
+            -0.6204494141842452
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.18603965315403787,
+            0.20186352464221777
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.6788745228148474,
+            -0.705405936260858
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.7150798520580368,
+            -0.7007073841347089,
+            -0.6638066894256371
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_ZV": {
+          "mean_delta_deg": -4.179943611102264,
+          "absolute_improvement_deg": 4.179943611102264,
+          "relative_improvement_fraction": 0.5922670808944631,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -4.480088147100822,
+            -3.8741773858700204
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.5733020514928086,
+            0.611252203896955
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -4.166677904379258,
+            -4.193209317825269
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -4.415208021340431,
+            -4.395392316887927,
+            -3.7742144076866064
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_CAV_W1": {
+          "mean_delta_deg": -0.6921402314897827,
+          "absolute_improvement_deg": 0.6921402314897827,
+          "relative_improvement_fraction": 0.19389157882858205,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.7552070613044309,
+            -0.620449422783229
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.1860396505241235,
+            0.20186352384851533
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.6788745247667776,
+            -0.7054059382127882
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.7150798551803015,
+            -0.70070735581456,
+            -0.6638067176470117
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_CAV_W5": {
+          "mean_delta_deg": -1.2274328009886344,
+          "absolute_improvement_deg": 1.2274328009886344,
+          "relative_improvement_fraction": 0.29900769762808677,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -1.3316674258686851,
+            -1.1073548241692788
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.2908421273921369,
+            0.30729532642894236
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -1.2141670942656293,
+            -1.24069850771164
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -1.2463041337947547,
+            -1.2625737800832697,
+            -1.178770090053486
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_CAV_W20": {
+          "mean_delta_deg": -2.724402278732326,
+          "absolute_improvement_deg": 2.724402278732326,
+          "relative_improvement_fraction": 0.48632756779771746,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -2.9404133700684847,
+            -2.472087449291591
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.4754641186878322,
+            0.49648211546648746
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -2.711136572009321,
+            -2.7376679854553316
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -2.759991487356213,
+            -2.858551236837477,
+            -2.5713709743406796
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        }
+      },
+      "primary_contrasts": [
+        "nll21_median_minus_static_mixture",
+        "nll21_median_minus_scalar_angle",
+        "nll21_median_minus_risk21"
+      ],
+      "gate": {
+        "conjunctive_comparators": [
+          "static_mixture",
+          "scalar_angle",
+          "risk21",
+          "scalar_pinball"
+        ],
+        "passed": false,
+        "vector_control_has_lower_mean_error": true,
+        "primary_has_lowest_mean_among_recorded_methods": false,
+        "gate_is_not_novelty_eligibility_or_acceptance": true,
+        "CI_is_reported_not_a_gate": true
+      },
+      "uncertainty": {
+        "cluster": "whole_user_all_sessions_and_overlapping_origins",
+        "resamples": 2000,
+        "seed": 20261028,
+        "paired_draws_shared": true,
+        "estimand": "window_weighted_ratio_sum_errors_over_sum_counts",
+        "relative_ratio_recomputed_per_draw": true,
+        "CI_scope": "conditional_on_two_fixed_seeds_and_fixed_cross_validation_models_no_independent_retraining",
+        "two_seed_aggregation": "arithmetic_mean_of_paired_endpoint_errors_not_prediction_ensemble",
+        "p95_scope": "descriptive_percentile_of_paired_seed_mean_errors_no_window_independence"
+      },
+      "validation": {
+        "users": 15,
+        "folds": 3,
+        "users_per_fold": 5,
+        "windows": 3330312,
+        "row_order_binding_verified": true,
+        "direct_error_counts_sums_finite_range_verified": true,
+        "analytic_seed_identity_verified": true
+      },
+      "resources": {
+        "fixed_parameters": {
+          "nll21": 1717,
+          "scalar_angle": 1649,
+          "scalar_pinball": 1649,
+          "risk21": 1717,
+          "vector_angle": 1683
+        },
+        "fixed_conv_dense_MACs": {
+          "nll21": 425904,
+          "scalar_angle": 425840,
+          "scalar_pinball": 425840,
+          "risk21": 425904,
+          "vector_angle": 425872
+        },
+        "MAC_scope": "convolution_and_dense_only_excludes_geometry_decisions_activations_bias_padding",
+        "static_neural_compute_matched": false,
+        "status": "measured_training_time_receipts_updates_require_runner_scope",
+        "arms": {
+          "nll21": {
+            "parameters": 1717,
+            "conv_dense_MACs": 425904,
+            "total_training_seconds": 163.8586395981547,
+            "records": [
+              {
+                "fold": 0,
+                "seed": 20261026,
+                "training_seconds": 32.864016899024136,
+                "validation_seconds": 40.344016199960606,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 0,
+                "seed": 20261027,
+                "training_seconds": 26.19974560046103,
+                "validation_seconds": 37.17889609991107,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261026,
+                "training_seconds": 26.29672859850689,
+                "validation_seconds": 37.48315019995789,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261027,
+                "training_seconds": 25.92255820010905,
+                "validation_seconds": 37.45754660072271,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261026,
+                "training_seconds": 26.086317501118174,
+                "validation_seconds": 42.0346555984579,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261027,
+                "training_seconds": 26.489272798935417,
+                "validation_seconds": 40.96907479947549,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              }
+            ]
+          },
+          "scalar_angle": {
+            "parameters": 1649,
+            "conv_dense_MACs": 425840,
+            "total_training_seconds": 368.7136599019286,
+            "records": [
+              {
+                "fold": 0,
+                "seed": 20261026,
+                "training_seconds": 71.2767260997498,
+                "validation_seconds": 25.512504998623626,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 0,
+                "seed": 20261027,
+                "training_seconds": 59.50463990060962,
+                "validation_seconds": 23.520408900483744,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261026,
+                "training_seconds": 59.79050860184361,
+                "validation_seconds": 23.568021599843632,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261027,
+                "training_seconds": 58.95926359976875,
+                "validation_seconds": 23.692355199891608,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261026,
+                "training_seconds": 59.14712689942098,
+                "validation_seconds": 26.580011701997137,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261027,
+                "training_seconds": 60.03539480053587,
+                "validation_seconds": 26.012743500090437,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              }
+            ]
+          },
+          "scalar_pinball": {
+            "parameters": 1649,
+            "conv_dense_MACs": 425840,
+            "total_training_seconds": 171.36861480082734,
+            "records": [
+              {
+                "fold": 0,
+                "seed": 20261026,
+                "training_seconds": 33.59548930131132,
+                "validation_seconds": 25.35848500035354,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 0,
+                "seed": 20261027,
+                "training_seconds": 27.537406499352073,
+                "validation_seconds": 23.537677901185816,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261026,
+                "training_seconds": 27.56835270053125,
+                "validation_seconds": 23.464118000556482,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261027,
+                "training_seconds": 27.323860701173544,
+                "validation_seconds": 23.625149699510075,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261026,
+                "training_seconds": 27.43664039869327,
+                "validation_seconds": 26.581923999474384,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261027,
+                "training_seconds": 27.90686519976589,
+                "validation_seconds": 25.780905599414837,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              }
+            ]
+          },
+          "risk21": {
+            "parameters": 1717,
+            "conv_dense_MACs": 425904,
+            "total_training_seconds": 159.91171850211686,
+            "records": [
+              {
+                "fold": 0,
+                "seed": 20261026,
+                "training_seconds": 31.14416589983739,
+                "validation_seconds": 25.355635998712387,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 0,
+                "seed": 20261027,
+                "training_seconds": 25.773253000283148,
+                "validation_seconds": 23.35545729965088,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261026,
+                "training_seconds": 25.814962500910042,
+                "validation_seconds": 23.375517500331625,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261027,
+                "training_seconds": 25.528411299863365,
+                "validation_seconds": 23.53419210005086,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261026,
+                "training_seconds": 25.699986899766373,
+                "validation_seconds": 26.61251229912159,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261027,
+                "training_seconds": 25.95093890145654,
+                "validation_seconds": 25.83544519887073,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              }
+            ]
+          },
+          "vector_angle": {
+            "parameters": 1683,
+            "conv_dense_MACs": 425872,
+            "total_training_seconds": 374.63375250351964,
+            "records": [
+              {
+                "fold": 0,
+                "seed": 20261026,
+                "training_seconds": 72.10082370153395,
+                "validation_seconds": 26.740363400429487,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 0,
+                "seed": 20261027,
+                "training_seconds": 60.489698400953785,
+                "validation_seconds": 24.85579689987935,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261026,
+                "training_seconds": 60.94696999984444,
+                "validation_seconds": 24.894850400771247,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261027,
+                "training_seconds": 59.95382709885598,
+                "validation_seconds": 25.010913600417553,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261026,
+                "training_seconds": 60.225295401207404,
+                "validation_seconds": 28.031674300087616,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261027,
+                "training_seconds": 60.91713790112408,
+                "validation_seconds": 27.421086699090665,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              }
+            ]
+          }
+        },
+        "maximum_to_minimum_total_training_time_ratio": 2.3427535893722533,
+        "maximum_per_fold_seed_training_time_ratio": 2.3609164645385756,
+        "strong_same_wall_compute_claim_allowed": false,
+        "unequal_time_action": "qualify_claim_no_automatic_extra_fit_or_schedule_change"
+      },
+      "development": "not_read_or_evaluated_by_this_metrics_API",
+      "final_holdout": "sealed_not_read_or_evaluated_by_this_metrics_API",
+      "limits": [
+        "single_conditional_Alyx_corpus",
+        "selection_fold_results_not_independent_confirmation",
+        "different_training_objective_units_not_matched_loss_scaling",
+        "no_foundation_high_novelty_or_target_XR_claim",
+        "official_sample_time_dispute_unresolved"
+      ]
+    }
+  },
+  "matched_training_time_secondary": {
+    "scope": "timing_only_fixed100step_prefix_selection_different_example_counts",
+    "metrics": {
+      "schema_version": 1,
+      "scope": "exploratory_outer_train_user_disjoint_inner_validation_only",
+      "methods": {
+        "nll21_median": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.876845746420157,
+          "p95_geodesic_deg": 9.75964884666962,
+          "user_macro_mean_deg": 2.8307620516255643,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.603491048852035,
+            3.110716636813199
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.5539205840133827,
+            3.0888139284763314
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.8909556272762456,
+              "p95_geodesic_deg": 9.863840452533536,
+              "user_macro_mean_deg": 2.84519712392172,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.616412035014458,
+                3.1258271929487704
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.568678705312624,
+                3.104995244771603
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.8627358655640696,
+              "p95_geodesic_deg": 9.706885931422548,
+              "user_macro_mean_deg": 2.8163269793294097,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.5929348199237743,
+                3.099406648145724
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.5395429302383965,
+                3.0721675407672207
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.028219761712175995,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.761052143830823,
+              "per_seed_mean_geodesic_deg": [
+                2.771357285492221,
+                2.7507470021694242
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.012740093293441,
+              "per_seed_mean_geodesic_deg": [
+                3.0441781080940182,
+                2.9813020784928628
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.85819363711217,
+              "per_seed_mean_geodesic_deg": [
+                2.8600818779172754,
+                2.856305396307065
+              ]
+            }
+          }
+        },
+        "nll21_mean": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.919945435434631,
+          "p95_geodesic_deg": 9.991049798040336,
+          "user_macro_mean_deg": 2.875161238836402,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.652355859502146,
+            3.1481634646417676
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.605960643367762,
+            3.1301981180892198
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.9375774209365537,
+              "p95_geodesic_deg": 10.092618775690132,
+              "user_macro_mean_deg": 2.893164850465035,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.66872307381593,
+                3.1679815551449337
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.621818098681588,
+                3.1497522694497637
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.9023134499327083,
+              "p95_geodesic_deg": 9.909832037372768,
+              "user_macro_mean_deg": 2.857157627207769,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.636885443413461,
+                3.1281851851780713
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.5863406928629824,
+                3.1085536065232287
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.035263971003845374,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.814846084514767,
+              "per_seed_mean_geodesic_deg": [
+                2.831346669250211,
+                2.7983454997793222
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.0651237638791407,
+              "per_seed_mean_geodesic_deg": [
+                3.104538626941711,
+                3.0257089008165696
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.8833102163742566,
+              "per_seed_mean_geodesic_deg": [
+                2.8822992815899346,
+                2.8843211511585793
+              ]
+            }
+          }
+        },
+        "nll21_map": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.0972225603104384,
+          "p95_geodesic_deg": 9.862789329701506,
+          "user_macro_mean_deg": 3.048817819455893,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.812379427198819,
+            3.3445722400056526
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.7559557921778164,
+            3.3173454857851232
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.099075483621215,
+              "p95_geodesic_deg": 10.010780647477352,
+              "user_macro_mean_deg": 3.050911042055459,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.8122699726473197,
+                3.3459918309304166
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.759985506253899,
+                3.325240869313866
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.0953696369996613,
+              "p95_geodesic_deg": 9.96019489132344,
+              "user_macro_mean_deg": 3.0467245968563277,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.8120443187665405,
+                3.3413450332237926
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.7568198504515773,
+                3.312881663283794
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.003705846621553821,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.991780313188233,
+              "per_seed_mean_geodesic_deg": [
+                2.974926415494731,
+                3.0086342108817345
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.2237175580682567,
+              "per_seed_mean_geodesic_deg": [
+                3.257902318599407,
+                3.1895327975371064
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.0777569671589977,
+              "per_seed_mean_geodesic_deg": [
+                3.067230745733214,
+                3.0882831885847817
+              ]
+            }
+          }
+        },
+        "scalar_angle": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.9738666447962436,
+          "p95_geodesic_deg": 10.11484826523437,
+          "user_macro_mean_deg": 2.927175940890214,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.696606418323198,
+            3.213671118540597
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.643423805100304,
+            3.1877594921307666
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.972066365614192,
+              "p95_geodesic_deg": 10.130162682533523,
+              "user_macro_mean_deg": 2.9256347958241076,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.6950688579550386,
+                3.2126617222371756
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.6406268451618238,
+                3.186857935445589
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.975666923978297,
+              "p95_geodesic_deg": 10.162319288216043,
+              "user_macro_mean_deg": 2.9287170859563196,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.6988395310293667,
+                3.212725045638881
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.648069079370167,
+                3.191832243864176
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.003600558364104778,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.8802689043861447,
+              "per_seed_mean_geodesic_deg": [
+                2.89636456556829,
+                2.8641732432039997
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.1041210121257916,
+              "per_seed_mean_geodesic_deg": [
+                3.0912844324508733,
+                3.116957591800709
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.940370870430633,
+              "per_seed_mean_geodesic_deg": [
+                2.9324587861938434,
+                2.9482829546674223
+              ]
+            }
+          }
+        },
+        "scalar_pinball": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.9045876520523617,
+          "p95_geodesic_deg": 9.904555665303764,
+          "user_macro_mean_deg": 2.856142861996263,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.6256285359812086,
+            3.14597898713316
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.5682148652422714,
+            3.119299901030311
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.88380197104974,
+              "p95_geodesic_deg": 9.841093970247954,
+              "user_macro_mean_deg": 2.8358441147261524,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.609007116550754,
+                3.1220739821620493
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.5495380051120518,
+                3.09596114519496
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.925373333054983,
+              "p95_geodesic_deg": 10.06319337231291,
+              "user_macro_mean_deg": 2.8764416092663736,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.642917850718707,
+                3.171227018685022
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.5855243787135653,
+                3.1446242369887702
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.04157136200524336,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.7914594439085243,
+              "per_seed_mean_geodesic_deg": [
+                2.767520603593313,
+                2.815398284223736
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.0250532252921394,
+              "per_seed_mean_geodesic_deg": [
+                3.0000593143621277,
+                3.0500471362221515
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.897466239835308,
+              "per_seed_mean_geodesic_deg": [
+                2.8833102800741535,
+                2.9116221995964615
+              ]
+            }
+          }
+        },
+        "risk21": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.8913388457077334,
+          "p95_geodesic_deg": 9.737560820669971,
+          "user_macro_mean_deg": 2.8458056315726314,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.6215688631969623,
+            3.123888076114309
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.5705041761074234,
+            3.099967105643324
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.892060641697554,
+              "p95_geodesic_deg": 9.733577589979939,
+              "user_macro_mean_deg": 2.8468182025847404,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.620571311667732,
+                3.123713240628489
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.570003552629693,
+                3.1010472486389076
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.8906170497179144,
+              "p95_geodesic_deg": 9.792238553780283,
+              "user_macro_mean_deg": 2.8447930605605225,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.6218884608789694,
+                3.1213876733048367
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.571536955169409,
+                3.100252682722057
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0014435919796396135,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.7974910586534985,
+              "per_seed_mean_geodesic_deg": [
+                2.806742743768743,
+                2.788239373538254
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.018271946913778,
+              "per_seed_mean_geodesic_deg": [
+                3.020676497448299,
+                3.0158673963792566
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.8610650715483414,
+              "per_seed_mean_geodesic_deg": [
+                2.8526076314916313,
+                2.8695225116050516
+              ]
+            }
+          }
+        },
+        "vector_angle": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 2.5802914804869235,
+          "p95_geodesic_deg": 8.434105179567265,
+          "user_macro_mean_deg": 2.538006881877193,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.322305869882558,
+            2.824353434427555
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.2715803325085004,
+            2.800184255896343
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.5858056296380676,
+              "p95_geodesic_deg": 8.481964508701228,
+              "user_macro_mean_deg": 2.543651617288512,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.330040084218108,
+                2.8269258478069683
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.276857838781828,
+                2.801544935072163
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 2.57477733133578,
+              "p95_geodesic_deg": 8.443225482677242,
+              "user_macro_mean_deg": 2.5323621464658728,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.315697989866568,
+                2.8218789967581386
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.265961649383087,
+                2.796182456725572
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.011028298302287798,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 2.434522894932353,
+              "per_seed_mean_geodesic_deg": [
+                2.4406985245551573,
+                2.4283472653095495
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 2.6436625525790944,
+              "per_seed_mean_geodesic_deg": [
+                2.659878071753098,
+                2.6274470334050894
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 2.6540115500818167,
+              "per_seed_mean_geodesic_deg": [
+                2.6492736649602917,
+                2.6587494352033425
+              ]
+            }
+          }
+        },
+        "static_mixture": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.3137693790199085,
+          "p95_geodesic_deg": 11.715986661656329,
+          "user_macro_mean_deg": 3.263859458096929,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.0302620631001576,
+            3.5598748973490406
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.972052051377021,
+            3.5332236103421732
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.3137693790199085,
+              "p95_geodesic_deg": 11.715986661656329,
+              "user_macro_mean_deg": 3.263859458096929,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.0302620631001576,
+                3.5598748973490406
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.972052051377021,
+                3.5332236103421732
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.3137693790199085,
+              "p95_geodesic_deg": 11.715986661656329,
+              "user_macro_mean_deg": 3.263859458096929,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.0302620631001576,
+                3.5598748973490406
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.972052051377021,
+                3.5332236103421732
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 3.247241686937024,
+              "per_seed_mean_geodesic_deg": [
+                3.247241686937024,
+                3.247241686937024
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.4708313817655743,
+              "per_seed_mean_geodesic_deg": [
+                3.4708313817655743,
+                3.4708313817655743
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.231768592077474,
+              "per_seed_mean_geodesic_deg": [
+                3.231768592077474,
+                3.231768592077474
+              ]
+            }
+          }
+        },
+        "prior_median": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.285227972305149,
+          "p95_geodesic_deg": 11.44857542117455,
+          "user_macro_mean_deg": 3.235351186178074,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            2.9933963995903015,
+            3.5344129868322343
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            2.9377838311534914,
+            3.5120538701014623
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.285227972305149,
+              "p95_geodesic_deg": 11.44857542117455,
+              "user_macro_mean_deg": 3.235351186178074,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.9933963995903015,
+                3.5344129868322343
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.9377838311534914,
+                3.5120538701014623
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.285227972305149,
+              "p95_geodesic_deg": 11.44857542117455,
+              "user_macro_mean_deg": 3.235351186178074,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                2.9933963995903015,
+                3.5344129868322343
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                2.9377838311534914,
+                3.5120538701014623
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 3.2071371548399226,
+              "per_seed_mean_geodesic_deg": [
+                3.2071371548399226,
+                3.2071371548399226
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.434697526642784,
+              "per_seed_mean_geodesic_deg": [
+                3.434697526642784,
+                3.434697526642784
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.2204640102519355,
+              "per_seed_mean_geodesic_deg": [
+                3.2204640102519355,
+                3.2204640102519355
+              ]
+            }
+          }
+        },
+        "prior_mean": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.3798525838012554,
+          "p95_geodesic_deg": 12.117483783228097,
+          "user_macro_mean_deg": 3.329318526670228,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.098115528056679,
+            3.622108467493945
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            3.0350399102922645,
+            3.5964391285997532
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.3798525838012554,
+              "p95_geodesic_deg": 12.117483783228097,
+              "user_macro_mean_deg": 3.329318526670228,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.098115528056679,
+                3.622108467493945
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.0350399102922645,
+                3.5964391285997532
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.3798525838012554,
+              "p95_geodesic_deg": 12.117483783228097,
+              "user_macro_mean_deg": 3.329318526670228,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.098115528056679,
+                3.622108467493945
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.0350399102922645,
+                3.5964391285997532
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 3.3309548645418148,
+              "per_seed_mean_geodesic_deg": [
+                3.3309548645418148,
+                3.3309548645418148
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.5477876069786327,
+              "per_seed_mean_geodesic_deg": [
+                3.5477876069786327,
+                3.5477876069786327
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.272205725276541,
+              "per_seed_mean_geodesic_deg": [
+                3.272205725276541,
+                3.272205725276541
+              ]
+            }
+          }
+        },
+        "prior_map": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.569728171243762,
+          "p95_geodesic_deg": 12.086160880501534,
+          "user_macro_mean_deg": 3.5128381832021516,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.2319602655713706,
+            3.8591904451096797
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            3.1618730693848374,
+            3.8347964411759135
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.569728171243762,
+              "p95_geodesic_deg": 12.086160880501534,
+              "user_macro_mean_deg": 3.5128381832021516,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.2319602655713706,
+                3.8591904451096797
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.1618730693848374,
+                3.8347964411759135
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.569728171243762,
+              "p95_geodesic_deg": 12.086160880501534,
+              "user_macro_mean_deg": 3.5128381832021516,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.2319602655713706,
+                3.8591904451096797
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.1618730693848374,
+                3.8347964411759135
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 3.474836995828697,
+              "per_seed_mean_geodesic_deg": [
+                3.474836995828697,
+                3.474836995828697
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.711465280663599,
+              "per_seed_mean_geodesic_deg": [
+                3.711465280663599,
+                3.711465280663599
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.5270308528899337,
+              "per_seed_mean_geodesic_deg": [
+                3.5270308528899337,
+                3.5270308528899337
+              ]
+            }
+          }
+        },
+        "ZV": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 7.057531552808173,
+          "p95_geodesic_deg": 26.06328488342997,
+          "user_macro_mean_deg": 6.945546367899221,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            6.547762033798209,
+            7.518385244276275
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            6.405349319962477,
+            7.446566185644312
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 7.057531552808173,
+              "p95_geodesic_deg": 26.06328488342997,
+              "user_macro_mean_deg": 6.945546367899221,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                6.547762033798209,
+                7.518385244276275
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                6.405349319962477,
+                7.446566185644312
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 7.057531552808173,
+              "p95_geodesic_deg": 26.06328488342997,
+              "user_macro_mean_deg": 6.945546367899221,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                6.547762033798209,
+                7.518385244276275
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                6.405349319962477,
+                7.446566185644312
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 7.174965165111091,
+              "per_seed_mean_geodesic_deg": [
+                7.174965165111091,
+                7.174965165111091
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 7.406150213416817,
+              "per_seed_mean_geodesic_deg": [
+                7.406150213416817,
+                7.406150213416817
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 6.637438571150903,
+              "per_seed_mean_geodesic_deg": [
+                6.637438571150903,
+                6.637438571150903
+              ]
+            }
+          }
+        },
+        "CAV_W1": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 3.569728173195692,
+          "p95_geodesic_deg": 12.086123527970003,
+          "user_macro_mean_deg": 3.5128381837614073,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.2319602668554035,
+            3.859190436556684
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            3.161873061408587,
+            3.834796462197601
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.569728173195692,
+              "p95_geodesic_deg": 12.086123527970003,
+              "user_macro_mean_deg": 3.5128381837614073,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.2319602668554035,
+                3.859190436556684
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.161873061408587,
+                3.834796462197601
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 3.569728173195692,
+              "p95_geodesic_deg": 12.086123527970003,
+              "user_macro_mean_deg": 3.5128381837614073,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.2319602668554035,
+                3.859190436556684
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.161873061408587,
+                3.834796462197601
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 3.4748369989509618,
+              "per_seed_mean_geodesic_deg": [
+                3.4748369989509618,
+                3.4748369989509618
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 3.71146525234345,
+              "per_seed_mean_geodesic_deg": [
+                3.71146525234345,
+                3.71146525234345
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 3.5270308811113082,
+              "per_seed_mean_geodesic_deg": [
+                3.5270308811113082,
+                3.5270308811113082
+              ]
+            }
+          }
+        },
+        "CAV_W5": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 4.105020742694544,
+          "p95_geodesic_deg": 13.953203046909728,
+          "user_macro_mean_deg": 4.039838149905637,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            3.72034593874926,
+            4.434070133176655
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            3.6411315637265096,
+            4.406482957350706
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 4.105020742694544,
+              "p95_geodesic_deg": 13.953203046909728,
+              "user_macro_mean_deg": 4.039838149905637,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.72034593874926,
+                4.434070133176655
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.6411315637265096,
+                4.406482957350706
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 4.105020742694544,
+              "p95_geodesic_deg": 13.953203046909728,
+              "user_macro_mean_deg": 4.039838149905637,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                3.72034593874926,
+                4.434070133176655
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                3.6411315637265096,
+                4.406482957350706
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 4.006061277565415,
+              "per_seed_mean_geodesic_deg": [
+                4.006061277565415,
+                4.006061277565415
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 4.27333167661216,
+              "per_seed_mean_geodesic_deg": [
+                4.27333167661216,
+                4.27333167661216
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 4.041994253517783,
+              "per_seed_mean_geodesic_deg": [
+                4.041994253517783,
+                4.041994253517783
+              ]
+            }
+          }
+        },
+        "CAV_W20": {
+          "windows": 3330312,
+          "users": 15,
+          "mean_geodesic_deg": 5.6019902204382355,
+          "p95_geodesic_deg": 19.16384205128545,
+          "user_macro_mean_deg": 5.514645334750894,
+          "conditional_user_cluster_95_CI_mean_deg": [
+            5.093522906902831,
+            6.039453864604616
+          ],
+          "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+            4.985670811950008,
+            5.990668289220289
+          ],
+          "per_seed": {
+            "20261026": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 5.6019902204382355,
+              "p95_geodesic_deg": 19.16384205128545,
+              "user_macro_mean_deg": 5.514645334750894,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                5.093522906902831,
+                6.039453864604616
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                4.985670811950008,
+                5.990668289220289
+              ]
+            },
+            "20261027": {
+              "windows": 3330312,
+              "users": 15,
+              "mean_geodesic_deg": 5.6019902204382355,
+              "p95_geodesic_deg": 19.16384205128545,
+              "user_macro_mean_deg": 5.514645334750894,
+              "conditional_user_cluster_95_CI_mean_deg": [
+                5.093522906902831,
+                6.039453864604616
+              ],
+              "conditional_user_cluster_95_CI_user_macro_mean_deg": [
+                4.985670811950008,
+                5.990668289220289
+              ]
+            }
+          },
+          "seed_mean_range_deg": 0.0,
+          "folds": {
+            "0": {
+              "users": 5,
+              "windows": 1067956,
+              "mean_geodesic_deg": 5.519748631126873,
+              "per_seed_mean_geodesic_deg": [
+                5.519748631126873,
+                5.519748631126873
+              ]
+            },
+            "1": {
+              "users": 5,
+              "windows": 1073206,
+              "mean_geodesic_deg": 5.869309133366367,
+              "per_seed_mean_geodesic_deg": [
+                5.869309133366367,
+                5.869309133366367
+              ]
+            },
+            "2": {
+              "users": 5,
+              "windows": 1189150,
+              "mean_geodesic_deg": 5.434595137804976,
+              "per_seed_mean_geodesic_deg": [
+                5.434595137804976,
+                5.434595137804976
+              ]
+            }
+          }
+        }
+      },
+      "contrasts": {
+        "nll21_median_minus_nll21_mean": {
+          "mean_delta_deg": -0.0430996890144737,
+          "absolute_improvement_deg": 0.0430996890144737,
+          "relative_improvement_fraction": 0.014760443291659781,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.05462167279239431,
+            -0.03191958870111016
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.010344321287708085,
+            0.019736569989741628
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.046621793660308164,
+            -0.039577584368638785
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.05379394068394383,
+            -0.052383670585699704,
+            -0.025116579262086436
+          ],
+          "folds_improved": 3,
+          "users_improved": 14,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "nll21_median_minus_nll21_map": {
+          "mean_delta_deg": -0.2203768138902813,
+          "absolute_improvement_deg": 0.2203768138902813,
+          "relative_improvement_fraction": 0.07115304425142527,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.2365848997362738,
+            -0.20515132575866296
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.06763165567286675,
+            0.07511888342520538
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.20811985634496954,
+            -0.23263377143559172
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.23072816935740992,
+            -0.21097746477481572,
+            -0.2195633300468276
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_scalar_angle": {
+          "mean_delta_deg": -0.09702089837608652,
+          "absolute_improvement_deg": 0.09702089837608652,
+          "relative_improvement_fraction": 0.03262449530003521,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.11110300470070239,
+            -0.084741998542865
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.028515900361283833,
+            0.03718603054620954
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.08111073833794658,
+            -0.11293105841422735
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.1192167605553216,
+            -0.09138091883235067,
+            -0.08217723331846294
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_scalar_pinball": {
+          "mean_delta_deg": -0.027741905632204578,
+          "absolute_improvement_deg": 0.027741905632204578,
+          "relative_improvement_fraction": 0.00955106505827164,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.039314365886772305,
+            -0.015751002526561923
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.005834831212001014,
+            0.012872523574577723
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            0.007153656226505767,
+            -0.06263746749091359
+          ],
+          "both_seed_directions_improve": false,
+          "fold_delta_deg": [
+            -0.030407300077701205,
+            -0.012313131998698434,
+            -0.03927260272313804
+          ],
+          "folds_improved": 3,
+          "users_improved": 12,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "nll21_median_minus_risk21": {
+          "mean_delta_deg": -0.01449309928757625,
+          "absolute_improvement_deg": 0.01449309928757625,
+          "relative_improvement_fraction": 0.005012591073194907,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.024131966755032985,
+            -0.004381722497748404
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.0014395955126847945,
+            0.008585519266265851
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.0011050144213085034,
+            -0.027881184153844885
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.03643891482267536,
+            -0.005531853620337035,
+            -0.0028714344361713273
+          ],
+          "folds_improved": 3,
+          "users_improved": 14,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "nll21_median_minus_vector_angle": {
+          "mean_delta_deg": 0.29655426593323364,
+          "absolute_improvement_deg": -0.29655426593323364,
+          "relative_improvement_fraction": -0.11493052942889664,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            0.23723993988485276,
+            0.351435273328653
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            -0.13788809190407325,
+            -0.0885849474700887
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            0.30514999763817796,
+            0.28795853422828976
+          ],
+          "both_seed_directions_improve": false,
+          "fold_delta_deg": [
+            0.3265292488984701,
+            0.3690775407143465,
+            0.20418208703035345
+          ],
+          "folds_improved": 0,
+          "users_improved": 0,
+          "exploratory_pilot_thresholds_passed": false
+        },
+        "nll21_median_minus_static_mixture": {
+          "mean_delta_deg": -0.4369236325997514,
+          "absolute_improvement_deg": 0.4369236325997514,
+          "relative_improvement_fraction": 0.13185094755416485,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.4808007922937338,
+            -0.3911262252659867
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.1166243632128013,
+            0.14608001356288333
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.422813751743663,
+            -0.451033513455839
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.4861895431062009,
+            -0.4580912884721333,
+            -0.3735749549653038
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_prior_median": {
+          "mean_delta_deg": -0.40838222588499207,
+          "absolute_improvement_deg": 0.40838222588499207,
+          "relative_improvement_fraction": 0.12430864138735617,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.44786898324675206,
+            -0.3686656100082323
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.11230363010841862,
+            0.13582404320205987
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.3942723450289036,
+            -0.4224921067410796
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.4460850110090995,
+            -0.421957433349343,
+            -0.3622703731397654
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_prior_mean": {
+          "mean_delta_deg": -0.5030068373810983,
+          "absolute_improvement_deg": 0.5030068373810983,
+          "relative_improvement_fraction": 0.14882508183696466,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.5578297780414616,
+            -0.4460458105680253
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.13048357267804464,
+            0.1662485825642398
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.48889695652500986,
+            -0.5171167182371859
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.5699027207109917,
+            -0.5350475136851918,
+            -0.41401208816437096
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_prior_map": {
+          "mean_delta_deg": -0.6928824248236047,
+          "absolute_improvement_deg": 0.6928824248236047,
+          "relative_improvement_fraction": 0.19409949205801605,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.7557389385298837,
+            -0.6220624560571482
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.1866964629339648,
+            0.2018070416785909
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.6787725439675163,
+            -0.7069923056796923
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.713784851997874,
+            -0.6987251873701581,
+            -0.6688372157777636
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_ZV": {
+          "mean_delta_deg": -4.1806858063880155,
+          "absolute_improvement_deg": 4.1806858063880155,
+          "relative_improvement_fraction": 0.5923722444747034,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -4.479492846530958,
+            -3.8762569720199433
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.5737990581304884,
+            0.6110916967020569
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -4.166575925531927,
+            -4.194795687244103
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -4.413913021280268,
+            -4.3934101201233755,
+            -3.779244934038733
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_CAV_W1": {
+          "mean_delta_deg": -0.6928824267755349,
+          "absolute_improvement_deg": 0.6928824267755349,
+          "relative_improvement_fraction": 0.19409949249868308,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -0.7557389370366763,
+            -0.6220624373325649
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.18669646442422813,
+            0.2018070403074377
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -0.6787725459194465,
+            -0.7069923076316225
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -0.7137848551201387,
+            -0.6987251590500092,
+            -0.6688372439991381
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_CAV_W5": {
+          "mean_delta_deg": -1.2281749962743866,
+          "absolute_improvement_deg": 1.2281749962743866,
+          "relative_improvement_fraction": 0.29918849946375914,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -1.3341327655801583,
+            -1.1085911802048933
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.2913140651645239,
+            0.30727543107859284
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -1.2140651154182982,
+            -1.2422848771304742
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -1.2450091337345919,
+            -1.260591583318719,
+            -1.1838006164056125
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        },
+        "nll21_median_minus_CAV_W20": {
+          "mean_delta_deg": -2.7251444740180784,
+          "absolute_improvement_deg": 2.7251444740180784,
+          "relative_improvement_fraction": 0.4864600555844766,
+          "conditional_user_cluster_95_CI_delta_deg": [
+            -2.9408539320261746,
+            -2.4723570237770764
+          ],
+          "conditional_user_cluster_95_CI_relative_improvement_fraction": [
+            0.476038818079676,
+            0.4963015748775545
+          ],
+          "relative_bootstrap_valid_draws": 2000,
+          "relative_bootstrap_zero_reference_draws": 0,
+          "per_seed_delta_deg": [
+            -2.71103459316199,
+            -2.739254354874166
+          ],
+          "both_seed_directions_improve": true,
+          "fold_delta_deg": [
+            -2.75869648729605,
+            -2.8565690400729262,
+            -2.576401500692806
+          ],
+          "folds_improved": 3,
+          "users_improved": 15,
+          "exploratory_pilot_thresholds_passed": true
+        }
+      },
+      "primary_contrasts": [
+        "nll21_median_minus_static_mixture",
+        "nll21_median_minus_scalar_angle",
+        "nll21_median_minus_risk21"
+      ],
+      "gate": {
+        "conjunctive_comparators": [
+          "static_mixture",
+          "scalar_angle",
+          "risk21",
+          "scalar_pinball"
+        ],
+        "passed": false,
+        "vector_control_has_lower_mean_error": true,
+        "primary_has_lowest_mean_among_recorded_methods": false,
+        "gate_is_not_novelty_eligibility_or_acceptance": true,
+        "CI_is_reported_not_a_gate": true
+      },
+      "uncertainty": {
+        "cluster": "whole_user_all_sessions_and_overlapping_origins",
+        "resamples": 2000,
+        "seed": 20261028,
+        "paired_draws_shared": true,
+        "estimand": "window_weighted_ratio_sum_errors_over_sum_counts",
+        "relative_ratio_recomputed_per_draw": true,
+        "CI_scope": "conditional_on_two_fixed_seeds_and_fixed_cross_validation_models_no_independent_retraining",
+        "two_seed_aggregation": "arithmetic_mean_of_paired_endpoint_errors_not_prediction_ensemble",
+        "p95_scope": "descriptive_percentile_of_paired_seed_mean_errors_no_window_independence"
+      },
+      "validation": {
+        "users": 15,
+        "folds": 3,
+        "users_per_fold": 5,
+        "windows": 3330312,
+        "row_order_binding_verified": true,
+        "direct_error_counts_sums_finite_range_verified": true,
+        "analytic_seed_identity_verified": true
+      },
+      "resources": {
+        "fixed_parameters": {
+          "nll21": 1717,
+          "scalar_angle": 1649,
+          "scalar_pinball": 1649,
+          "risk21": 1717,
+          "vector_angle": 1683
+        },
+        "fixed_conv_dense_MACs": {
+          "nll21": 425904,
+          "scalar_angle": 425840,
+          "scalar_pinball": 425840,
+          "risk21": 425904,
+          "vector_angle": 425872
+        },
+        "MAC_scope": "convolution_and_dense_only_excludes_geometry_decisions_activations_bias_padding",
+        "static_neural_compute_matched": false,
+        "status": "measured_training_time_receipts_updates_require_runner_scope",
+        "arms": {
+          "nll21": {
+            "parameters": 1717,
+            "conv_dense_MACs": 425904,
+            "total_training_seconds": 158.99862029778888,
+            "records": [
+              {
+                "fold": 0,
+                "seed": 20261026,
+                "training_seconds": 31.12315879907692,
+                "validation_seconds": 37.448531300673494,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 0,
+                "seed": 20261027,
+                "training_seconds": 25.668527400150197,
+                "validation_seconds": 39.38589209940983,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261026,
+                "training_seconds": 25.78802049861406,
+                "validation_seconds": 37.167068999260664,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261027,
+                "training_seconds": 25.39899959997274,
+                "validation_seconds": 37.17397560016252,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261026,
+                "training_seconds": 25.55941700108815,
+                "validation_seconds": 41.223746299830964,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261027,
+                "training_seconds": 25.46049699888681,
+                "validation_seconds": 41.86607009952422,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              }
+            ]
+          },
+          "scalar_angle": {
+            "parameters": 1649,
+            "conv_dense_MACs": 425840,
+            "total_training_seconds": 155.75976470313617,
+            "records": [
+              {
+                "fold": 0,
+                "seed": 20261026,
+                "training_seconds": 30.341714100184618,
+                "validation_seconds": 23.628304500307422,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 0,
+                "seed": 20261027,
+                "training_seconds": 25.082937600411242,
+                "validation_seconds": 24.802201199287083,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261026,
+                "training_seconds": 25.020116801402764,
+                "validation_seconds": 23.427759999933187,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261027,
+                "training_seconds": 24.707092900091084,
+                "validation_seconds": 23.4783867993101,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261026,
+                "training_seconds": 24.803628500318155,
+                "validation_seconds": 26.01285719985026,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261027,
+                "training_seconds": 25.804274800728308,
+                "validation_seconds": 26.45767269929638,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              }
+            ]
+          },
+          "scalar_pinball": {
+            "parameters": 1649,
+            "conv_dense_MACs": 425840,
+            "total_training_seconds": 157.39493500083336,
+            "records": [
+              {
+                "fold": 0,
+                "seed": 20261026,
+                "training_seconds": 30.545041200937703,
+                "validation_seconds": 23.540448700397974,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 0,
+                "seed": 20261027,
+                "training_seconds": 25.338679399486864,
+                "validation_seconds": 24.730281299736816,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261026,
+                "training_seconds": 25.422138500172878,
+                "validation_seconds": 23.4065824993595,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261027,
+                "training_seconds": 25.14703530134284,
+                "validation_seconds": 23.367788200557698,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261026,
+                "training_seconds": 25.221289198903833,
+                "validation_seconds": 25.942690299940296,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261027,
+                "training_seconds": 25.72075139998924,
+                "validation_seconds": 26.407238900923403,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              }
+            ]
+          },
+          "risk21": {
+            "parameters": 1717,
+            "conv_dense_MACs": 425904,
+            "total_training_seconds": 159.91171850211686,
+            "records": [
+              {
+                "fold": 0,
+                "seed": 20261026,
+                "training_seconds": 31.14416589983739,
+                "validation_seconds": 23.39626959999441,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 0,
+                "seed": 20261027,
+                "training_seconds": 25.773253000283148,
+                "validation_seconds": 24.703630300035,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261026,
+                "training_seconds": 25.814962500910042,
+                "validation_seconds": 23.380007500643842,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261027,
+                "training_seconds": 25.528411299863365,
+                "validation_seconds": 23.331834300304763,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261026,
+                "training_seconds": 25.699986899766373,
+                "validation_seconds": 25.861858899792423,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261027,
+                "training_seconds": 25.95093890145654,
+                "validation_seconds": 26.375071300106356,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              }
+            ]
+          },
+          "vector_angle": {
+            "parameters": 1683,
+            "conv_dense_MACs": 425872,
+            "total_training_seconds": 156.77673360184417,
+            "records": [
+              {
+                "fold": 0,
+                "seed": 20261026,
+                "training_seconds": 30.403123100753874,
+                "validation_seconds": 24.816395099885995,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 0,
+                "seed": 20261027,
+                "training_seconds": 25.44156140027917,
+                "validation_seconds": 26.26595040029497,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261026,
+                "training_seconds": 25.56273939998937,
+                "validation_seconds": 24.732838799915044,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 1,
+                "seed": 20261027,
+                "training_seconds": 25.10851129933144,
+                "validation_seconds": 24.766456600336824,
+                "peak_allocated_bytes": 474514432,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261026,
+                "training_seconds": 25.26662630107603,
+                "validation_seconds": 27.40655869888724,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              },
+              {
+                "fold": 2,
+                "seed": 20261027,
+                "training_seconds": 24.99417210041429,
+                "validation_seconds": 27.900437001371756,
+                "peak_allocated_bytes": 474550272,
+                "peak_reserved_bytes": 509607936
+              }
+            ]
+          }
+        },
+        "maximum_to_minimum_total_training_time_ratio": 1.026656138104047,
+        "maximum_per_fold_seed_training_time_ratio": 1.03827959562727,
+        "strong_same_wall_compute_claim_allowed": true,
+        "unequal_time_action": "qualify_claim_no_automatic_extra_fit_or_schedule_change"
+      },
+      "development": "not_read_or_evaluated_by_this_metrics_API",
+      "final_holdout": "sealed_not_read_or_evaluated_by_this_metrics_API",
+      "limits": [
+        "single_conditional_Alyx_corpus",
+        "selection_fold_results_not_independent_confirmation",
+        "different_training_objective_units_not_matched_loss_scaling",
+        "no_foundation_high_novelty_or_target_XR_claim",
+        "official_sample_time_dispute_unresolved"
+      ]
+    },
+    "selections": [
+      {
+        "fold": 0,
+        "seed": 20261026,
+        "scope": "secondary_matched_training_time_not_matched_examples",
+        "time_cap_seconds": 31.14416589983739,
+        "selection": "last_fixed100step_checkpoint_with_cumulative_training_time_at_or_below_cap",
+        "criterion_uses_accuracy_or_loss": false,
+        "checkpoint_interval_steps": 100,
+        "arms": {
+          "nll21": {
+            "checkpoint_basename": "state_step_004700.pt",
+            "steps": 4700,
+            "training_seconds": 31.12315879907692,
+            "examples": 601600,
+            "unused_time_seconds": 0.021007100760471076,
+            "next_checkpoint_training_seconds": 31.69914239901118,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "ebb2cf9ea7974c6b15a1687d729303c288a2cf9af885d0dd25c33c43ac17ab89"
+          },
+          "scalar_angle": {
+            "checkpoint_basename": "state_step_001800.pt",
+            "steps": 1800,
+            "training_seconds": 30.341714100184618,
+            "examples": 230400,
+            "unused_time_seconds": 0.802451799652772,
+            "next_checkpoint_training_seconds": 31.619129400147358,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "beea28c70056fdb4b8cdebf5d7e9ad216bc2904b702165133e85cb4ef5edb1ff"
+          },
+          "scalar_pinball": {
+            "checkpoint_basename": "state_step_004500.pt",
+            "steps": 4500,
+            "training_seconds": 30.545041200937703,
+            "examples": 576000,
+            "unused_time_seconds": 0.5991246988996863,
+            "next_checkpoint_training_seconds": 31.151198901119642,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "2f4c2c744baba7c06b4585baf277bd6b18618812a8a02a38cc5839d368dc338a"
+          },
+          "risk21": {
+            "checkpoint_basename": "state_step_005000.pt",
+            "steps": 5000,
+            "training_seconds": 31.14416589983739,
+            "examples": 640000,
+            "unused_time_seconds": 0.0,
+            "next_checkpoint_training_seconds": null,
+            "rounding_interval_steps": 0,
+            "selected_state_sha256": "ba60194dc78d94607f3f58f914ec1b81dc7194b27257de2e3c01cac28adae361"
+          },
+          "vector_angle": {
+            "checkpoint_basename": "state_step_001800.pt",
+            "steps": 1800,
+            "training_seconds": 30.403123100753874,
+            "examples": 230400,
+            "unused_time_seconds": 0.741042799083516,
+            "next_checkpoint_training_seconds": 31.692293200729182,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "2f2eb7abb27d5cd6c3f6b1798e41e5196939edd3e5d10ae4b3c01ae0d60f3fac"
+          }
+        }
+      },
+      {
+        "fold": 0,
+        "seed": 20261027,
+        "scope": "secondary_matched_training_time_not_matched_examples",
+        "time_cap_seconds": 25.773253000283148,
+        "selection": "last_fixed100step_checkpoint_with_cumulative_training_time_at_or_below_cap",
+        "criterion_uses_accuracy_or_loss": false,
+        "checkpoint_interval_steps": 100,
+        "arms": {
+          "nll21": {
+            "checkpoint_basename": "state_step_004900.pt",
+            "steps": 4900,
+            "training_seconds": 25.668527400150197,
+            "examples": 627200,
+            "unused_time_seconds": 0.10472560013295151,
+            "next_checkpoint_training_seconds": 26.19974560046103,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "942fd611430f35f91030e95c4da282f9fdce3af580c851313a72c698ac954f22"
+          },
+          "scalar_angle": {
+            "checkpoint_basename": "state_step_002100.pt",
+            "steps": 2100,
+            "training_seconds": 25.082937600411242,
+            "examples": 268800,
+            "unused_time_seconds": 0.6903153998719063,
+            "next_checkpoint_training_seconds": 26.22988900047494,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "cd02bd636a20fa58d05145e3f907c1851d3ae5d7c0315a439f996ac68c6a58d2"
+          },
+          "scalar_pinball": {
+            "checkpoint_basename": "state_step_004600.pt",
+            "steps": 4600,
+            "training_seconds": 25.338679399486864,
+            "examples": 588800,
+            "unused_time_seconds": 0.43457360079628415,
+            "next_checkpoint_training_seconds": 25.885844699456356,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "2d2a41a919f56dd7a21ff1eade227dc1bcd629083467117118347a45dcfc39be"
+          },
+          "risk21": {
+            "checkpoint_basename": "state_step_005000.pt",
+            "steps": 5000,
+            "training_seconds": 25.773253000283148,
+            "examples": 640000,
+            "unused_time_seconds": 0.0,
+            "next_checkpoint_training_seconds": null,
+            "rounding_interval_steps": 0,
+            "selected_state_sha256": "ead8d4d78436acd794312111ae9c24229e07196b3b91164723a480f10bbbca21"
+          },
+          "vector_angle": {
+            "checkpoint_basename": "state_step_002100.pt",
+            "steps": 2100,
+            "training_seconds": 25.44156140027917,
+            "examples": 268800,
+            "unused_time_seconds": 0.33169160000397824,
+            "next_checkpoint_training_seconds": 26.632299700315343,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "01a6c6d061ac1639c156756a0c012f424d0d3f3cc0146e151c48e96c81798b1d"
+          }
+        }
+      },
+      {
+        "fold": 1,
+        "seed": 20261026,
+        "scope": "secondary_matched_training_time_not_matched_examples",
+        "time_cap_seconds": 25.814962500910042,
+        "selection": "last_fixed100step_checkpoint_with_cumulative_training_time_at_or_below_cap",
+        "criterion_uses_accuracy_or_loss": false,
+        "checkpoint_interval_steps": 100,
+        "arms": {
+          "nll21": {
+            "checkpoint_basename": "state_step_004900.pt",
+            "steps": 4900,
+            "training_seconds": 25.78802049861406,
+            "examples": 627200,
+            "unused_time_seconds": 0.026942002295982093,
+            "next_checkpoint_training_seconds": 26.29672859850689,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "193d5b35113e0fce69a6a587c631d89b12243b0b0895c171990011102dfb345c"
+          },
+          "scalar_angle": {
+            "checkpoint_basename": "state_step_002100.pt",
+            "steps": 2100,
+            "training_seconds": 25.020116801402764,
+            "examples": 268800,
+            "unused_time_seconds": 0.7948456995072775,
+            "next_checkpoint_training_seconds": 26.2064273012802,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "173b6cf4e78159219688ec80a6441b77fd500544a27e6da31958396296ff87d2"
+          },
+          "scalar_pinball": {
+            "checkpoint_basename": "state_step_004600.pt",
+            "steps": 4600,
+            "training_seconds": 25.422138500172878,
+            "examples": 588800,
+            "unused_time_seconds": 0.39282400073716417,
+            "next_checkpoint_training_seconds": 25.948571100074332,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "9f730a4a99529e145943b70ba2733f3e37c29bb215c40154574312a3c8f89c7a"
+          },
+          "risk21": {
+            "checkpoint_basename": "state_step_005000.pt",
+            "steps": 5000,
+            "training_seconds": 25.814962500910042,
+            "examples": 640000,
+            "unused_time_seconds": 0.0,
+            "next_checkpoint_training_seconds": null,
+            "rounding_interval_steps": 0,
+            "selected_state_sha256": "df8bdb1aa0f797d2e7655825b5f54578ed5f78ebd4d8dc6b67068734b1319011"
+          },
+          "vector_angle": {
+            "checkpoint_basename": "state_step_002100.pt",
+            "steps": 2100,
+            "training_seconds": 25.56273939998937,
+            "examples": 268800,
+            "unused_time_seconds": 0.25222310092067346,
+            "next_checkpoint_training_seconds": 26.779211300017778,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "07ca60056690fb52a3ba7e11b19a0af8c7b2e4affd45d19fab59db33b1d6d930"
+          }
+        }
+      },
+      {
+        "fold": 1,
+        "seed": 20261027,
+        "scope": "secondary_matched_training_time_not_matched_examples",
+        "time_cap_seconds": 25.528411299863365,
+        "selection": "last_fixed100step_checkpoint_with_cumulative_training_time_at_or_below_cap",
+        "criterion_uses_accuracy_or_loss": false,
+        "checkpoint_interval_steps": 100,
+        "arms": {
+          "nll21": {
+            "checkpoint_basename": "state_step_004900.pt",
+            "steps": 4900,
+            "training_seconds": 25.39899959997274,
+            "examples": 627200,
+            "unused_time_seconds": 0.12941169989062473,
+            "next_checkpoint_training_seconds": 25.92255820010905,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "5703df4654c6210f1426684ee930334de4ead805cce76e7c0ccf0acf21312be7"
+          },
+          "scalar_angle": {
+            "checkpoint_basename": "state_step_002100.pt",
+            "steps": 2100,
+            "training_seconds": 24.707092900091084,
+            "examples": 268800,
+            "unused_time_seconds": 0.8213183997722808,
+            "next_checkpoint_training_seconds": 25.882620399992447,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "056ed4fabfc01f7f73e3e6c51d2b7b11f8e794d68e2677080f22eec758e0189f"
+          },
+          "scalar_pinball": {
+            "checkpoint_basename": "state_step_004600.pt",
+            "steps": 4600,
+            "training_seconds": 25.14703530134284,
+            "examples": 588800,
+            "unused_time_seconds": 0.3813759985205252,
+            "next_checkpoint_training_seconds": 25.693474301311653,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "519256817381f83cb2e50aab2fdc69f872ccf0b52d88544b81ca46582c712576"
+          },
+          "risk21": {
+            "checkpoint_basename": "state_step_005000.pt",
+            "steps": 5000,
+            "training_seconds": 25.528411299863365,
+            "examples": 640000,
+            "unused_time_seconds": 0.0,
+            "next_checkpoint_training_seconds": null,
+            "rounding_interval_steps": 0,
+            "selected_state_sha256": "8e535ad962032e5f3e39c448c9a6e7f7a4d50565a94afa2dbb4cd78c3d32e447"
+          },
+          "vector_angle": {
+            "checkpoint_basename": "state_step_002100.pt",
+            "steps": 2100,
+            "training_seconds": 25.10851129933144,
+            "examples": 268800,
+            "unused_time_seconds": 0.4199000005319249,
+            "next_checkpoint_training_seconds": 26.302294899272965,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "160511eea5e03dca7e6e0b26f5b465714f4572f6fe97d6f51cb4c772ecc1b7d3"
+          }
+        }
+      },
+      {
+        "fold": 2,
+        "seed": 20261026,
+        "scope": "secondary_matched_training_time_not_matched_examples",
+        "time_cap_seconds": 25.699986899766373,
+        "selection": "last_fixed100step_checkpoint_with_cumulative_training_time_at_or_below_cap",
+        "criterion_uses_accuracy_or_loss": false,
+        "checkpoint_interval_steps": 100,
+        "arms": {
+          "nll21": {
+            "checkpoint_basename": "state_step_004900.pt",
+            "steps": 4900,
+            "training_seconds": 25.55941700108815,
+            "examples": 627200,
+            "unused_time_seconds": 0.14056989867822267,
+            "next_checkpoint_training_seconds": 26.086317501118174,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "07015be7dc61be7e839311ad0501f079389ad0f06893dd961a0ebd0359c51c71"
+          },
+          "scalar_angle": {
+            "checkpoint_basename": "state_step_002100.pt",
+            "steps": 2100,
+            "training_seconds": 24.803628500318155,
+            "examples": 268800,
+            "unused_time_seconds": 0.8963583994482178,
+            "next_checkpoint_training_seconds": 25.99117210044642,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "e3e2605a36c014393064b107d0f87c45a721f24d7b5efe8c7469f0b27152fb92"
+          },
+          "scalar_pinball": {
+            "checkpoint_basename": "state_step_004600.pt",
+            "steps": 4600,
+            "training_seconds": 25.221289198903833,
+            "examples": 588800,
+            "unused_time_seconds": 0.47869770086253993,
+            "next_checkpoint_training_seconds": 25.794124598964117,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "5d4aac46229016ad2b993342ba645daf22bdabfd6f24937e6697537da895180e"
+          },
+          "risk21": {
+            "checkpoint_basename": "state_step_005000.pt",
+            "steps": 5000,
+            "training_seconds": 25.699986899766373,
+            "examples": 640000,
+            "unused_time_seconds": 0.0,
+            "next_checkpoint_training_seconds": null,
+            "rounding_interval_steps": 0,
+            "selected_state_sha256": "a9a514710463e15a6e19f284c986b3844f91f5ede64cd3ba04d3a41eafbe9e9b"
+          },
+          "vector_angle": {
+            "checkpoint_basename": "state_step_002100.pt",
+            "steps": 2100,
+            "training_seconds": 25.26662630107603,
+            "examples": 268800,
+            "unused_time_seconds": 0.43336059869034216,
+            "next_checkpoint_training_seconds": 26.46357180099585,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "eab8d0bce167fddadc2851a675bdfbdc9c5023b789c754477354e05d01e1f4dd"
+          }
+        }
+      },
+      {
+        "fold": 2,
+        "seed": 20261027,
+        "scope": "secondary_matched_training_time_not_matched_examples",
+        "time_cap_seconds": 25.95093890145654,
+        "selection": "last_fixed100step_checkpoint_with_cumulative_training_time_at_or_below_cap",
+        "criterion_uses_accuracy_or_loss": false,
+        "checkpoint_interval_steps": 100,
+        "arms": {
+          "nll21": {
+            "checkpoint_basename": "state_step_004800.pt",
+            "steps": 4800,
+            "training_seconds": 25.46049699888681,
+            "examples": 614400,
+            "unused_time_seconds": 0.49044190256972797,
+            "next_checkpoint_training_seconds": 25.97139419891755,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "3aefb53cc55369b1ef3425776f516c2dc19301dbbef9d7ed5a7132116cb3b58c"
+          },
+          "scalar_angle": {
+            "checkpoint_basename": "state_step_002100.pt",
+            "steps": 2100,
+            "training_seconds": 25.804274800728308,
+            "examples": 268800,
+            "unused_time_seconds": 0.14666410072823055,
+            "next_checkpoint_training_seconds": 26.971941900526872,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "790a90594f25f8f4543f071bfd08cebf91519ef87db485322114a7e4e87f6a0f"
+          },
+          "scalar_pinball": {
+            "checkpoint_basename": "state_step_004600.pt",
+            "steps": 4600,
+            "training_seconds": 25.72075139998924,
+            "examples": 588800,
+            "unused_time_seconds": 0.23018750146729872,
+            "next_checkpoint_training_seconds": 26.259400499955518,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "5cc664ddd3131b74c0259fbcb4dc55750ea2bd925cd5df241c570ed6593a8d52"
+          },
+          "risk21": {
+            "checkpoint_basename": "state_step_005000.pt",
+            "steps": 5000,
+            "training_seconds": 25.95093890145654,
+            "examples": 640000,
+            "unused_time_seconds": 0.0,
+            "next_checkpoint_training_seconds": null,
+            "rounding_interval_steps": 0,
+            "selected_state_sha256": "46d6ca351278322a1b7ab8c88c79a4298c1592ea5a5e39d399e980eabe2ef442"
+          },
+          "vector_angle": {
+            "checkpoint_basename": "state_step_002000.pt",
+            "steps": 2000,
+            "training_seconds": 24.99417210041429,
+            "examples": 256000,
+            "unused_time_seconds": 0.9567668010422494,
+            "next_checkpoint_training_seconds": 26.20726360043045,
+            "rounding_interval_steps": 100,
+            "selected_state_sha256": "e7ad8c493a509cb347b1a812be9a659f94e997d9445b86c63d267c406c5e5ef4"
+          }
+        }
+      }
+    ]
+  },
+  "runtime": {
+    "requested_device": "cuda",
+    "actual_device": "cuda:0",
+    "torch_version": "2.9.1+cu128",
+    "torch_cuda_version": "12.8",
+    "python_version": "3.11.9",
+    "numpy_version": "2.4.6",
+    "h5py_version": "3.16.0",
+    "operating_system": "Windows",
+    "cuda_available": true,
+    "device_name": "NVIDIA GeForce RTX 5050 Laptop GPU",
+    "compute_capability": [
+      12,
+      0
+    ],
+    "total_device_memory_bytes": 8546484224,
+    "deterministic_algorithms": true,
+    "tf32_matmul_allowed": false,
+    "cuda_autocast_enabled": false,
+    "actual_cuda_probe": {
+      "operation": "float32_4x4_matrix_multiply",
+      "input_is_cuda": true,
+      "output_is_cuda": true,
+      "numerical_check_passed": true,
+      "synchronized_cuda_event_elapsed_ms": 54.87865447998047
+    },
+    "cudnn_version": 91002,
+    "cudnn_tf32_allowed": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "model_export_performed": false,
+    "label_cache_preparation_seconds": 4.985749000014039,
+    "outer_train_quaternion_samples": 3352100,
+    "outer_train_windows": 3330312,
+    "fold_digest": "db9618ba19224f1c48735a80c45b95d07e75e406633b51350137feb0d0569df2"
+  },
+  "bindings": {
+    "source_hdf5_sha256": "0986c483c2dc800ff8be1a2a8d2e82d909193f4c3e7c9f7b1eae3e2ea055ea62",
+    "split_sha256": "9d7f342c15231a3f7f61fd8c9b95b75adc6aff641e7071d95a43a3832db49256",
+    "feature_cache_sha256": "41235cfba9cd00201dedabf06c65c1df56d424cd724d5aeb51f94bb4d6edc691",
+    "scalers_sha256": "d17a78dc01005a12450137b5d18ad64c681a6c963ab4aa8a5befc4a7899f14d1",
+    "config_sha256": "1ee9d2fff488ffa6952ce864177003706761b205901afddc69bca6951b26e753",
+    "sources_sha256": {
+      "arc_experiment.py": "db690aebd2bb9ec0a93349b02aff38a853806b964f3aef465729165b5ea9811d",
+      "arc_model.py": "ddbe6fcd9cb59f112e19e2a4297c453ad3195169eb31615bdb9a5af96fea78dd",
+      "arc_metrics.py": "c7b3a4cf645c8037748e71687bea524c2dba9603f362e2a43e66faecd2ca94b1",
+      "stage.py": "895ea151b3fa97186952e57fb1ff0d00879c26a52a9512e26f3acd93b8c93bf7",
+      "geometry.py": "0a845c81029c6433562cb3d31b8ddbc531aab3fb0979f5eb6d18613ff71cbd14",
+      "evaluation.py": "4b6d7a23bcc883bbeca38a16b63b6f3bda5375f31912eef489efc77150726294",
+      "sources.py": "97218e8d2a689a2f7370711f8ce65a18d3b57d73c5f814a8edf109aca241e298",
+      "evidence.py": "fc81f8efdddb8833497ac307ec10edaff5510a63968ba8cc76b090b9a6524687",
+      "selector_experiment.py": "58604ef6d4522935560726bb3a2cd1d3c76ef199c2936c648a6f88b16a456e24"
+    }
+  },
+  "development_signal_values_read": 0,
+  "final_array_values_read": 0,
+  "data_audit": {
+    "source_hdf5_sha256": "0986c483c2dc800ff8be1a2a8d2e82d909193f4c3e7c9f7b1eae3e2ea055ea62",
+    "split_sha256": "9d7f342c15231a3f7f61fd8c9b95b75adc6aff641e7071d95a43a3832db49256",
+    "data_and_split_unchanged": true,
+    "final_quaternion_datasets_read": 0,
+    "accessed_user_count": 15,
+    "segment_reads": {
+      "train": 52,
+      "development": 0
+    }
+  },
+  "read_set_counters": {
+    "train/origin_index_integrity_only/calls": 79,
+    "train/origin_index_integrity_only/elements": 3330312,
+    "development/origin_index_integrity_only/calls": 33,
+    "development/origin_index_integrity_only/elements": 1189027,
+    "source/train_quaternion/calls": 52,
+    "source/train_quaternion/elements": 13408400,
+    "private_output/error_or_checkpoint_values/calls": 4260,
+    "private_output/error_or_checkpoint_values/elements": 399637440
+  },
+  "sources_unchanged": true,
+  "config_unchanged": true,
+  "reporting": {
+    "source_summary_sha256": "b5ebbdc1ffe6251ec7a28b8228e9b346a5022a97322e85d0d3f3f640debcd650",
+    "measured_source_commit": "13c74071156b5b8dfc893f42107ad2cb82ea6921",
+    "measured_worktree_line_ending_note": "runner worktree CRLF; committed LF bytes bound separately in private commit receipt",
+    "session_count_including_resource_pauses": 3,
+    "GPU_context_wall_seconds_including_preparation_IO_and_validation": 3914.5568315000273,
+    "sum_synchronized_training_seconds_all30fits": 1238.4863853065472,
+    "shared_worker_peak_allocated_bytes": 474550272,
+    "shared_worker_peak_reserved_bytes": 509607936,
+    "peak_scope": "shared labels/data/five resident models and validation; not isolated per-model VRAM",
+    "own_process_working_set_trim_event_records": 2,
+    "operational_timing_limit": "recorded runtime includes resumes/paging; time matching is backend-qualified synchronized wall time",
+    "cloud_cost_authorized_or_used": 0
+  }
+}
