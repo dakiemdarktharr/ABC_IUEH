@@ -1,0 +1,25 @@
+{
+  "bundles": {
+    "0": {"directory": null, "identity_sha256": null, "public_key": null, "key_id": null},
+    "1": {"directory": null, "identity_sha256": null, "public_key": null, "key_id": null},
+    "2": {"directory": null, "identity_sha256": null, "public_key": null, "key_id": null}
+  },
+  "model_sha256": {"ordered_product": null, "active_order_control": null, "contemporaneous_raw_vector": null},
+  "runner_sha256": null,
+  "python_executable": null,
+  "run_ids": null,
+  "checkpoint_root": null,
+  "backup_dir": null,
+  "storage_attestation": null,
+  "quote": null,
+  "ledger": null,
+  "worst_case_seconds_per_update": null,
+  "time_ledger": null,
+  "time_original": null,
+  "time_anchor": null,
+  "reservation_seconds": null,
+  "shutdown_seconds": null,
+  "interrupt_grace_seconds": null,
+  "term_grace_seconds": null,
+  "kill_verify_seconds": null
+}

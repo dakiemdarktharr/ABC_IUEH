@@ -1,0 +1,11 @@
+numpy==2.4.6
+scipy==1.17.1
+h5py==3.16.0
+# Ed25519 verification for the reviewed bundle; target Linux resolver untested.
+cryptography==46.0.3
+pytest==9.2.0
+iniconfig==2.3.1
+pluggy==1.7.0
+pygments==2.21.0
+packaging==26.3
+colorama==0.4.6

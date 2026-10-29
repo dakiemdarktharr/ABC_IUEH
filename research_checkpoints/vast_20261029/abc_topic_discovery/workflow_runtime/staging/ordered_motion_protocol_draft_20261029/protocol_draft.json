@@ -1,0 +1,59 @@
+{
+  "kind": "ordered_motion_human_screen_protocol_draft",
+  "version": 1,
+  "status": "DRAFT_NO_EXECUTION_AUTHORITY",
+  "purpose": "Prospective before-outcome architecture comparison responding to user priority; not replacement of historical Q1 gates",
+  "architecture_spec": "reviews/architecture_ordered_motion_20261029/architecture_spec.json",
+  "architecture_spec_sha256": "03331dab7007fb96ae84e0d193d2ea19bf15710f2d23cb2423d1246008617770",
+  "candidate_source": "staging/ordered_motion_model_v3/ordered_motion_model.py",
+  "candidate_source_sha256": "153663b7e5c64a1323f4111a5a310e6551c753ed6e85cb7458d5bef9ff7aa2dc",
+  "arms": [
+    "ordered_product",
+    "active_order_control",
+    "single_exponential_control",
+    "direct_same_feature_control",
+    "contemporaneous_raw_vector"
+  ],
+  "parameter_counts": [
+    2477,
+    2477,
+    2477,
+    2474,
+    1683
+  ],
+  "folds": 3,
+  "seeds": [
+    20261026,
+    20261027
+  ],
+  "batch_size": 128,
+  "updates_per_fit": 5000,
+  "learning_rate": 0.001,
+  "optimizer": "Adam betas=(0.9,0.999), eps=1e-8, zero weight decay",
+  "loss": "mean true endpoint20 geodesic radians",
+  "initialization": "explicit per-arm source pin and deterministic seed; candidate begins at constant angular velocity",
+  "fit_sampler": "PCG64 default_rng(SeedSequence([training_seed,fold_id])) uniform global fit origins with replacement, paired across all arms",
+  "draw_count_per_fit": 640000,
+  "candidate_schedule": "3 folds x 2 seeds x 5 arms; 30 fits; 100-update prefixes plus resumes of same fits",
+  "validation": "same frozen full user-disjoint origins and outcome safeguards as protocol v5; no old development/final signals",
+  "classical_reference": "fit-only selection from competence-validated frozen candidate grid; limited to that grid",
+  "scientific_interpretation": "Incremental full-recipe advantage only; no unproven reliability, novelty or effective-capacity attribution",
+  "required_prelaunch": [
+    "source terms and purpose gate",
+    "implementation and independent review",
+    "exact model factory and input bindings",
+    "correct scoped provider, root authority and watchdog",
+    "fixed budget live ledger with 150s historical debit and 1800s reserve",
+    "RAM and source/HDF5 cache bound",
+    "synthetic geometry and gradient competence",
+    "full-path FP32 ONNX parity and CPU timing",
+    "empirical prefix and all-cost projection",
+    "separate root lock for new protocol before any outcomes"
+  ],
+  "user_full_goal": "All original Moonshot v2 thresholds, holdouts, independent evaluation, 10 seeds, lawful transfer and deployment remain unchanged",
+  "frozen_Q1_modified": false,
+  "data_access_authorized": false,
+  "gpu_authorized": false,
+  "main_run_authorized": false,
+  "result_claimed": false
+}

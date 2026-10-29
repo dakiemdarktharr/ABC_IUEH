@@ -1,0 +1,6 @@
+# Existing ABC_IUEH direct pins inherited by ordered_motion_model_v3.
+# Target proposal: Linux CPython 3.11, torch 2.9.1+cu128, NumPy 2.4.6,
+# h5py 3.16.0. Resolver/GPU compatibility is still unverified on Vast; capture
+# and review a complete `pip freeze --all` before any paid run.
+-r ../../../../../ABC_IUEH/requirements-lock.txt
+-r ../../../../../ABC_IUEH/requirements-gpu-lock.txt

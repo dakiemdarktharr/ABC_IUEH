@@ -1,0 +1,6 @@
+# Pinned dependencies reused from the reviewed ABC_IUEH environment locks.
+# Torch wheel is the verified project CUDA 12.8 build; CPU-only parity/export
+# remains to be confirmed under the coordinator's scheduled RAM window.
+-r ../../../../ABC_IUEH/requirements-gpu-lock.txt
+-r ../../../../ABC_IUEH/requirements-export-lock.txt
+

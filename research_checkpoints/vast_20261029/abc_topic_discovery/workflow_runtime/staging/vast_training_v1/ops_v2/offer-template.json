@@ -1,0 +1,27 @@
+{
+  "schema": "vast-verified-offer-v1",
+  "provider": "Vast.ai",
+  "offer_id": null,
+  "currency": "USD",
+  "verified_by_root": false,
+  "source_sha256": null,
+  "verified_price_categories": {
+    "on_demand_compute": false,
+    "minimum_billing": false,
+    "stopped_storage": false,
+    "egress_and_checkpoint_export": false,
+    "fees_and_taxes": false
+  },
+  "checked_at_utc": null,
+  "compute_usd_per_gpu_hour": null,
+  "billing_increment_hours": null,
+  "minimum_billable_hours": null,
+  "shutdown_and_export_compute_seconds_remaining": null,
+  "noncompute_core_remaining_usd": null,
+  "final_storage_export_remaining_usd": null,
+  "limits": {
+    "soft_training_stop_usd": 16.0,
+    "final_charge_reserve_usd": 4.0,
+    "campaign_total_usd": 20.0
+  }
+}

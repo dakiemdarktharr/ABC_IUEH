@@ -1,0 +1,9 @@
+# Direct runtime pins for CPython 3.11 / one NVIDIA RTX 3090 (CC 8.6).
+# PyTorch's CUDA wheel declares the exact NVIDIA runtime packages it needs.
+# This file is a direct-dependency lock; record and review `pip freeze --all`
+# on the provisioned image before any paid run to pin the complete resolver set.
+--extra-index-url https://download.pytorch.org/whl/cu126
+
+torch==2.7.1+cu126
+numpy==2.2.6
+h5py==3.14.0

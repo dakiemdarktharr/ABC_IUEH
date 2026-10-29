@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "kind": "vast_prepared_fit10_bundle_integration_contract",
+  "status": "STAGED_INTEGRATION_NOT_READY_FOR_PAID_RUN",
+  "bundle": {
+    "kind": "abc_vast_prepared_train_bundle",
+    "payload_members_exact": [
+      "manifest.json",
+      "segments.f32le"
+    ],
+    "role": "outer_fit10",
+    "separate_bundle_per_fold": true,
+    "supported_fold_ids": [
+      0,
+      1,
+      2
+    ],
+    "one_fold_per_bundle": true,
+    "window": {
+      "dtype": "<f4",
+      "quaternion_order": "wxyz",
+      "context_shape": [
+        400,
+        4
+      ],
+      "target_shape": [
+        20,
+        4
+      ],
+      "segment_boundary_required": true,
+      "origin_count_per_segment": "N-419"
+    },
+    "payload_cap_bytes": 134217728,
+    "manifest_has_user_ids": false,
+    "whole_source_or_archive_copy_api": false,
+    "purposes": [
+      "ordered_motion_exploratory_fit_only_micro_pilot",
+      "ordered_motion_three_arm_screen"
+    ]
+  },
+  "export_api": {
+    "function": "data.bundle.export_authorized_fit10_bundle(destination, fold_id, root, purpose)",
+    "pre_source_gate": "root.issue_fit10_export_grant(fold_id, purpose=purpose) then verify_fit10_export_grant(grant), returning static hashes only",
+    "grant": "process-local opaque object with assert_live; exact purpose/role/fold binding",
+    "stream_api": "root.open_fit10_segments(grant) -> ordered SegmentInput values",
+    "root_output": "root.attest_bundle_identity(grant, bundle_identity_sha256)",
+    "source_adapter_status": "IMPLEMENTED_SYNTHETIC_TESTS_ONLY",
+    "no_current_root_capability": false,
+    "post_source_gate": "root.finalize_fit10_source_binding(grant) returns full binding with actual post-read aggregate receipt digest"
+  },
+  "open_resume_api": {
+    "function": "data.bundle.open_prepared_train_bundle",
+    "required": [
+      "trusted_verifier",
+      "expected_fold_id",
+      "expected_run_binding"
+    ],
+    "resume_requires": [
+      "checkpoint_authenticated_expected_identity_sha256",
+      "opaque_run_binding.expected_identity_sha256_matches_checkpoint",
+      "fresh_root_verification_or_renewed_run_binding",
+      "same_model_runner_recipe_and_resume_cursor"
+    ],
+    "returned": [
+      "total_origins",
+      "origin_for_rank(rank)",
+      "sample_window(segment_index, origin)",
+      "identity_sha256",
+      "opaque_nonserializable_binding",
+      "assert_active()",
+      "close()",
+      "abort_and_close()"
+    ],
+    "manifest_alone_authorizes": false
+  },
+  "fold0_micro_pilot_run_binding": {
+    "purpose": "ordered_motion_exploratory_fit_only_micro_pilot",
+    "role": "outer_fit10",
+    "fold_id": 0,
+    "training_seed": 20261026,
+    "draws": 12800,
+    "generator": "numpy.default_rng(numpy.SeedSequence([20261026, 0]))",
+    "bit_generator": "PCG64",
+    "sampling": "uniform fit10 global-origin ranks with replacement",
+    "arm_ids": [
+      "ordered_product",
+      "active_order_control",
+      "contemporaneous_raw_vector"
+    ],
+    "shared_draw_schedule_across_arms": true,
+    "binding_is_manifest_field": false,
+    "trusted_verifier_must_bind": [
+      "model_hash_per_arm",
+      "runner_hash",
+      "approved_recipe_hash",
+      "training_authorization",
+      "resume_checkpoint_hash",
+      "PCG64_state_and_continuation_cursor"
+    ]
+  },
+  "trust_gaps": [
+    "A staged single-fit launcher, local billing forecast and synchronous backup exist, but have not been tested end-to-end on the target Linux/CUDA host.",
+    "Operator must verify prices and refresh campaign ledger; local forecasts cannot enforce provider billing and the separate Q1 wall-time ledger is not integrated.",
+    "Ed25519 keys must be independently pinned; signature alone does not establish data-use or transfer rights.",
+    "Historical V3 CPU-preparation claims are consumed and cannot be reused.",
+    "No real source/bundle was opened or built during this work."
+  ],
+  "resource_and_actions": {
+    "python_test_execution": "generated-only data bundle and signature tests; see session results",
+    "numpy_h5py_torch_imports": false,
+    "actual_human_files_or_arrays_read": false,
+    "network_or_cloud_action": false,
+    "vast_upload": false,
+    "gpu_cuda": false,
+    "real_bundle_created": false,
+    "real_data_identity_sha256": null
+  }
+}
