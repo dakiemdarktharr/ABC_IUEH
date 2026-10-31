@@ -43,8 +43,8 @@ an export-process gate here.
 **Incomplete controls / NO-GO:** no protected external anchor store or
 authoritative single ledger deployment has been provisioned. The existing
 `time_budget/supervisor_linux.py` reuses process-group helpers from
-`ops_v2/run_guard.py`, but this fork/signal path has not been executed on Linux
-or on the target runtime. The runtime assembler includes this package, but older
+`ops_v2/run_guard.py`, but this fork/signal path has generated-only Linux CI coverage. The target
+Linux/CUDA runtime and provider lifecycle remain unverified. The runtime assembler includes this package, but older
 snapshots omit it and must not be used with the modified trainer. The file lock is advisory/cooperative;
 an actor that bypasses it, chooses another ledger or writes the old ledger, or a
 lost host and detached process can invalidate global accounting. A timer thread

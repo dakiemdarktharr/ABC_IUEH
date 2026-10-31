@@ -26,6 +26,7 @@ transfer, phí và xử lý cuối cùng thuộc cùng một chiến dịch.
 | Lệnh stop tùy chọn, SIGTERM có thể bỏ qua cleanup; I/O có thể chờ lâu | Bắt buộc instance ID và có stop client; cleanup trong finally; timeout gọi supervisor hợp tác; timer bao phủ cả campaign, gồm upload và xác minh | Test SIGTERM, lỗi, timeout, stop request và Linux timer/process group |
 | Full suite có thể fork sau khi Torch đã được import | Kiểm thử supervisor thật dùng interpreter mới; unit test fork giả tách rõ khỏi kiểm thử thật | Test Linux riêng trong runtime CI |
 | CI chính chưa chạy runtime Vast; các test thiếu package marker | Thêm package marker, lệnh kiểm tra code manifest/AST và job Linux/CPU | Chạy đúng cây code sẽ chuyển lên host; CI dùng cùng entry point |
+| Test resume tổng hợp dùng pin CUDA dù CI cài PyTorch CPU | Đặt runtime identity riêng cho fixture CPU; giữ nguyên kiểm tra production CUDA ở bộ test runtime binding | Loop thực vẫn so sánh model/optimizer/sampler sau ngắt và resume |
 | Pin và bản đóng gói v7 không còn khớp sau sửa | Tạo snapshot mới, manifest 74 file, runner/model pins mới; giữ snapshot cũ làm lịch sử | Đối chiếu SHA từng file và kiểm tra bản checkout mới |
 
 ## Kiểm tra đã chạy
@@ -86,3 +87,9 @@ Rclone chỉ sao lưu gói code mới theo đường dẫn có SHA và kiểm tr
 lại. [Copyto](https://rclone.org/commands/rclone_copyto/) không xóa file đích;
 `--immutable` cùng readback giúp phát hiện sai bytes, không tạo khóa writer
 hay bảo đảm độ bền vô thời hạn. Receipt đồng bộ nằm riêng ngoài Git.
+
+Đã quan sát lỗi **Google Drive HTTP 403 quota** với OAuth client dùng chung của
+rclone. Retry có giới hạn và đọc lại toàn bộ gói code sau đó đã đạt. Đây vẫn là
+hạn chế vận hành: trước paid run cần kiểm tra quota trên host đích và cấu hình
+client riêng hoặc phương án đã thử thay thế; không dùng ngân sách Vast để
+giải quyết lỗi OAuth. Lưu bản code không thay thế kiểm tra khôi phục training.

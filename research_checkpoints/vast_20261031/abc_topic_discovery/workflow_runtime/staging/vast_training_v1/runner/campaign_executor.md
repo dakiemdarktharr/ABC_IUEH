@@ -10,8 +10,8 @@ signals the supervisor cooperatively before requesting a provider stop.
 `campaign_executor.py` executes the 18 fixed screen fits in planner order. It
 is code, not permission to train, use data, rent a GPU or spend money. Read the
 Q1 time-budget and backup instructions and complete the independent launch
-and data gates first. The Linux supervisor, real provider billing, and actual
-remote backup have not been verified by this synthetic test suite.
+and data gates first. Generated-only Linux tests exercise the supervisor. Provider billing and
+training checkpoint recovery on the actual target remain unverified.
 
 Fill the planner configuration with the current reviewed pins, shared CUDA
 ledger and anchor paths, reservation and shutdown allowances, USD quote/ledger,

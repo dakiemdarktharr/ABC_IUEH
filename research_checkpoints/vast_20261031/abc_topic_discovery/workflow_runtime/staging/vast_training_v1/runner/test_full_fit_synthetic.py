@@ -72,6 +72,9 @@ class FullFitTests(unittest.TestCase):
         torch.set_num_threads(1)
         with tempfile.TemporaryDirectory() as tmp, \
              patch.object(trainer, 'require_ram_floor'), \
+             patch.object(trainer, '_runtime_binding', side_effect=lambda torch, np, device: {
+                 'test_fixture_only': True, 'device_type': device.type,
+                 'torch': str(torch.__version__), 'numpy': np.__version__}), \
              patch.object(trainer, '_load_model', side_effect=lambda *args: (ToyModel(), ToyLoss(), {})):
             root = Path(tmp)
             def run(directory, count, resume=None, digest=None, receipt=None):

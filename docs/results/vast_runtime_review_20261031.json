@@ -4,7 +4,7 @@
     "hard_all_in_usd": 16,
     "soft_all_in_usd": 4
   },
-  "code_manifest_sha256": "3a58202bd3313586041369d8557420b855719056d7f4d7f78cec59c644add5d9",
+  "code_manifest_sha256": "bec0b1c09341c025aef72bd362cef87e2fbf5ba0286bd90f9f4cbe5e3d5697e3",
   "core_synthetic_tests": {
     "passed": 442,
     "warnings": 14
@@ -12,7 +12,7 @@
   "final_evaluation_started": false,
   "human_training_started": false,
   "human_validation_enabled": false,
-  "linux_ci": "pending_exact_revision",
+  "linux_ci": "Use GitHub Actions for the exact revision; vast-runtime-tests exercises the shipped manifest on Linux/CPU",
   "manifest_file_count": 74,
   "model_sha256": {
     "active_order_control": "653f7f57bc497ed4c0e76dab38fccf62ba7657652a853697fbff23725ccb394e",
