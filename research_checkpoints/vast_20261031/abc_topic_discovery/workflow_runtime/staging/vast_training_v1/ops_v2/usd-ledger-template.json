@@ -1,0 +1,8 @@
+{
+  "schema": "vast-campaign-ledger-v1",
+  "root_authenticated": false,
+  "as_of_utc": null,
+  "committed_core_usd": null,
+  "committed_final_usd": null,
+  "current_lease_elapsed_seconds": null
+}

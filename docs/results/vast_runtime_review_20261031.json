@@ -1,0 +1,35 @@
+{
+  "budget": {
+    "automatic_increase": false,
+    "hard_all_in_usd": 16,
+    "soft_all_in_usd": 4
+  },
+  "code_manifest_sha256": "3a58202bd3313586041369d8557420b855719056d7f4d7f78cec59c644add5d9",
+  "core_synthetic_tests": {
+    "passed": 442,
+    "warnings": 14
+  },
+  "final_evaluation_started": false,
+  "human_training_started": false,
+  "human_validation_enabled": false,
+  "linux_ci": "pending_exact_revision",
+  "manifest_file_count": 74,
+  "model_sha256": {
+    "active_order_control": "653f7f57bc497ed4c0e76dab38fccf62ba7657652a853697fbff23725ccb394e",
+    "contemporaneous_raw_vector": "03060a932fb5f0cba1988d742b865dd103e7c77d2656d80a504f45afe50725cf",
+    "ordered_product": "6db4253b801fe30f4828e577c6e5a369f681d3d0229f642f048e1f0e61d3c022"
+  },
+  "paid_rental_started": false,
+  "provider_enforced_cap_verified": false,
+  "review_date": "2026-10-31",
+  "runner_sha256": "1c9bed39e69c107c9d65750d64a3c2c1127d95e6a51f5edcd5a5dbec897561ce",
+  "schema": "abc-vast-runtime-review-v2",
+  "shipped_runtime_windows": {
+    "exit_code": 0,
+    "passed": 109,
+    "skipped": 9,
+    "subtests_passed": 27
+  },
+  "target_linux_cuda_verified": false,
+  "timezone": "Asia/Saigon"
+}

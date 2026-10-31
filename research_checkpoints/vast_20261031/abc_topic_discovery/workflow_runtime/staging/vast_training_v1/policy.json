@@ -1,0 +1,18 @@
+{
+  "schema": "abc-vast-campaign-policy-v2",
+  "effective_date": "2026-10-31",
+  "timezone": "Asia/Saigon",
+  "source": "User instruction in the 2026-10-31 audit chat",
+  "soft_all_in_stop_usd": 4.0,
+  "hard_all_in_ceiling_usd": 16.0,
+  "automatic_budget_increase": false,
+  "headroom_is_training_authorization": false,
+  "cost_scope": "one cumulative campaign: setup, compute, failures, resumes, storage, transfers, fees and cleanup",
+  "supersedes": "historical $16 soft / $4 reserve / $20 total in the 2026-10-29 draft",
+  "geometric_arm_initialization": "training_seed controls hidden initialization; candidate/control are paired within seed",
+  "data_scope": "signed outer_fit10 bundles only; old development5 and final15 remain excluded",
+  "interface": "float32 context[1,400,4] -> prediction[1,20,4]; wxyz; endpoint20",
+  "official_timing_conflict": "20 samples / 100 Hz / 100 ms remains unresolved",
+  "paid_rental_or_training_started_by_audit": false,
+  "provider_enforced_hard_cap_verified": false
+}

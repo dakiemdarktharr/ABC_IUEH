@@ -1,0 +1,36 @@
+{
+  "plan_id": "REPLACE_WITH_REVIEWED_RUN_ID",
+  "provider": "Vast.ai",
+  "budget_cap_usd": 16.0,
+  "reserve_usd": 12.0,
+  "billing_increment_hours": null,
+  "minimum_billable_hours": null,
+  "charges_already_incurred_usd": null,
+  "prior_final_storage_export_charges_usd": null,
+  "final_storage_export_estimate_usd": null,
+  "gpu_count": 1,
+  "compute_usd_per_gpu_hour": null,
+  "instance_hours_max": null,
+  "storage": {
+    "gib": null,
+    "billed_hours": null,
+    "usd_per_gib_hour": null,
+    "includes_stopped_instance_storage": false
+  },
+  "egress": {
+    "gib_max": null,
+    "usd_per_gib": null,
+    "includes_checkpoint_copy_out": false
+  },
+  "fees_tax_and_other_usd": null,
+  "retry_failure_allowance_usd": null,
+  "price_source": {
+    "source": "REPLACE_WITH_PROVIDER_LISTING_AND_STORAGE_PRICING_SCREEN",
+    "checked_at_utc": "REPLACE_WITH_UTC_TIMESTAMP"
+  },
+  "provider_spend_control": {
+    "operator_checked": false,
+    "reported_amount_usd": null,
+    "categories_covered": []
+  }
+}

@@ -1,5 +1,12 @@
 # ABC_IUEH
 
+**Vast readiness audit, 2026-10-31:** use the [current runtime](research_checkpoints/vast_20261031/README.md)
+and [audit report](docs/vast_readiness_2026-10-31.md). The current campaign policy
+is a **$4 all-in soft stop / $16 hard ceiling**. The old $20 preparation budget
+is superseded. Local correctness checks support target-host preflight; a full
+paid screen still requires Linux/CUDA, measured cost/time bounds, off-host
+recovery, provider billing controls and the completed validation path.
+
 Reproducible data preparation, exploratory head-orientation studies and an audited GPU architecture pilot for the 9th ABC Challenge.
 
 The original study, **Forecast Horizon and Feedback Age in Zero-Shot Head-Orientation Prediction**, asks whether mature multi-step prediction errors help select a head-orientation extrapolator after controlling feedback age. The subsequent pilot tests a constrained angular-exposure distribution against direct scalar, angular-risk and vector prediction. Quaternion representation, constant angular velocity, ensemble routing, residual prediction and ordinary neural backbones are inherited components, not novelty claims.

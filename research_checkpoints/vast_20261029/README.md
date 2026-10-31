@@ -1,5 +1,10 @@
 # Vast research preparation checkpoint — 2026-10-29
 
+Historical snapshot. Use [the 2026-10-31 audited runtime](../vast_20261031/README.md)
+for current code and policy. Its $4 all-in soft stop / $16 hard ceiling
+supersede the historical $16/$4/$20 budget below. The v7 runner/model pins
+are obsolete for new runs; this source snapshot remains for provenance.
+
 This source checkpoint records the latest locally prepared three-arm screen
 and its operational tooling. It is an engineering snapshot, not a claim that
 training, a Vast rental, final evaluation, or the research objective has been
