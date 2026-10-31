@@ -46,6 +46,21 @@ transfer, phí và xử lý cuối cùng thuộc cùng một chiến dịch.
   commit được kiểm tra trong GitHub Actions sau push; file JSON đi kèm ghi
   phạm vi local và các gate đích còn chưa xác minh.
 
+Linux/CPU CI của commit `6b19a30d3287afc9aab0327f524922fb96412070` đã đạt
+**4/4 job**, gồm **118 passed, 27 subtests passed** cho runtime và đủ 74 hash
+khớp manifest; không có test runtime bị bỏ qua trên Linux.
+[CI đã xác minh](https://github.com/dakiemdarktharr/ABC_IUEH/actions/runs/41163674053).
+Đây vẫn chưa phải kiểm tra CUDA trên host Vast.
+
+Lượt test nền 442 ca ban đầu có chạy các test CUDA tổng hợp tùy chọn trên GPU
+local. Pytest báo 107,47 giây cho toàn lượt; không đo riêng CUDA context.
+Đã ghi **debit bảo thủ thêm 150 giây** vào sổ campaign mới, sau khi việc đã xảy
+ra; đây không phải một lượt được supervisor cấp reservation từ trước. Sổ gốc
+giữ nguyên. Tổng non-export hiện 300 giây, còn **12.300 giây non-export** và
+14.100 giây tổng trước khi triển khai host; head vẫn cần đối chiếu ngoài VM.
+Hướng dẫn test local dùng literal `CUDA_VISIBLE_DEVICES=-1` để tránh PowerShell
+xóa biến rỗng và vô tình lộ GPU. Lượt này không phát sinh thuê Vast.
+
 Không thuê Vast, không train dữ liệu người, không chấm old dev5/final15 và
 không gửi yêu cầu tới ban tổ chức trong lượt audit. Các file private giữ ngoài
 Git. Dữ liệu fit-only không được xuất lại hoặc đổi run ID để làm mới lịch sử.

@@ -43,10 +43,11 @@ Python 3.11 is the tested interpreter. Create a local environment and install th
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
 .\.venv\Scripts\python.exe -m pip install --no-deps -e .
+$env:CUDA_VISIBLE_DEVICES='-1'
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-On Linux/macOS use `.venv/bin/python` in place of `.venv\Scripts\python.exe`. Tests generate synthetic data and do not access human recordings or the network. In restricted Windows sandboxes whose system temp directory disallows rename, create `data/` and pass `--basetemp=data/test_tmp` to pytest; never point basetemp at valuable files because pytest clears that directory.
+On Linux/macOS use `.venv/bin/python` in place of `.venv\Scripts\python.exe` and `CUDA_VISIBLE_DEVICES=-1` for CPU-only checks. Use the literal `-1`: assigning an empty environment variable in PowerShell can remove it and expose the GPU. Tests generate synthetic data and do not access human recordings or the network. In restricted Windows sandboxes whose system temp directory disallows rename, create `data/` and pass `--basetemp=data/test_tmp` to pytest; never point basetemp at valuable files because pytest clears that directory.
 
 ## Staged pipeline
 

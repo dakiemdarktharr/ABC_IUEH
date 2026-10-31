@@ -12,7 +12,29 @@
   "final_evaluation_started": false,
   "human_training_started": false,
   "human_validation_enabled": false,
-  "linux_ci": "Use GitHub Actions for the exact revision; vast-runtime-tests exercises the shipped manifest on Linux/CPU",
+  "linux_ci": {
+    "cuda_target_verified": false,
+    "jobs_passed": 4,
+    "jobs_total": 4,
+    "manifest_files_verified": 74,
+    "run_id": 41163674053,
+    "runtime_passed": 118,
+    "runtime_skipped": 0,
+    "runtime_subtests_passed": 27,
+    "url": "https://github.com/dakiemdarktharr/ABC_IUEH/actions/runs/41163674053",
+    "verified_commit": "6b19a30d3287afc9aab0327f524922fb96412070"
+  },
+  "local_synthetic_cuda_time_reconciliation": {
+    "additional_conservative_nonexport_debit_seconds": 150,
+    "current_nonexport_debited_seconds": 300,
+    "exact_cuda_context_seconds": null,
+    "future_host_requires_current_head_reconciliation": true,
+    "original_history_modified": false,
+    "pytest_total_seconds": 107.47,
+    "remaining_nonexport_seconds": 12300,
+    "remaining_total_seconds": 14100,
+    "retrospective_accounting": true
+  },
   "manifest_file_count": 74,
   "model_sha256": {
     "active_order_control": "653f7f57bc497ed4c0e76dab38fccf62ba7657652a853697fbff23725ccb394e",
