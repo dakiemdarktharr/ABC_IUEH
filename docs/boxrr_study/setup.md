@@ -1,6 +1,6 @@
 # Setup and reproduction
 
-The public code describes the study; actual recordings, user manifests and fitted weights are private and must be obtained and used under applicable BOXRR terms. A synthetic smoke check verifies installation, not scientific results. The historical `docs/boxrr_pilot.md` refers to the earlier pilot and its original split; do not treat it as the expanded V2 protocol.
+The public code describes the study; recordings, user manifests and fitted weights are private and must be obtained and used under applicable BOXRR terms. A synthetic smoke check verifies installation, not scientific results.
 
 ## Software setup
 
@@ -35,13 +35,27 @@ assert prediction.shape == (1, 20, 4) and torch.isfinite(prediction).all()
 print(prediction.shape)
 ```
 
-For real inference, use the verified private export and matching four source files plus `tools/boxrr_v2/run_inference_v2.py`, the hash-bound offline adapter. Training checkpoints and inference exports are distinct artifacts. The adapter is stateless and offline; it is not an ONNX submission or target-device certification. Do not load arbitrary untrusted checkpoints. With a privately restored, verified inference bundle whose relative source layout is intact:
+For real inference, use the verified private export and matching four source files plus `tools/boxrr_v2/run_inference_v2.py`, the hash-bound offline adapter. Training checkpoints and inference exports are distinct artifacts. The adapter is stateless and offline; it is not an ONNX submission or target-device certification. Do not load arbitrary untrusted checkpoints. Restore the private inference bundle with this layout:
+
+```text
+deployment/
+  src/abc_iueh/                 # the four hash-bound inference source files
+  jepa_v2_w64/
+    config.json
+    best.pt
+```
+
+With the bundle in place, create a synthetic input to check the interface and run the trained model:
+
+```bash
+python -c "import numpy as np; q=np.zeros((400,4), dtype=np.float32); q[:,0]=1; np.save('/private/context.npy', q)"
+```
 
 ```bash
 python tools/boxrr_v2/run_inference_v2.py --model_dir /private/deployment/jepa_v2_w64 --input /private/context.npy --output /private/prediction.npy
 ```
 
-`context.npy` must contain one finite, unit-normalized `[400,4]` wxyz float array. The command requires the four hash-matching model source files at the location in the export's private `config.json` and will not download weights. It will not overwrite an existing output. The private export is not provided by this repository.
+`context.npy` must contain one finite, unit-normalized `[400,4]` wxyz float array. The command requires the four hash-matching model source files at the location in the export's private `config.json` and will not download weights. It will not overwrite an existing output. `prediction.npy` is a float32 `[20,4]` wxyz array. The private export is not provided by this repository. The synthetic example checks the interface; it does not reproduce the development metric.
 
 ## Recorded V2 experiment recipe
 

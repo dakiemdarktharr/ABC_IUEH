@@ -1,225 +1,71 @@
-# ABC_IUEH
+# Head-orientation prediction on BOXRR-23
 
-## Current BOXRR study — start here
+This project predicts a sequence of head orientations from past quaternion observations. **JEPA-TCN** is the current development candidate. The repository contains its architecture, training and inference code, comparisons, and evaluation protocol.
 
-The active research uses **BOXRR-23 only**. This repository documents a head-orientation forecasting study and supplies its implementation, not a finished paper or an official submission. The selected development candidate is **JEPA-TCN** (`jepa_v2`, `width=64`), with a sampled development endpoint error of **4.842644°**. This is not a final or organizer test score.
-
-| Reader | Start here |
+| | Contract |
 |---|---|
-| Paper author or reviewer | [Study overview and evidence](docs/boxrr_study/README.md) |
-| Model architecture, names and baselines | [Model guide](docs/boxrr_study/models.md) |
-| Installation and experiment configuration | [Setup and reproduction](docs/boxrr_study/setup.md) |
-| Measured results, comparison and limitations | [Results](docs/boxrr_study/results.md) |
-| Challenge requirements and remaining work | [Requirements and evidence checklist](docs/boxrr_study/challenge_checklist.md) |
+| Input | 400 observed unit quaternions, scalar-first `(w, x, y, z)` |
+| Output | 20 future unit quaternions in the same order |
+| Primary metric | Mean full-SO(3) geodesic error in degrees at output 20 |
+| Selected model | `jepa_v2`, `width=64`, `latent_dim=128`, `use_gravity=True` |
+| Data | A filtered, user-disjoint subset of official BOXRR-23 |
 
-These pages supersede the status statements in the dated material below. In particular, the sections below describe **historical** pilot projects, older data-use assessments, earlier budgets and preparation states. They are retained for provenance, not instructions for the current campaign. No historical WhoIsAlyx recordings, splits, weights or fitted artifacts enter current BOXRR training or validation.
+The organizer specifies 20 outputs at 100 Hz but also describes them as 100 ms. These statements remain inconsistent: our implementation's 20th output is **+200 ms** from the last observation at 100 Hz. We retain the specified 20-output interface; +200 ms is our indexing, not an organizer correction.
 
-## Historical project record
+## Results
 
-**Current ABC/Vast campaign, 2026-11-05.** The team selected BOXRR-23 as its
-only training and validation dataset. The WhoIsAlyx bundles and fitted assets
-below belong to earlier exploratory work. The user's latest instruction confirms
-access authority and authorizes official intake, filtering and private Drive
-preparation. This operational record does not claim an IRB decision was supplied.
-The official-data training bundle is being assembled. The [BOXRR pilot pipeline](docs/boxrr_pilot.md)
-supports bounded user archives, HDF5 shards, an 80/20 user split and native
-Python Drive upload/download and a bounded CPU/CUDA trainer with checkpoint resume.
-Real XROR intake is active; generated BSON/fpzip/TAR fixtures test the code path.
-See the [data terms](docs/data_sources.md#boxrr-23--gated-source).
+On 101 development users, JEPA-TCN obtained **4.842644°** at output 20. This is a sampled, window-weighted development result, not an official test score. The same users were used repeatedly for model selection; the 122-user final holdout remains sealed. The small difference from Mixer is not a confirmed performance advantage.
 
-**Vast readiness audit, 2026-10-31:** use the [current runtime](research_checkpoints/vast_20261031/README.md)
-and [audit report](docs/vast_readiness_2026-10-31.md). The current campaign policy
-is a **$4 all-in soft stop / $16 hard ceiling**. The old $20 preparation budget
-is superseded. Local correctness checks support target-host preflight; a full
-paid screen still requires Linux/CUDA, measured cost/time bounds, off-host
-recovery, provider billing controls and the completed validation path.
+| Model or reference | Endpoint-20 error |
+|---|---:|
+| JEPA-TCN | **4.842644°** |
+| Mixer | 4.848421° |
+| GRU | 4.849759° |
+| TCN | 4.883348° |
+| Hold-last | 7.514382° |
+| Constant angular velocity | 8.314382° |
 
-Reproducible data preparation, exploratory head-orientation studies and an audited GPU architecture pilot for the 9th ABC Challenge.
+The four neural models shown use `width=64`. [Results and limitations](docs/boxrr_study/results.md) describe sampling, uncertainty, other configurations and the limits of comparison.
 
-The original study, **Forecast Horizon and Feedback Age in Zero-Shot Head-Orientation Prediction**, asks whether mature multi-step prediction errors help select a head-orientation extrapolator after controlling feedback age. The subsequent pilot tests a constrained angular-exposure distribution against direct scalar, angular-risk and vector prediction. Quaternion representation, constant angular velocity, ensemble routing, residual prediction and ordinary neural backbones are inherited components, not novelty claims.
+## Install and check the code
 
-## Current scope
+Python 3.11 and PyTorch 2.9.1 are used for the recorded setup. The following installs a CPU environment on Linux; choose a compatible PyTorch build for CUDA if needed.
 
-- Source-use audit with a bounded, pinned **WhoIsAlyx** motion downloader.
-- Named-column HMD quaternion extraction; native-rate gate; normalization and hemisphere alignment; session filtering; gap-safe offline SLERP; chunked HDF5.
-- Deterministic user splits **before** windowing, lazy segment-local 400-to-20 windows, and guarded final-holdout access.
-- Causal h1/h20 expert-error features with feedback-age controls, complete-horizon and motion-only features; train-only scalers.
-- Zero/constant-angular-velocity, analytic routing/mixture references and a compact NumPy MLP; synthetic correctness tests and user-cluster evaluation.
-
-This is a conditional research pilot, not a submission. Train/development measurements do not establish foundation-model capability, competition eligibility, final-holdout accuracy or target-XR latency. JEPA and EBM are optional later experiments.
-
-**Verified preparation run, 2026-10-28:** 70 source files verified; 67 of 69 sessions retained; 35 eligible users, 134 continuous segments and 8,026,425 quaternion samples. The user split is locked at **15 train / 5 development / 15 final** with seed20261026. HDF5 integrity checks and the initial 49 synthetic tests passed. No model fitting or forecast-error evaluation occurred during preparation. See the [aggregate preparation receipt](docs/data_preparation_summary.json); participant/session manifests and recordings are private.
-
-The subsequent [metadata-integrity update](docs/metadata_integrity.md) pins SHA-256 for the reviewed DVC pointer inventory, removes the SHA-1 computation, and added six regression cases. CI separately checks the reported Semgrep rule.
-
-## Data-use status
-
-| Source | Current use decision |
-|---|---|
-| WhoIsAlyx, players 42–76 | Conditional use for academic, noncommercial pilot under CC BY-NC-SA 4.0 and applicable local duties. Each session must pass measured quality gates. |
-| BOXRR-23 | Disabled until the recipient's advance approval required by its DUA is documented. |
-| OpenNEEDS / other candidates | Not enabled without verified access terms, orientation convention and native sampling rate. |
-
-See [source audit](docs/data_sources.md). Collector consent, recipient obligations, technical suitability and competition eligibility are separate. **Alyx-only participation eligibility remains unresolved.** Raw recordings, processed HDF5, user manifests, local attestations and checkpoints stay outside Git.
-
-## Setup
-
-Python 3.11 is the tested interpreter. Create a local environment and install the recorded dependency versions:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
-.\.venv\Scripts\python.exe -m pip install --no-deps -e .
-$env:CUDA_VISIBLE_DEVICES='-1'
-.\.venv\Scripts\python.exe -m pytest -q
+```bash
+python3.11 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements-boxrr.txt
+python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
+python -m pip install --no-deps -e .
+python -m pytest -q tests tools/boxrr_v2/test_inference_v2.py
 ```
 
-On Linux/macOS use `.venv/bin/python` in place of `.venv\Scripts\python.exe` and `CUDA_VISIBLE_DEVICES=-1` for CPU-only checks. Use the literal `-1`: assigning an empty environment variable in PowerShell can remove it and expose the GPU. Tests generate synthetic data and do not access human recordings or the network. In restricted Windows sandboxes whose system temp directory disallows rename, create `data/` and pass `--basetemp=data/test_tmp` to pytest; never point basetemp at valuable files because pytest clears that directory.
+Tests use generated data and do not measure trained-model accuracy. To instantiate the architecture with **random weights**, see [setup](docs/boxrr_study/setup.md#instantiate-the-selected-architecture).
 
-## Staged pipeline
+## Run the trained model
 
-First inspect metadata without downloading recordings:
+The trained weights and the dataset are **not included in this public repository**. To reproduce the reported model's predictions, obtain the verified private inference bundle through the team, subject to the dataset terms. The bundle includes `jepa_v2_w64/config.json`, `jepa_v2_w64/best.pt`, and the four source files under its `src/` directory. It is distinct from the full training checkpoint.
 
-```powershell
-.\.venv\Scripts\python.exe -m abc_iueh discover
+With that bundle and a NumPy file containing 400 finite, normalized wxyz quaternions:
+
+```bash
+python tools/boxrr_v2/run_inference_v2.py \
+  --model_dir /private/deployment/jepa_v2_w64 \
+  --input /private/context.npy --output /private/prediction.npy
 ```
 
-The reviewed source commit is pinned. Its inventory contains 70 motion files from 35 potential users, about 5.76 GB in total; these are inventory counts, not qualifying users. Source README, license and DVC config are saved privately under `data/source_evidence/`.
+The adapter checks the bundled model, configuration and source hashes; it runs offline and writes a float32 `[20,4]` array. It refuses to overwrite an existing output. This Python adapter is **not** a completed ONNX submission or a target-device latency measurement. Detailed bundle layout, setup, training recipe and a runnable synthetic example are in [setup](docs/boxrr_study/setup.md).
 
-After reviewing the source terms and confirming a noncommercial use:
+## Documentation
 
-```powershell
-.\.venv\Scripts\python.exe -m abc_iueh fetch --noncommercial --max-files 2 --max-total-mib 256
-.\.venv\Scripts\python.exe -m abc_iueh ingest
-.\.venv\Scripts\python.exe -m abc_iueh check
-```
+- [Models and architecture](docs/boxrr_study/models.md): JEPA-TCN, Mixer, GRU, TCN and physical references.
+- [Setup and reproduction](docs/boxrr_study/setup.md): dependencies, configuration, private inference and preprocessing.
+- [Results](docs/boxrr_study/results.md): development results, uncertainty and limitations.
+- [Challenge checklist](docs/boxrr_study/challenge_checklist.md): interface, artifact requirements and remaining work.
+- [Data sources](docs/data_sources.md) and [protocol](docs/protocol.md): provenance and split rules.
 
-The default pilot is bounded to two files. It cannot establish the multi-user data gate. A complete reviewed-cohort fetch can be requested explicitly:
+## Project layout
 
-```powershell
-.\.venv\Scripts\python.exe -m abc_iueh fetch --noncommercial --max-files 70 --max-total-mib 6000
-.\.venv\Scripts\python.exe -m abc_iueh ingest
-.\.venv\Scripts\python.exe -m abc_iueh check
-.\.venv\Scripts\python.exe -m abc_iueh split
-```
+`src/abc_iueh/` contains the BOXRR processing and model code; `tests/` and `tools/boxrr_v2/` contain synthetic checks and the offline inference adapter. `docs/` holds the current study documentation. Recorded identities, trajectories, private manifests, checkpoints and credentials are excluded from Git.
 
-Downloads stream to temporary files, verify upstream size/MD5 and record SHA-256. Existing verified files are reused. The byte cap counts existing plus selected recordings. No full DVC pull, videos, eye tracking, demographics or physiology are requested. The native motion CSV includes controller fields; only time and named HMD quaternion fields enter the cleaned dataset.
-
-All parts of a source session must be present before it can qualify. Split recordings are grouped into one session for filtering/capping. A reset or duplicate native clock is rejected rather than silently sorted, repaired or joined across a reset.
-
-`split` requires at least 30 eligible users. If the cohort is too small, it fails. For schema/window smoke checks only, use a separate manifest:
-
-```powershell
-.\.venv\Scripts\python.exe -m abc_iueh split --smoke --output data/smoke_split.json
-```
-
-Smoke manifests have **no training/development/final assignments** and cannot be used for training. Do not evaluate forecast errors on smoke users and later call them an untouched final holdout. Confirmatory manifests refuse overwrite and are bound to the exact HDF5 checksum.
-
-## Train/development baseline and feature stage
-
-The [frozen plan](docs/baseline_feature_plan.md) and
-[configuration](configs/baseline_features.json) define this separate stage.
-It has no final-partition access option. These commands use an existing locked
-source HDF5/split and refuse to overwrite experiment artifacts:
-
-```powershell
-$env:OPENBLAS_NUM_THREADS='1'
-$env:OMP_NUM_THREADS='1'
-$env:MKL_NUM_THREADS='1'
-.\.venv\Scripts\python.exe -m abc_iueh features
-.\.venv\Scripts\python.exe -m abc_iueh baselines
-.\.venv\Scripts\python.exe -m abc_iueh neural-baseline
-```
-
-The default private run is `data/baseline_runs/20261028_r80/`. Features creates
-and seals its plan, cache and train-fitted scalers together. `seal-features`
-validates and seals a legacy receipt without regenerating arrays; it rejects
-changed artifacts. Baseline consumers independently verify the sealed bundle.
-For a new run directory, pass the same `--output-dir` to all three commands.
-Set BLAS thread limits before starting Python; the neural reference uses CPU
-NumPy and does not require PyTorch or a GPU.
-
-The six feature variants have ten raw columns each. Future endpoint losses are
-stored separately as labels. Train-only population scalers are ready for the
-later learned selector; analytic routers use raw past errors in degrees.
-The 244-parameter learned h1/h20 selector is measured in the subsequent GPU
-stage below; it was outside the earlier baseline stage.
-Recordings, caches, per-user errors, scalers and weights remain private.
-See the [measured aggregate results](docs/baseline_results_2026-10-28.md) and
-[independent implementation review](docs/baseline_stage_review.md).
-
-## Selector GPU study and inference audit
-
-The follow-up selector study completed **20 GPU fits**: 12 R80 fits across six
-variants and two seeds, then eight h1/h20 sensitivity fits at R128 and R256.
-The development results are exploratory and do not meet the predeclared
-practical-improvement thresholds. The final 15 users remain sealed. A full
-reproduction requires the locally held source HDF5, split, baseline cache and
-train-only scalers whose hashes are bound in the configs; these data and model
-artifacts are not published.
-
-For the optional CUDA stage, install the pinned GPU build after the base setup
-above. The full reproduction commands, dependencies, output scope and measured
-results are in [reproduction notes](docs/reproduction.md). The [selector
-results](docs/selector_results_2026-10-28.md) include the aggregate metrics,
-limits and machine-readable JSON. The separate inference audit requires the
-optional ONNX dependencies. It measures portability and local cost, not
-challenge-device latency or predictive improvement.
-
-The local synthetic suite reported 329 passing tests; those checks do not
-recreate the GPU results. CI status for the published revision is available in
-[GitHub Actions](https://github.com/dakiemdarktharr/ABC_IUEH/actions).
-The paper source and PDF remain local for review; no preprint has been posted.
-JEPA/EBM experiments have not started. Alyx-only challenge eligibility and the
-20-sample / 100 Hz / 100 ms specification remain unresolved.
-
-## Angular-exposure GPU pilot: completed, 2026-10-28
-
-The separate [frozen pilot plan](docs/arc_pilot_plan.md) completed 30 actual
-RTX 5050 Laptop fits: three user-disjoint inner folds within the existing
-15 training users, two seeds and five learned arms. Each fit used ten users
-and validated on the other five. The old five development users and the
-15 final users were not evaluated. Each analysis scored the same 3,330,312
-inner-validation origins.
-
-| Method | Same 5,000 updates: endpoint20 mean (degrees) | Approximate same training time (degrees) |
-|---|---:|---:|
-| Fold-fitted static mixture | 3.313769 | 3.313769 |
-| NLL exposure + median | 2.877588 | 2.876846 |
-| Direct scalar-angle | 2.883012 | 2.973867 |
-| Angular-risk21 | 2.891339 | 2.891339 |
-| Scalar-pinball | 2.903430 | 2.904588 |
-| Direct vector-angle | **2.528655** | **2.580291** |
-
-The NLL model improved over static mixture, but **failed its predeclared
-practical-benefit gate in both comparisons**. Its small advantage over direct
-scalar and angular-risk does not justify a positive architecture claim.
-The vector control is a useful baseline; its post-hoc improvement is not a
-replacement primary hypothesis or evidence of architectural novelty.
-The time-matched secondary uses timing-only checkpoint prefixes and unequal
-update counts; the primary matches examples/updates, not elapsed training
-time. Static calibration is a separate inexpensive reference.
-
-All 30 fits used 1,238.49 synchronized training seconds; complete CUDA-context
-sessions totaled 3,914.56 seconds, including preparation, validation and I/O.
-No GPU rental was used. Independent recomputation passed. The post-run local
-synthetic suite passed **421 tests**, with 14 legacy ONNX deprecation warnings;
-it does not reproduce the real-data efficacy run. Trained pilot batch1/ONNX
-and target-XR latency have not been audited.
-
-Read the [actual results](docs/arc_pilot_results_2026-10-28.md),
-[independent audit](docs/arc_pilot_results_audit.md),
-[Vietnamese research decision](docs/arc_pilot_decision_vi.md),
-[aggregate JSON](docs/results/arc_pilot_20261028.json) and
-[reproduction notes](docs/reproduction.md#angular-exposure-pilot).
-The earlier selector results and local manuscript remain separate.
-
-## Protocol and outputs
-
-Read [protocol](docs/protocol.md), [HDF5 schema](docs/schema.md), [implementation review](docs/pipeline_review.md) and [data attribution](docs/attribution.md).
-
-Graph interface remains `float32 context[1,400,4] -> prediction[1,20,4]`, scalar-first wxyz, shift1. The challenge's **20 samples / 100 Hz / 100 ms inconsistency is unresolved**. Configuration preserves 20 outputs and a 100 Hz primary dataset; it does not silently change either number.
-
-Data preparation writes private provenance, quality/rejection statistics and processed data under `data/`. The separate train/development experiment stage fits only on training users. Any published results must distinguish real-data outcomes from synthetic correctness checks.
-
-Upstream data retain their own licenses. A source-code license has not yet been selected; public repository visibility does not relicense the dataset.
+BOXRR-23: Vivek Nair, Wenbo Guo, Rui Wang, James F. O'Brien, Louis Rosenberg and Dawn Song, *Berkeley Open Extended Reality Recording Dataset 2023 (BOXRR-23)*, University of California, Berkeley, 2023, [doi:10.25350/B5NP4V](https://doi.org/10.25350/B5NP4V). Dataset access and use are governed by [Berkeley's terms](https://rdi.berkeley.edu/metaverse/boxrr-23/); repository visibility does not change them. No source-code license has yet been selected for this repository.

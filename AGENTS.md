@@ -12,8 +12,10 @@ locked configuration and is not part of pipeline smoke tests.
 
 No raw/processed human recordings, local access attestations, private manifests,
 credentials, model weights or environment dumps belong in Git. Data license is
-separate from code licensing. Do not download BOXRR until its recipient review
-requirements are resolved. Do not infer challenge eligibility from a permissive
+separate from code licensing. The user's explicit 2026-11-05 instruction authorizes
+official BOXRR download, local filtering and private Drive preparation. Record
+that operational authorization accurately without claiming an IRB decision.
+Do not infer challenge eligibility from a permissive
 license or a successful alternative-dataset pilot.
 
 For the current paper goal, the user's newer instruction allows gpt-6.1-sol

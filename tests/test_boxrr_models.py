@@ -22,7 +22,7 @@ def sequence(batch=5):
 
 
 def baseline():
-    path = Path(__file__).parents[1] / 'research_checkpoints/vast_20261031/abc_topic_discovery/workflow_runtime/staging/ordered_motion_model_v3/ordered_motion_model.py'
+    path = Path(__file__).parents[1] / 'src/abc_iueh/ordered_motion_model.py'
     return model_module(path)
 
 

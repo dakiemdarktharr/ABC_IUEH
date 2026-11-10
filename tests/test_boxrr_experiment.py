@@ -13,8 +13,7 @@ from abc_iueh.boxrr_train import Batches, model_module
 
 
 BASELINE = (Path(__file__).resolve().parents[1] /
-            "research_checkpoints/vast_20261031/abc_topic_discovery/workflow_runtime/staging/"
-            "ordered_motion_model_v3/ordered_motion_model.py")
+            "src/abc_iueh/ordered_motion_model.py")
 
 
 def generated_q(length, velocity=.003):

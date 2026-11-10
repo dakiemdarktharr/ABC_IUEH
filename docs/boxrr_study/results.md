@@ -23,7 +23,7 @@ JEPA-TCN minus Mixer (both `width=64`) is −0.005777° with user-paired 95% boo
 - An MLP adapter scored 4.847903° versus its control 4.848421° (paired delta −0.000518°, interval [−0.001066°, +0.000057°]); its predefined 0.05° practical gate was not met. Do not promote it as a demonstrated improvement.
 - V5 used the same 101 development users and report seed, but a different training sampler and checkpoint selection. Its scratch TCN control scored 4.860721°, direct model 5.289343°, IMM 5.607351°, and CDE 6.093112°. The reported V5 candidate-winner field selects only among the latter three, excluding the better TCN control. Training budgets were time capped and unmatched.
 - The earlier BOXRR pilot's TCN 4.671606° and JEPA 4.672673° used 72 outer users and an equal-user mean. They cannot be ranked directly against the expanded sample above. The older TCN rescored on the expanded development sample was 5.023458°.
-- V6 was prepared but did not train. Synthetic tests verify software, not accuracy. Older WhoIsAlyx studies are historical and outside the current dataset policy.
+- Synthetic tests verify software, not accuracy.
 
 ## Interpretation boundaries
 

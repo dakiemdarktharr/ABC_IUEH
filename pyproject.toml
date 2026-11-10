@@ -12,9 +12,6 @@ dependencies = ["numpy>=2.0", "scipy>=1.14", "h5py>=3.12"]
 [project.optional-dependencies]
 test = ["pytest>=8"]
 
-[project.scripts]
-abc-iueh = "abc_iueh.cli:main"
-
 [tool.setuptools.packages.find]
 where = ["src"]
 

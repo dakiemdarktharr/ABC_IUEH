@@ -193,8 +193,7 @@ def test_existing_pilot_cannot_change_intake_settings(tmp_path):
 def test_shard_batch_model_optimizer_and_checkpoint_on_cpu(tmp_path):
     torch = pytest.importorskip("torch")
     model_path = (Path(__file__).resolve().parents[1] /
-                  "research_checkpoints/vast_20261031/abc_topic_discovery/workflow_runtime/staging/"
-                  "ordered_motion_model_v3/ordered_motion_model.py")
+                  "src/abc_iueh/ordered_motion_model.py")
     assert file_sha256(model_path) == "731ba2dde12293b8111d4937f1fb7de593566d017a74ac31513330f8b57dd5ee"
     spec = importlib.util.spec_from_file_location("boxrr_test_model", model_path)
     module = importlib.util.module_from_spec(spec)
@@ -227,8 +226,7 @@ def test_training_sampler_and_resume_on_generated_fixture(tmp_path, monkeypatch)
     assert tuple(x.shape) == (3, 400, 4) and tuple(y.shape) == (3, 20, 4)
     sampler.close()
     model_path = (Path(__file__).resolve().parents[1] /
-                  "research_checkpoints/vast_20261031/abc_topic_discovery/workflow_runtime/staging/"
-                  "ordered_motion_model_v3/ordered_motion_model.py")
+                  "src/abc_iueh/ordered_motion_model.py")
     with pytest.raises(ValueError, match="Synthetic"):
         trainer.train(dest, model_path, tmp_path / "blocked", steps=1, batch_size=2)
     # Exercise the optimizer boundary without changing fixture provenance on disk.
