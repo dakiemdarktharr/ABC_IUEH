@@ -18,7 +18,7 @@ Dataset citation required by the challenge: Vivek Nair, Wenbo Guo, Rui Wang, Jam
 
 ## Decision at the current evidence stage
 
-**JEPA-Base** has the lowest observed endpoint error in the expanded development search: **4.842644°**. Keep **Mixer-Base** as the principal neural comparator and backup, and **GRU-Base** as a recurrent comparator. Include **constant angular velocity**, which the organizer requires, and **zero velocity** as a simple reference. TCN-Base is the temporal-convolution comparator. See [model definitions](models.md) and [results](results.md).
+**JEPA-TCN** has the lowest observed endpoint error in the expanded development search: **4.842644°**. Keep **Mixer** as the principal neural comparator and backup, and **GRU** as a recurrent comparator. Include **constant angular velocity**, which the organizer requires, and **zero velocity** as a simple reference. TCN is the temporal-convolution comparator. See [model definitions](models.md) and [results](results.md).
 
 The result is a single-seed, development-selected estimate, not evidence of final-test generalization or a confirmed improvement due to JEPA pretraining. The official test comes from outside BOXRR. The final holdout has not been used for these choices. A prior pilot's lower numerical error came from a different cohort and averaging method and is not directly comparable.
 

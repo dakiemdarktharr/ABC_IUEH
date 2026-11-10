@@ -2,7 +2,7 @@
 
 ## Current BOXRR study — start here
 
-The active research uses **BOXRR-23 only**. This repository documents a head-orientation forecasting study and supplies its implementation, not a finished paper or an official submission. The selected development candidate is **JEPA-Base** (`jepa_v2`, `width=64`), with a sampled development endpoint error of **4.842644°**. This is not a final or organizer test score.
+The active research uses **BOXRR-23 only**. This repository documents a head-orientation forecasting study and supplies its implementation, not a finished paper or an official submission. The selected development candidate is **JEPA-TCN** (`jepa_v2`, `width=64`), with a sampled development endpoint error of **4.842644°**. This is not a final or organizer test score.
 
 | Reader | Start here |
 |---|---|

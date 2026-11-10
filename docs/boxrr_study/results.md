@@ -2,21 +2,21 @@
 
 All results here are development measurements, not official test results. The main statistic is the full SO(3) geodesic angle at predicted sample 20, averaged with eligible-window population weights. In the V2 report, 1,024 starts per user were sampled with replacement from 101 development users: 103,424 draws, 102,904 unique. Checkpoints were selected on 256 draws per user from the same development users. This is not an independent confirmation set.
 
-| Model | Recorded ID | Width 32 / Small | Width 64 / Base |
+| Model | Recorded ID | width=32 | width=64 |
 |---|---|---:|---:|
 | Ordered physics hybrid | `ordered_v2` | 5.105993° | 5.091874° |
-| MLP-Mixer hybrid | `mlp_v2` | 4.868064° | 4.848421° |
-| TCN hybrid | `tcn_v2` | 4.890514° | 4.883348° |
+| Mixer | `mlp_v2` | 4.868064° | 4.848421° |
+| TCN | `tcn_v2` | 4.890514° | 4.883348° |
 | Energy hybrid | `energy_v2` | 4.936355° | 4.888846° |
-| JEPA temporal hybrid | `jepa_v2` | 4.938041° | **4.842644°** |
+| JEPA-TCN | `jepa_v2` | 4.938041° | **4.842644°** |
 | DESP-inspired hybrid | `desp_v2` | 5.012470° | 5.009055° |
-| GRU hybrid | `gru_v2` | 4.873700° | 4.849759° |
+| GRU | `gru_v2` | 4.873700° | 4.849759° |
 | Hold-last | `zero_velocity` | — | 7.514382° |
 | Constant angular velocity, one interval | `cav1` | — | 8.314382° |
 
-JEPA-Base's user-bootstrap 95% interval is **[4.506233°, 5.180676°]**. Its equal-user mean is 4.432382°, a secondary statistic with a different weighting, not the primary score. The endpoint-10 result is 2.422722° at +100 ms in this implementation; it does not replace endpoint 20. No V2 configuration achieved a primary mean below 3°.
+For JEPA-TCN with `width=64`, the user-bootstrap 95% interval is **[4.506233°, 5.180676°]**. Its equal-user mean is 4.432382°, a secondary statistic with a different weighting, not the primary score. The endpoint-10 result is 2.422722° at +100 ms in this implementation; it does not replace endpoint 20. No V2 configuration achieved a primary mean below 3°.
 
-JEPA-Base minus Mixer-Base is −0.005777° with user-paired 95% bootstrap interval [−0.012325°, +0.000365°]. This does not establish a stable advantage. Neither that interval nor the model interval accounts for repeated model selection or training-seed variability. V2 is a budgeted search, not a controlled causal comparison: JEPA ran 5,000 pretraining and 60,000 supervised updates, while TCN-Base ran 20,000 supervised updates. Widths also ran under different hardware and time constraints.
+JEPA-TCN minus Mixer (both `width=64`) is −0.005777° with user-paired 95% bootstrap interval [−0.012325°, +0.000365°]. This does not establish a stable advantage. Neither that interval nor the model interval accounts for repeated model selection or training-seed variability. V2 is a budgeted search, not a controlled causal comparison: JEPA ran 5,000 pretraining and 60,000 supervised updates, while TCN (`width=64`) ran 20,000 supervised updates. Widths also ran under different hardware and time constraints.
 
 ## Later and earlier studies
 

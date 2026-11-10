@@ -17,7 +17,7 @@ Checked against organizer pages on **10 November 2026**. This is a working evide
 |---|---|
 | BOXRR-only data process, V2 architectures, recipe and development metrics | Documented; exact cohort and weights are private |
 | Required constant-velocity comparison | Measured `cav1`; a stronger filtered baseline remains useful |
-| Selected candidate | JEPA-Base on repeatedly used development users; not confirmed final performance |
+| Selected candidate | JEPA-TCN on repeatedly used development users; not confirmed final performance |
 | Model count | Training-object and inference-path counts documented; verify the delivered artifact |
 | MACs per streaming step | **Not yet measured or cross-checked** |
 | Target XR latency and operator mapping | **Not established**; do not substitute local CPU timing |
