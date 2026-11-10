@@ -1,5 +1,32 @@
 # ABC_IUEH
 
+## Current BOXRR study — start here
+
+The active research uses **BOXRR-23 only**. This repository documents a head-orientation forecasting study and supplies its implementation, not a finished paper or an official submission. The selected development candidate is **JEPA-Base** (`jepa_v2`, `width=64`), with a sampled development endpoint error of **4.842644°**. This is not a final or organizer test score.
+
+| Reader | Start here |
+|---|---|
+| Paper author or reviewer | [Study overview and evidence](docs/boxrr_study/README.md) |
+| Model architecture, names and baselines | [Model guide](docs/boxrr_study/models.md) |
+| Installation and experiment configuration | [Setup and reproduction](docs/boxrr_study/setup.md) |
+| Measured results, comparison and limitations | [Results](docs/boxrr_study/results.md) |
+| Challenge requirements and remaining work | [Requirements and evidence checklist](docs/boxrr_study/challenge_checklist.md) |
+
+These pages supersede the status statements in the dated material below. In particular, the sections below describe **historical** pilot projects, older data-use assessments, earlier budgets and preparation states. They are retained for provenance, not instructions for the current campaign. No historical WhoIsAlyx recordings, splits, weights or fitted artifacts enter current BOXRR training or validation.
+
+## Historical project record
+
+**Current ABC/Vast campaign, 2026-11-05.** The team selected BOXRR-23 as its
+only training and validation dataset. The WhoIsAlyx bundles and fitted assets
+below belong to earlier exploratory work. The user's latest instruction confirms
+access authority and authorizes official intake, filtering and private Drive
+preparation. This operational record does not claim an IRB decision was supplied.
+The official-data training bundle is being assembled. The [BOXRR pilot pipeline](docs/boxrr_pilot.md)
+supports bounded user archives, HDF5 shards, an 80/20 user split and native
+Python Drive upload/download and a bounded CPU/CUDA trainer with checkpoint resume.
+Real XROR intake is active; generated BSON/fpzip/TAR fixtures test the code path.
+See the [data terms](docs/data_sources.md#boxrr-23--gated-source).
+
 **Vast readiness audit, 2026-10-31:** use the [current runtime](research_checkpoints/vast_20261031/README.md)
 and [audit report](docs/vast_readiness_2026-10-31.md). The current campaign policy
 is a **$4 all-in soft stop / $16 hard ceiling**. The old $20 preparation budget

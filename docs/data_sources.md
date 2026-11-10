@@ -1,5 +1,11 @@
 # Data sources and use gates
 
+**Current operational instruction, 2026-11-05:** the user explicitly confirms
+authority to access BOXRR-23 and authorizes download, local filtering and private
+Drive preparation. The current campaign uses only BOXRR-23. The matrix below is
+the historical 2026-10-28 audit, not the current work authorization. No institutional
+approval document is claimed to have been supplied. See [the current pipeline](boxrr_pilot.md).
+
 Audit date: **2026-10-28**. Scope: head-orientation forecasting for academic, noncommercial research. This is a source and engineering audit, not legal advice or a determination of an institution's review obligations. Dataset-owner permission, collection-study approval, recipient approval, technical suitability, and challenge eligibility are separate questions.
 
 ## Decision matrix

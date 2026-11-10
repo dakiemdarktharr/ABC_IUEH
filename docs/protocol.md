@@ -1,5 +1,10 @@
 # Data and evaluation protocol
 
+**BOXRR pilot update, 2026-11-05:** current user-authorized preparation uses official
+BOXRR-23 and an 80/20 train/validation user split, documented in
+[boxrr_pilot.md](boxrr_pilot.md). The older WhoIsAlyx source and 15/5/15 study below
+remain historical; their users, fitted assets and run identifiers are not reused.
+
 Protocol date: 2026-10-28. This implementation prepares a conditional pilot for
 **Forecast Horizon and Feedback Age in Zero-Shot Head-Orientation Prediction**.
 It does not change the predeclared research question or report model efficacy.
