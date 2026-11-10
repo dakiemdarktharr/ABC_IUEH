@@ -19,9 +19,9 @@ Checked against organizer pages on **10 November 2026**. This is a working evide
 | Required constant-velocity comparison | Measured `cav1`; a stronger filtered baseline remains useful |
 | Selected candidate | JEPA-TCN on repeatedly used development users; not confirmed final performance |
 | Model count | Training-object and inference-path counts documented; verify the delivered artifact |
-| MACs per streaming step | **Not yet measured or cross-checked** |
-| Target XR latency and operator mapping | **Not established**; do not substitute local CPU timing |
-| Selected V2 ONNX, numerical parity, clean Linux/CUDA package validation | **Not established**; Python adapter is not a completed submission |
+| MACs per streaming step | **Partial estimate:** 19,346,112 for Conv/Linear/Einsum; remaining operations and counting convention require review. [Details](deployment.md) |
+| Target XR latency and operator mapping | **Not established**; local CPU timing is not the target score. [Details](deployment.md) |
+| Selected V2 ONNX | Experimental FP32 graph validated on synthetic CPU inputs; broader parity, operator mapping and clean Linux/CUDA package validation remain open. [Details](deployment.md) |
 | Final evaluation | **Not performed**; lock candidate, checkpoint, preprocessing, baseline and metric before any final access |
 | Paper | **Not written as part of this preparation** |
 | Registration and organization-specific data approvals | **Unknown**; do not infer from access or an unchecked list |

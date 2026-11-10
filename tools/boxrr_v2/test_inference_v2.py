@@ -185,3 +185,33 @@ def test_raw_study_loader_and_export_refuse_to_overwrite(tmp_path):
     with pytest.raises(FileExistsError):
         adapter.export_model(study, "tcn_v2", destination, sources)
 
+
+def test_onnx_export_static_interface_and_overwrite_guard(tmp_path, monkeypatch):
+    pytest.importorskip('onnx')
+    ort = pytest.importorskip('onnxruntime')
+    monkeypatch.syspath_prepend(str(HERE))
+    from export_onnx import export_onnx
+
+    _, destination, _, _, _ = create_package(tmp_path, 'jepa_v2', width=64)
+    path = tmp_path/'generated.onnx'
+    report = export_onnx(str(destination), str(path))
+    assert report['synthetic_contexts'] == 12
+    assert report['max_so3_disagreement_deg'] <= report['tolerance_deg']
+    session = ort.InferenceSession(str(path), providers=['CPUExecutionProvider'])
+    assert session.get_inputs()[0].shape == [1, 400, 4]
+    assert session.get_outputs()[0].shape == [1, 20, 4]
+    with pytest.raises(FileExistsError):
+        export_onnx(str(destination), str(path))
+
+
+def test_jepa_macs_count_documented_operations(tmp_path, monkeypatch):
+    monkeypatch.syspath_prepend(str(HERE))
+    from count_macs import count_macs
+
+    _, destination, _, _, _ = create_package(tmp_path, 'jepa_v2', width=64)
+    counts = count_macs(str(destination))
+    assert counts['conv1d_macs'] == 19_221_504
+    assert counts['linear_macs'] == 123_456
+    assert counts['einsum_macs'] == 1_152
+    assert counts['conv_linear_einsum_macs'] == 19_346_112
+

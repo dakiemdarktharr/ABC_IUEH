@@ -14,7 +14,7 @@ The organizer specifies 20 outputs at 100 Hz but also describes them as 100 ms. 
 
 ## Results
 
-On 101 development users, JEPA-TCN obtained **4.842644°** at output 20. This is a sampled, window-weighted development result, not an official test score. The same users were used repeatedly for model selection; the 122-user final holdout remains sealed. The small difference from Mixer is not a confirmed performance advantage.
+JEPA-TCN was selected using a 256-window-per-user development sample. On a separate 1,024-window-per-user draw from the same 101 development users, it obtained **4.842644°** at output 20, the lowest reported value in this search. This does **not** establish that JEPA-TCN is reliably better than Mixer or that pretraining caused an improvement. This is a sampled, window-weighted development result, not an official test score. The same users were used repeatedly for model selection; the 122-user final holdout remains sealed.
 
 | Model or reference | Endpoint-20 error |
 |---|---:|
@@ -54,13 +54,14 @@ python tools/boxrr_v2/run_inference_v2.py \
   --input /private/context.npy --output /private/prediction.npy
 ```
 
-The adapter checks the bundled model, configuration and source hashes; it runs offline and writes a float32 `[20,4]` array. It refuses to overwrite an existing output. This Python adapter is **not** a completed ONNX submission or a target-device latency measurement. Detailed bundle layout, setup, training recipe and a runnable synthetic example are in [setup](docs/boxrr_study/setup.md).
+The adapter checks the bundled model, configuration and source hashes; it runs offline and writes a float32 `[20,4]` array. It refuses to overwrite an existing output. A private experimental ONNX export now passes a bounded CPU parity check; it is **not** a completed submission or a target-device latency measurement. See [deployment measurements](docs/boxrr_study/deployment.md) for the export, arithmetic-count scope and remaining checks. Detailed bundle layout, setup and training recipe are in [setup](docs/boxrr_study/setup.md).
 
 ## Documentation
 
 - [Models and architecture](docs/boxrr_study/models.md): JEPA-TCN, Mixer, GRU, TCN and physical references.
 - [Setup and reproduction](docs/boxrr_study/setup.md): dependencies, configuration, private inference and preprocessing.
 - [Results](docs/boxrr_study/results.md): development results, uncertainty and limitations.
+- [Deployment measurements](docs/boxrr_study/deployment.md): ONNX export, partial MAC count and local timing.
 - [Challenge checklist](docs/boxrr_study/challenge_checklist.md): interface, artifact requirements and remaining work.
 - [Data sources](docs/data_sources.md) and [protocol](docs/protocol.md): provenance and split rules.
 
